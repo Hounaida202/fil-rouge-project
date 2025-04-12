@@ -28,7 +28,7 @@
 
       <div class="relative">
       <!-- <div class="absolute inset-0 bg-gray-800 opacity-50">hbhjb</div> -->
-      <div class="h-96 bg-center bg-cover" style="background-image: url('https://th.bing.com/th/id/R.c2fc56c0f7fe79dc13ee61cfff1a1723?rik=9jPzlFccXg9kzg&riu=http%3a%2f%2fwww.collectic.fr%2fwp-content%2fuploads%2f2016%2f04%2ftransport_marchandise.jpg&ehk=BJAjcoD0LclXiKTOcdpu2mIgFL3dYUUtfWhc7Yw7K6w%3d&risl=&pid=ImgRaw&r=0')">
+      <div class="h-96 bg-center bg-cover" style="background-image: url">
       <div class="container mx-auto h-full flex items-center relative">
          <div class="text-white p-8 max-w-lg">
                     <h1 class="text-4xl font-bold mb-4">Transport de marchandises fiable et rapide</h1>
@@ -37,6 +37,12 @@
             </div>
         </div>
       </div>
+    <!-- --------------------------------------------------- -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+           
+        </div>
+    </section>
     <!-- ------------------------------------------------ -->
     </nav>
 
