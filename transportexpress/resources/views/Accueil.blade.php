@@ -29,7 +29,9 @@
       <div class="relative">
       <!-- <div class="absolute inset-0 bg-gray-800 opacity-50">hbhjb</div> -->
       <div class="h-96 bg-center bg-cover" style="background-image: url('https://th.bing.com/th/id/R.c2fc56c0f7fe79dc13ee61cfff1a1723?rik=9jPzlFccXg9kzg&riu=http%3a%2f%2fwww.collectic.fr%2fwp-content%2fuploads%2f2016%2f04%2ftransport_marchandise.jpg&ehk=BJAjcoD0LclXiKTOcdpu2mIgFL3dYUUtfWhc7Yw7K6w%3d&risl=&pid=ImgRaw&r=0')">
-            
+      <div class="container mx-auto h-full flex items-center relative">
+                
+            </div>
         </div>
       </div>
     <!-- ------------------------------------------------ -->
