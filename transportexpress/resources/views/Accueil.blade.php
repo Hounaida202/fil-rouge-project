@@ -40,7 +40,8 @@
     <!-- --------------------------------------------------- -->
     <section class="py-12 bg-white">
         <div class="container mx-auto px-4">
-           
+        <h2 class="text-3xl font-bold text-center mb-8">Nos Services</h2>
+            
         </div>
     </section>
     <!-- ------------------------------------------------ -->
