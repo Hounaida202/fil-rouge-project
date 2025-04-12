@@ -8,7 +8,11 @@
 <body class="bg-gray-100 font-sans">
     <nav class="bg-blue-600 text-white p-4 ">     
     <div class="container mx-auto flex justify-between items-center">
-            
+        
+    <div class="flex items-center">
+                <span class="font-bold text-xl">TransportExpress</span>
+    </div>
+           
     </div>
     </nav>
 
