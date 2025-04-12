@@ -4,11 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body class="bg-gray-100 font-sans">
-    <nav class="bg-blue-600 text-white p-4 ">     
-    <div class="container mx-auto flex justify-between items-center">
-    <div class="flex items-center">
+    <nav class="bg-[#18534F] text-white p-4 ">     
+      <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center">
                 <span class="font-bold text-xl">TransportExpress</span>
             </div>
             <div class="hidden md:flex space-x-4">
@@ -17,8 +19,17 @@
                 <a href="#" class="hover:text-blue-200">À propos</a>
                 <a href="#" class="hover:text-blue-200">Contact</a>
             </div>
-            
+            <div class="flex space-x-2">
+                <a href="" class="bg-white text-blue-600 px-4 py-2 rounded hover:bg-blue-100">Connexion</a>
+                <a href="" class="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600">Inscription</a>
+            </div>
+      </div>
+      <!-- ------------------------------------------------- -->
+
+      <div class="relative">
+        
     </div>
+    <!-- ------------------------------------------------ -->
     </nav>
 
   
