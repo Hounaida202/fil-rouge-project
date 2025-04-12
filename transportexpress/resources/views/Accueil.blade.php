@@ -46,26 +46,30 @@
                 <div class="bg-gray-100 p-6 rounded-lg shadow-md hover:shadow-lg transition">
                     
                     <h3 class="text-xl font-bold mb-2">Transport National</h3>
-                    <p class="text-gray-600">Livraison fiable et rapide de vos marchandises partout dans le pays.</p>
+                    <p class="text-gray-600">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut, omnis?</p>
                 </div>
                 <!----------- -->
                 <div class="bg-gray-100 p-6 rounded-lg shadow-md hover:shadow-lg transition">
                     
                     <h3 class="text-xl font-bold mb-2">Transport International</h3>
-                    <p class="text-gray-600">Solutions logistiques pour vos expéditions à l'international.</p>
+                    <p class="text-gray-600">Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, incidunt!</p>
                 </div>
                 <!------------->
                 <div class="bg-gray-100 p-6 rounded-lg shadow-md hover:shadow-lg transition">
                     
                     <h3 class="text-xl font-bold mb-2">Suivi en Temps Réel</h3>
-                    <p class="text-gray-600">Suivez vos envois à tout moment grâce à notre système de suivi avancé.</p>
+                    <p class="text-gray-600">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores, ratione?</p>
                 </div>
             </div>
         </div>
     </section>
     <!-- ------------------------------------------------- -->
     <section class="py-12 bg-gray-100">
-       
+    <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-8">Pourquoi Nous Choisir</h2>
+           
+            </div>
+        </div>
     </section>
     <!-- ------------------------------------------------ -->
     </nav>
