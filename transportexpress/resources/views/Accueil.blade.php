@@ -6,7 +6,10 @@
     <title>Document</title>
 </head>
 <body class="bg-gray-100 font-sans">
-    <nav class="bg-blue-600 text-white p-4 shadow-md">     
+    <nav class="bg-blue-600 text-white p-4 ">     
+    <div class="container mx-auto flex justify-between items-center">
+            
+    </div>
     </nav>
 
   
