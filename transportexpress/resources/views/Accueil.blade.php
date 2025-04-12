@@ -125,15 +125,43 @@
         </div>
     </section>
     <!-- ------------------------------------------------ -->
+<footer class="bg-[#143B39] text-white py-8">
+    <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row md:justify-between md:items-start gap-8 flex-wrap">
+            <div class="md:w-1/4">
+                <h3 class="text-xl font-bold mb-4">TransportExpress</h3>
+                <p class="text-gray-400">Solutions de transport de marchandises fiables et efficaces.</p>
+            </div>
+            <div class="md:w-1/4">
+                <h4 class="font-bold mb-4">Services</h4>
+                <ul class="space-y-2">
+                    <li>
+                    <a href="" class="text-gray-400 hover:text-white">Transport National</a>
+                    </li>
+                    <li>
+                    <a href="" class="text-gray-400 hover:text-white">Transport International</a>
+                    </li>
+                    <li>
+                    <a href="" class="text-gray-400 hover:text-white">Suivi en Temps Réel</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <div class="md:w-1/4">
+                <h4 class="font-bold mb-4">Contact</h4>
+                <ul class="space-y-2 text-gray-400">
+                    <li>Safi</li>
+                    <li>transportexpress@gmail.com</li>
+                    <li>+212 1111111111</li>
+                </ul>
+            </div>
+        </div>
+        <div class="border-t border-gray-700 mt-8 pt-6 text-center text-gray-400">
+            <p>&copy; 2025 TransportExpress. Tous droits réservés.</p>
+        </div>
+    </div>
+</footer>
 
-  
-
-
-
-
-
-   
-
-   
+   <!-- -------------------------------------------------------- -->
 </body>
 </html>
