@@ -41,7 +41,8 @@
     <section class="py-12 bg-white">
         <div class="container mx-auto px-4">
         <h2 class="text-3xl font-bold text-center mb-8">Nos Services</h2>
-            
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+               
         </div>
     </section>
     <!-- ------------------------------------------------ -->
