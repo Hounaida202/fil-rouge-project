@@ -42,7 +42,16 @@
         <div class="container mx-auto px-4">
         <h2 class="text-3xl font-bold text-center mb-8">Nos Services</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-               
+                <!-- Service 1 -->
+                <div class="bg-gray-100 p-6 rounded-lg shadow-md hover:shadow-lg transition">
+                    <div class="text-blue-600 text-4xl mb-4">
+                        
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Transport National</h3>
+                    <p class="text-gray-600">Livraison fiable et rapide de vos marchandises partout dans le pays.</p>
+                </div>
+
+            </div>
         </div>
     </section>
     <!-- ------------------------------------------------ -->
