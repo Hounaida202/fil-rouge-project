@@ -11,7 +11,11 @@
     <section class="py-16">
         <div class="container mx-auto px-4">
             <div class="max-w-lg mx-auto">
-                
+                <!-- la carte de l'invalidité -->
+                <div class="bg-red-100 border border-red-400 rounded-lg shadow-md p-8 text-center">
+                    
+                </div>
+                <!-- ------- -->
             </div>
         </div>
     </section>
