@@ -9,7 +9,11 @@
 </head>
 <body class="bg-gray-100 font-sans">
     <section class="py-16">
-        
+    <div class="container mx-auto px-4">
+            <div class="max-w-lg mx-auto">
+               
+            </div>
+        </div>
     </section>
 </body>
 </html>
