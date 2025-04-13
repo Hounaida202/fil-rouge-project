@@ -15,5 +15,9 @@ class AccueilController extends Controller
     public function connexion(){
         return  view('LogIn'); 
     }
+    public function ShowReussiteMsg()
+    {
+        return view('Message');
+     }
     
 }
