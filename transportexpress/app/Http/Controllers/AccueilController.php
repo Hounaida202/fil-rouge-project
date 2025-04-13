@@ -23,5 +23,8 @@ class AccueilController extends Controller
      {
          return view('MessageInvalide');
      }
+     public function index(){
+        return  view('Dashboard'); 
+    }
  
 }

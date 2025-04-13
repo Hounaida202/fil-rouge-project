@@ -27,6 +27,14 @@
                     </div>
                 </div>
             </nav>
+            <!-- ----- -->
+            <div class="container mx-auto px-4 py-8">
+        
+                <div class="flex justify-between items-center mb-6">
+                  <h1 class="text-2xl font-bold">Gestion des Comptes</h1>           
+                </div>
+      
+            </div>
     
 </body>
 </html>
