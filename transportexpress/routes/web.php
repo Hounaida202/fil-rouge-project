@@ -21,3 +21,4 @@ Route::get('/', function () {
 
 Route::get('/accueil',[AccueilController::class,'show'])->name('accueil');
 Route::get('/inscriptionn',[AccueilController::class,'inscription'])->name('inscription');
+Route::get('/connexion',[AccueilController::class,'connexion'])->name('connexion');
