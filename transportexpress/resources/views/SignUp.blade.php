@@ -48,6 +48,10 @@
                         <div class="mb-8">
                             <div class="block text-gray-700 font-medium mb-2">Type de compte</div>
                               <div class="flex flex-col md:flex-row gap-4">
+                                     <!-- pour le client -->
+                                <div class="flex-1 border border-gray-300 rounded-lg p-4 cursor-pointer hover:border-blue-500 transition-colors">
+                                    
+                                </div>
             
                               </div>
                         </div>
