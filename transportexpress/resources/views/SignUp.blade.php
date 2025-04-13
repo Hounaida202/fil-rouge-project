@@ -47,7 +47,9 @@
                     <!-- -------------- -->
                         <div class="mb-8">
                             <div class="block text-gray-700 font-medium mb-2">Type de compte</div>
-                            
+                              <div class="flex flex-col md:flex-row gap-4">
+            
+                              </div>
                         </div>
                     <!-- ---------------------- -->
 
