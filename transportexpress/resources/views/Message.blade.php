@@ -12,7 +12,16 @@
     <div class="container mx-auto px-4">
             <div class="max-w-lg mx-auto">
                  <!-- -----carte de succes -->
-               <div class="bg-green-100 border border-green-400 rounded-lg shadow-md p-8 text-center">
+                <div class="bg-green-100 border border-green-400 rounded-lg shadow-md p-8 text-center">
+                    <div class="flex justify-center mb-6">
+                        <!-- ----un petit cute icone de succes -->
+                        <div class="bg-green-500 rounded-full p-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                        </div>
+                    </div>
+                    
                     
                 </div>
                 <!-- --------- -->
