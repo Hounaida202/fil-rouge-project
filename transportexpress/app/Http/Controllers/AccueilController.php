@@ -19,5 +19,9 @@ class AccueilController extends Controller
     {
         return view('Message');
      }
-    
+     public function ShowinvalideMsg()
+     {
+         return view('MessageInvalide');
+     }
+ 
 }
