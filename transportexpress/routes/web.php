@@ -23,4 +23,4 @@ Route::get('/accueil',[AccueilController::class,'show'])->name('accueil');
 Route::get('/inscriptionn',[AccueilController::class,'inscription'])->name('inscription');
 Route::get('/connexion',[AccueilController::class,'connexion'])->name('connexion');
 Route::get('/message/reussite',[AccueilController::class,'showReussiteMsg'])->name('message_reussite');
-Route::get('/message/invalide',[AuthController::class,'ShowinvalideMsg'])->name('message_invalide');
+Route::get('/message/invalide',[AccueilController::class,'ShowinvalideMsg'])->name('message_invalide');
