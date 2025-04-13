@@ -33,7 +33,18 @@
                 <div class="flex justify-between items-center mb-6">
                   <h1 class="text-2xl font-bold">Gestion des Comptes</h1>           
                 </div>
-      
+                    <!-- une liste pour les inscriptions recus -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden mb-6">
+                        <div class="p-4 bg-gray-50 border-b border-gray-200">
+                            <h2 class="font-semibold text-gray-800">Inscriptions en attente de validation</h2>
+                        </div>
+                        <div class="overflow-x-auto">
+                            
+                        </div>
+                    </div> 
+                    <!-- -------------- -->
+        
+       
             </div>
     
 </body>
