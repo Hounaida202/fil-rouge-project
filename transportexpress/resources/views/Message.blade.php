@@ -23,7 +23,9 @@
                     </div>
                     <h2 class="text-2xl font-bold text-green-800 mb-4">Inscription réussie !</h2>
 
-                    
+                    <p class="text-green-700 mb-6">
+                        Votre demande d'inscription a bien été enregistrée. Vous devez maintenant attendre que votre demande soit acceptée par notre équipe avant de pouvoir vous connecter.
+                    </p>
                     
                 </div>
                 <!-- --------- -->
