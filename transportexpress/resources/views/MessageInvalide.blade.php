@@ -13,6 +13,14 @@
             <div class="max-w-lg mx-auto">
                 <!-- la carte de l'invalidité -->
                 <div class="bg-red-100 border border-red-400 rounded-lg shadow-md p-8 text-center">
+                    <div class="flex justify-center mb-6">
+                        <!-- un autre petit icone pour invalide -->
+                        
+                    </div>
+                    
+                    
+                    
+                    
                     
                 </div>
                 <!-- ------- -->
