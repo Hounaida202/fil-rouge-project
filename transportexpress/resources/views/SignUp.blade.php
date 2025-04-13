@@ -68,8 +68,18 @@
                                         </div>
                                     </div>
                                 </div>
-            
-                              </div>
+                                
+                            </div>
+                            <!-- --------les conditions -->
+                            <div class="mb-6">
+                                <div class="flex items-start">
+                                    <input type="checkbox" id="conditions" name="conditions" class="mt-1 mr-2" required>
+                                    <label for="conditions" class="text-gray-700">
+                                        J'accepte les conditions d'utilisation et la politique de confidentialité.
+                                    </label>
+                                </div>
+                            </div>
+                            
                         </div>
                     <!-- ---------------------- -->
 
