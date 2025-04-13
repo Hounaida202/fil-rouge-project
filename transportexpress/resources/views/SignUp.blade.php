@@ -49,12 +49,22 @@
                             <div class="block text-gray-700 font-medium mb-2">Type de compte</div>
                               <div class="flex flex-col md:flex-row gap-4">
                                      <!-- pour le client -->
-                                <div class="flex-1 border border-gray-300 rounded-lg p-4 cursor-pointer hover:border-blue-500 ">
+                                <div class=" border border-gray-300 rounded-lg p-4 cursor-pointer hover:border-blue-500 ">
                                     <div class="flex items-start gap-2">
                                         <input type="radio" id="client" name="role" value="Client" class="mt-1" required>
                                         <div>
                                             <label for="client" class="font-medium cursor-pointer">Client</label>
                                             <p class="text-sm text-gray-500">Vous recherchez des services de transport</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- pour le transporteur -->
+                                <div class=" border border-gray-300 rounded-lg p-4 cursor-pointer hover:border-blue-500 transition-colors">
+                                    <div class="flex items-start gap-2">
+                                        <input type="radio" id="transporteur" name="role" value="Transporteur" class="mt-1" required>
+                                        <div>
+                                            <label for="transporteur" class="font-medium cursor-pointer">Transporteur</label>
+                                            <p class="text-sm text-gray-500">Vous proposez des services de transport</p>
                                         </div>
                                     </div>
                                 </div>
