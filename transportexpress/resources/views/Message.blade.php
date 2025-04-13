@@ -26,6 +26,10 @@
                     <p class="text-green-700 mb-6">
                         Votre demande d'inscription a bien été enregistrée. Vous devez maintenant attendre que votre demande soit acceptée par notre équipe avant de pouvoir vous connecter.
                     </p>
+
+                    <a href="" class="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition">
+                        Retour à l'accueil
+                    </a>
                     
                 </div>
                 <!-- --------- -->
