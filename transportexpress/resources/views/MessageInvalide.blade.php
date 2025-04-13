@@ -22,6 +22,9 @@
                         </div>
                     </div>
                     <h2 class="text-2xl font-bold text-red-800 mb-4">Inscription refusée !</h2>
+                    <p class="text-red-700 mb-6">
+                        Votre demande d'inscription a été refusé.
+                    </p>
 
                     
                     
