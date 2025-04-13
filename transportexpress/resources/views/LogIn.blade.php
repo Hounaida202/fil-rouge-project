@@ -24,6 +24,10 @@
                         </div>
                         <input type="password" id="password" name="password" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
                     </div>
+                    <!-- ---------------- -->
+                    <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 ">
+                        Se connecter
+                    </button>
                 </form> 
             </div>
         </div>
