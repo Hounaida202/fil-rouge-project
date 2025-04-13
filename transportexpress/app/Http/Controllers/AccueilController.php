@@ -12,5 +12,8 @@ class AccueilController extends Controller
     public function inscription(){
         return  view('SignUp'); 
     }
+    public function connexion(){
+        return  view('LogIn'); 
+    }
     
 }
