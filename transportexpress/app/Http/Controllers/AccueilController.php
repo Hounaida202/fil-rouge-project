@@ -9,5 +9,8 @@ class AccueilController extends Controller
     public function show(){
         return  view('Accueil'); 
     }
+    public function inscription(){
+        return  view('SignUp'); 
+    }
     
 }
