@@ -11,16 +11,16 @@
     <section class="py-12">
         <div class="container mx-auto px-4">
            <div class="max-w-md mx-auto bg-white rounded-lg  p-8">
-                <h1 class="text-3xl font-bold text-center mb-8">Connectez-vous</h1>
+                <h1 class="text-3xl text-[#18534F] font-bold text-center mb-8">Connectez-vous</h1>
                 <form action="" method="POST">
                     <div class="mb-6">
-                            <label for="email" class="text-gray-700 font-medium mb-2">Email</label>
+                            <label for="email" class="text-[#18534F] font-medium mb-2">Email</label>
                             <input type="email" id="email" name="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
                     </div>
                     <!-- ---------- -->
                     <div class="mb-6">
                         <div class="flex justify-between items-center mb-2">
-                            <label for="password" class=" text-gray-700 font-medium">Mot de passe</label>
+                            <label for="password" class=" text-[#18534F] font-medium">Mot de passe</label>
                         </div>
                         <input type="password" id="password" name="password" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
                     </div>
