@@ -39,7 +39,9 @@
                             <h2 class="font-semibold text-gray-800">Inscriptions en attente de validation</h2>
                         </div>
                         <div class="overflow-x-auto">
-                            
+                            <table class="min-w-full divide-y divide-gray-200">
+                       
+                            </table>
                         </div>
                     </div> 
                     <!-- -------------- -->
