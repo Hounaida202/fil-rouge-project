@@ -21,6 +21,8 @@
                             </svg>
                         </div>
                     </div>
+                    <h2 class="text-2xl font-bold text-red-800 mb-4">Inscription refusée !</h2>
+
                     
                     
                     
