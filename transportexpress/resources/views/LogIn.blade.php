@@ -13,7 +13,10 @@
            <div class="max-w-md mx-auto bg-white rounded-lg  p-8">
                 <h1 class="text-3xl font-bold text-center mb-8">Connectez-vous</h1>
                 <form action="" method="POST">
-
+                    <div class="mb-6">
+                            <label for="email" class="text-gray-700 font-medium mb-2">Email</label>
+                            <input type="email" id="email" name="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                    </div>
                 </form> 
             </div>
         </div>
