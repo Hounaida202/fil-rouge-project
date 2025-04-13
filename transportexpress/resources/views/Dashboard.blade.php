@@ -43,7 +43,22 @@
                                 <!-- ------ -->
                                                     <thead class="bg-gray-50">
                                                         <tr>
-                                                       
+                                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                            Nom & Prénom
+                                                        </th>
+                                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                            Email
+                                                        </th>
+                                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                            Type
+                                                        </th>
+                                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                            Ville
+                                                        </th>
+                                                    
+                                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                            Actions
+                                                        </th>
                                                         </tr>
                                                     </thead>
                                             
