@@ -15,7 +15,11 @@
                 <div class="bg-red-100 border border-red-400 rounded-lg shadow-md p-8 text-center">
                     <div class="flex justify-center mb-6">
                         <!-- un autre petit icone pour invalide -->
-                        
+                        <div class="bg-red-500 rounded-full p-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </div>
                     </div>
                     
                     
