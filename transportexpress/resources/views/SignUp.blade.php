@@ -15,7 +15,7 @@
                 
                 <form action="" method="POST">
    
-                        <div class="w-full">
+                        <div class="w-full mb-6">
                             <label for="nom" class="text-gray-700 font-medium mb-2">Nom</label>
                             <input type="text" id="nom" name="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none " required>
                         </div>
@@ -70,16 +70,16 @@
                                 </div>
                                 
                             </div>
-                            <!-- --------les conditions -->
-                            <div class="mb-6">
-                                <div class="flex items-start">
-                                    <input type="checkbox" id="conditions" name="conditions" class="mt-1 mr-2" required>
-                                    <label for="conditions" class="text-gray-700">
-                                        J'accepte les conditions d'utilisation et la politique de confidentialité.
-                                    </label>
-                                </div>
+                            
+                        </div>
+                        <!-- --------les conditions -->
+                        <div class="mb-6">
+                            <div class="flex items-start">
+                                <input type="checkbox" id="conditions" name="conditions" class="mt-1 mr-2" required>
+                                <label for="conditions" class="text-gray-700">
+                                    J'accepte les conditions d'utilisation et la politique de confidentialité.
+                                </label>
                             </div>
-
                         </div>
                         <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition">
                             Créer mon compte
@@ -90,7 +90,7 @@
 
                   <div class="text-center mt-6">
                     <p class="text-gray-600">
-                        Vous avez déjà un compte ? <a href="#" class="text-blue-600 hover:underline">Se connecter</a>
+                        Vous avez déjà un compte ? <a href="" class="text-blue-600">Se connecter</a>
                     </p>
                 </div>
             </div>
