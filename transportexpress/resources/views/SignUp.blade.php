@@ -39,7 +39,11 @@
                             <label for="password_confirmation" class=" text-gray-700 font-medium mb-2">Confirmer le mot de passe</label>
                             <input type="password" id="password_confirmation" name="password_confirmation" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
                         </div>
-
+                   <!-- -------------- -->
+                        <div class="mb-6">
+                            <label for="ville" class="block text-gray-700 font-medium mb-2">Ville</label>
+                            <input type="text" id="ville" name="ville" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                        </div>
                 </form>
 
                   <div class="text-center mt-6">
