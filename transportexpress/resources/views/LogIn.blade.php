@@ -29,6 +29,12 @@
                         Se connecter
                     </button>
                 </form> 
+                        <!-- lien pour  s inscrire -->
+                        <div class="text-center mt-6">
+                            <p class="text-gray-600">
+                                Vous n'avez pas de compte ? <a href="" class="text-blue-600 ">S'inscrire</a>
+                            </p>
+                        </div>
             </div>
         </div>
     </section>
