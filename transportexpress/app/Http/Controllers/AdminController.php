@@ -28,5 +28,8 @@ class AdminController extends Controller
             
             return view('Dashboard', compact('enAttentes', 'Actifs'));
         }
-
+        public function ValideRole($id)
+        {
+          
+        }
 }
