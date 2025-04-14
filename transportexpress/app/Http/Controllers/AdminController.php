@@ -52,4 +52,11 @@ class AdminController extends Controller
             return redirect()->back();
 
         }
+        public function Supprimer($id)
+            {
+            $actif=User::find($id);
+            $actif->delete();
+            return redirect()->back();
+
+            }
 }
