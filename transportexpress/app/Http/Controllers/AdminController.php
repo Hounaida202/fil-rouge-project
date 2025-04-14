@@ -31,6 +31,7 @@ class AdminController extends Controller
         public function ValideRole($id)
         {
             $enattente = User::find($id);
-            
+            $enattente->status = 'valide';
+
         }
 }
