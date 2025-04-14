@@ -40,7 +40,8 @@ class AdminController extends Controller
         {
             $enattente=User::find($id);
             $enattente->status='Invalide';
-            
+            $enattente->save();
+            return redirect()->back();
 
         }
 }
