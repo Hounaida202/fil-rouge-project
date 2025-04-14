@@ -38,7 +38,8 @@ class AdminController extends Controller
         }
         public function InvalideRole($id)
         {
-       
+            $enattente=User::find($id);
+            
 
         }
 }
