@@ -33,6 +33,7 @@ class AdminController extends Controller
             $enattente = User::find($id);
             $enattente->status = 'valide';
             $enattente->save();
-        
+            return redirect()->back();
+
         }
 }
