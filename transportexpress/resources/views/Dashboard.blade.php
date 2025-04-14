@@ -61,48 +61,69 @@
                             </th>
                         </tr>
                     </thead>
+
+
+
+                    @foreach($enAttentes as $enAttente)
+                    @csrf
                     <tbody class="bg-white divide-y divide-gray-200">
                         <tr>
                             <td class="px-3 sm:px-6 py-4 whitespace-nowrap">
                                 <div class="flex items-center">
                                     <div class="ml-0 sm:ml-4">
                                         <div class="text-sm font-medium text-gray-900">
-                                            hbfchj
+                                        {{ $enAttente->name }}
                                         </div>
                                         <div class="text-xs text-gray-500 sm:hidden">
-                                            mlorem · lyon
+                                        {{ $enAttente->email }} · {{ $enAttente->ville }}
                                         </div>
                                     </div>
                                 </div>
                             </td>
                             <td class="px-3 sm:px-6 py-4 whitespace-nowrap hidden sm:table-cell">
-                                <div class="text-sm text-gray-900">mlorem</div>
+                                <div class="text-sm text-gray-900">{{ $enAttente->email }}</div>
                             </td>
                             <td class="px-3 sm:px-6 py-4 whitespace-nowrap hidden md:table-cell">
                                 <span class="px-2 inline-flex text-xs leading-5 font-semibold">
-                                    lorem
+                                {{ $enAttente->role }}
                                 </span>
                             </td>
                             <td class="px-3 sm:px-6 py-4 whitespace-nowrap text-sm text-gray-500 hidden md:table-cell">
-                                Lyon
+                            {{ $enAttente->ville }}
                             </td>
                             <td class="px-3 sm:px-6 py-4 whitespace-nowrap text-sm">
+
+
                                 <div class="flex space-x-1 sm:space-x-2">
-                                    <button class="bg-green-500 hover:bg-green-600 text-white px-2 sm:px-3 py-1 rounded text-xs sm:text-sm">
+                                <form method="POST" action="{{ route('Valide', $enAttente->id) }}">
+                                    @csrf
+                                    @method('PUT')
+                                    <button type="submit" value="Valide" class="bg-green-500 hover:bg-green-600 text-white px-2 sm:px-3 py-1 rounded text-xs sm:text-sm">
                                         Valider
                                     </button>
-                                    <button class="bg-red-500 hover:bg-red-600 text-white px-2 sm:px-3 py-1 rounded text-xs sm:text-sm">
-                                        Refuser
+                                </form>
+                                    <form method="POST" action="{{route('Invalide',$enAttente->id)}}">
+                                    @csrf
+                                    @method('PUT')   
+                                    <button type="submit" value="Invalide" class="bg-orange-500 hover:bg-green-600 text-white px-2 sm:px-3 py-1 rounded text-xs sm:text-sm">
+                                            Invalider
                                     </button>
+                                    </form>
                                 </div>
+
+
                             </td>
                         </tr>
                     </tbody>
+                    @endforeach
+
+
+
                 </table>
             </div>
         </div> 
 
-        <!-- Comptes validés -->
+        <!-- comptes validés a gerer -->
         <div class="bg-white rounded-lg shadow-md overflow-hidden mb-6">
             <div class="p-4 bg-gray-50 border-b border-gray-200">
                 <h2 class="font-semibold text-gray-800">Comptes validés récents</h2>
@@ -131,44 +152,55 @@
                             </th>
                         </tr>
                     </thead>
+                    @foreach($Actifs as $actif)
+                    @csrf
                     <tbody class="bg-white divide-y divide-gray-200">
                         <tr>
                             <td class="px-3 sm:px-6 py-4 whitespace-nowrap">
                                 <div class="flex items-center">
                                     <div class="ml-0 sm:ml-4">
                                         <div class="text-sm font-medium text-gray-900">
-                                            lorem
+                                           {{$actif->name}}
                                         </div>
                                         <div class="text-xs text-gray-500 sm:hidden">
-                                            hdhegbdje · Actif
+                                        {{$actif->email}} · {{$actif->role}}
                                         </div>
                                     </div>
                                 </div>
                             </td>
                             <td class="px-3 sm:px-6 py-4 whitespace-nowrap hidden sm:table-cell">
-                                <div class="text-sm text-gray-900">hdhegbdje</div>
+                                <div class="text-sm text-gray-900">{{$actif->email}}</div>
                             </td>
                             <td class="px-3 sm:px-6 py-4 whitespace-nowrap hidden md:table-cell">
-                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                                    lorem
+                                <span class="px-2 inline-flex text-xs leading-5 font-semibold ">
+                                {{$actif->role}}
                                 </span>
                             </td>
                             <td class="px-3 sm:px-6 py-4 whitespace-nowrap text-sm text-gray-500 hidden md:table-cell">
-                                lorem
+                            {{$actif->ville}}
                             </td>
                             <td class="px-3 sm:px-6 py-4 whitespace-nowrap hidden md:table-cell">
-                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                                    lorem
+                                <span class="px-2 inline-flex text-xs leading-5 font-semibold ">
+                                {{$actif->compte}}
                                 </span>
                             </td>
                             <td class="px-3 sm:px-6 py-4 whitespace-nowrap text-sm">
                                 <div class="flex flex-col sm:flex-row space-y-1 sm:space-y-0 sm:space-x-2">
-                                    <button class="bg-yellow-500 hover:bg-yellow-600 text-white px-2 sm:px-3 py-1 rounded text-xs sm:text-sm">
-                                        Désactiver
-                                    </button>
-                                    <button class="bg-red-500 hover:bg-red-600 text-white px-2 sm:px-3 py-1 rounded text-xs sm:text-sm">
-                                        Supprimer
-                                    </button>
+
+                                    <form method="POST" action="{{route('Desactiver',$actif->id)}}">
+                                    @csrf
+                                    @method('PUT')
+                                        <button type="submit"  class="bg-yellow-500 hover:bg-yellow-600 text-white px-2 sm:px-3 py-1 rounded text-xs sm:text-sm">
+                                            Désactiver
+                                        </button>
+                                    </form>
+                                     <form method="POST" action="{{route('Supprimer',$actif->id)}}">
+                                     @csrf
+                                     @method('DELETE')
+                                         <button type="submit" class="bg-red-500 hover:bg-red-600 text-white px-2 sm:px-3 py-1 rounded text-xs sm:text-sm">
+                                             Supprimer
+                                         </button>
+                                     </form>
                                     <button class="bg-gray-200 hover:bg-gray-300 text-gray-800 px-2 sm:px-3 py-1 rounded text-xs sm:text-sm">
                                         Détails
                                     </button>
@@ -176,11 +208,12 @@
                             </td>
                         </tr>    
                     </tbody>
+                    @endforeach
                 </table>
             </div>
             <div class="bg-gray-50 px-3 sm:px-6 py-3 flex flex-col sm:flex-row justify-between items-center space-y-3 sm:space-y-0">
                 <div class="flex items-center">
-                    <span class="text-xs sm:text-sm text-gray-700">
+                    <!-- <span class="text-xs sm:text-sm text-gray-700">
                         Afficher 
                         <select class="mx-1 bg-gray-50 border-gray-300 focus:ring-blue-500 focus:border-blue-500 rounded-md">
                             <option>10</option>
@@ -189,24 +222,18 @@
                             <option>100</option>
                         </select>
                         entrées
-                    </span>
+                    </span> -->
+                    <form method="GET" action="{{ route('dashboard')}}">
+                        <label for="per_page">Choisissez le nombre de comptes par page :</label>
+                        <select name="per_page" id="per_page" onchange="this.form.submit()">
+                            <option value="3" {{ request('per_page') == 3 ? 'selected' : '' }}>3 par page</option>
+                            <option value="5" {{ request('per_page') == 5 ? 'selected' : '' }}>5 par page</option>
+                            <option value="7" {{ request('per_page') == 7 ? 'selected' : '' }}>7 par page</option>
+                        </select>
+                    </form>
                 </div>
                 <div class="flex gap-1 sm:gap-2">
-                    <button class="px-2 sm:px-4 py-1 sm:py-2 border border-gray-300 rounded-md bg-white text-xs sm:text-sm font-medium text-gray-700 hover:bg-gray-50">
-                        Préc
-                    </button>
-                    <button class="px-2 sm:px-4 py-1 sm:py-2 border border-blue-500 rounded-md bg-blue-500 text-xs sm:text-sm font-medium text-white hover:bg-blue-600">
-                        1
-                    </button>
-                    <button class="px-2 sm:px-4 py-1 sm:py-2 border border-gray-300 rounded-md bg-white text-xs sm:text-sm font-medium text-gray-700 hover:bg-gray-50">
-                        2
-                    </button>
-                    <button class="px-2 sm:px-4 py-1 sm:py-2 border border-gray-300 rounded-md bg-white text-xs sm:text-sm font-medium text-gray-700 hover:bg-gray-50">
-                        3
-                    </button>
-                    <button class="px-2 sm:px-4 py-1 sm:py-2 border border-gray-300 rounded-md bg-white text-xs sm:text-sm font-medium text-gray-700 hover:bg-gray-50">
-                        Suiv
-                    </button>
+                    {{ $Actifs->links() }}
                 </div>
             </div>
         </div>

@@ -1,9 +1,8 @@
 <?php
+
 namespace App\DAOs;
 
-interface AdminInterface {
-
-    public function getAttenteUsers($data);
-    
-
+interface AdminInterface
+{
+    public function getAttenteUsers();
 }

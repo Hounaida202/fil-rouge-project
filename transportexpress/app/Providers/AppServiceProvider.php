@@ -3,8 +3,8 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use App\DAOs\AuthInterface;
-use App\DAOs\AuthRepository;
+use App\DAOs\AdminInterface;
+use App\DAOs\AdminRepository;
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -14,7 +14,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind(AuthInterface::class, AuthRepository::class);
+        $this->app->bind(AdminInterface::class, AdminRepository::class);
+
 
     }
 
