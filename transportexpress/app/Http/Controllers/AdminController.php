@@ -44,4 +44,12 @@ class AdminController extends Controller
             return redirect()->back();
 
         }
+        public function Desactiver($id)
+        {
+            $actif=User::find($id);
+            $actif->compte='Suspendu';
+            $actif->save();
+            return redirect()->back();
+
+        }
 }
