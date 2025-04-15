@@ -72,6 +72,7 @@
                                         {{ $enAttente->name }}
                                         </div>
                                         <div class="text-xs text-gray-500 sm:hidden">
+                                        {{ $enAttente->email }} · {{ $enAttente->ville }}
                                         </div>
                                     </div>
                                 </div>
