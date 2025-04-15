@@ -94,6 +94,7 @@
                                 <div class="flex space-x-1 sm:space-x-2">
                                 <form method="POST" action="{{ route('Valide', $enAttente->id) }}">
                                 @csrf
+                                @method('PUT')
                                     <button type="submit" value="Valide" class="bg-green-500 hover:bg-green-600 text-white px-2 sm:px-3 py-1 rounded text-xs sm:text-sm">
                                         Valider
                                     </button>
