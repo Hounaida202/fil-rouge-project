@@ -13,7 +13,9 @@ class CommentaireController extends Controller
 
     public function afficherCommentaires($id)
 { 
-   
+    $commentaires = Commentaire::where('cible_id', $id)->with('cible')->get();
+
+    
 }
 
     
