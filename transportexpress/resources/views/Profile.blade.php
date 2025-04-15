@@ -133,6 +133,9 @@
                         de transport.
                 </p>
           </div>
+                <div class="mt-6 text-center">
+                    <a href="" class="text-blue-600 hover:underline">Voir tous les commentaires</a>
+                </div>
         </div>
         </div>
       </section>
