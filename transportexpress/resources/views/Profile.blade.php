@@ -118,7 +118,7 @@
     <!-- ----------------------------------------- -->
      <!-- une section pour les commentaires -->
         <div class="mt-8 bg-white rounded-lg shadow-md p-6">
-
+        <h2 class="text-xl font-bold mb-6 text-gray-700">Commentaires (2)</h2>
         </div>
         </div>
       </section>
