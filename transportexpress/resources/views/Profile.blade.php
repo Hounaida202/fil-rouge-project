@@ -32,7 +32,9 @@
         <div class="container mx-auto px-4">
             <!-- ---un div pour la partie de user et ses informations---- -->
           <div class="bg-white rounded-lg shadow-md overflow-hidden">
+            <div class="bg-[#18534F] p-6">
 
+            </div>
           </div>
         </div>
       </section>
