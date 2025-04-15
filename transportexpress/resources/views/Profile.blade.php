@@ -120,6 +120,7 @@
      <!-- une section pour les commentaires -->
         <div class="mt-8 bg-white rounded-lg shadow-md p-6">
         <h2 class="text-xl font-bold mb-6 text-gray-700">Commentaires (2)</h2>
+        @foreach($commentaires as commentaire)
           <div class="mb-6 pb-6 border-b border-gray-200">
                 <div class="flex items-start mb-3">
                         <img src="" alt="" class="rounded-full h-10 w-10 mr-3">
@@ -134,6 +135,7 @@
                         de transport.
                 </p>
           </div>
+          @endforeach
                 <div class="mt-6 text-center">
                     <a href="" class="text-blue-600 hover:underline">Voir tous les commentaires</a>
                 </div>
