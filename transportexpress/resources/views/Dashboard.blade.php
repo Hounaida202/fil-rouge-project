@@ -201,7 +201,7 @@
                                     </form>
                                     @endif
                                     
-                                     <form method="POST" action="">
+                                     <form method="POST" action="{{route('Supprimer',$actif->id)}}">
                                      @csrf
                                      @method('DELETE')
                                          <button type="submit" class="bg-red-500 hover:bg-red-600 text-white px-2 sm:px-3 py-1 rounded text-xs sm:text-sm">
