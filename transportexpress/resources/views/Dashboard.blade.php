@@ -60,7 +60,8 @@
                         </tr>
                     </thead>
 
-
+                    @foreach($enAttentes as $enAttente)
+                    
 
                     <tbody class="bg-white divide-y divide-gray-200">
                         <tr>
