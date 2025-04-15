@@ -63,6 +63,7 @@ class AdminController extends Controller
 
         public function ShowCompteDetaille($id){
 
-                
+            $compte = User::find($id); 
+            
             }
 }
