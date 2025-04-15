@@ -78,7 +78,7 @@
                                 </div>
                             </td>
                             <td class="px-3 sm:px-6 py-4 whitespace-nowrap hidden sm:table-cell">
-                                <div class="text-sm text-gray-900"></div>
+                                <div class="text-sm text-gray-900">{{ $enAttente->email }}</div>
                             </td>
                             <td class="px-3 sm:px-6 py-4 whitespace-nowrap hidden md:table-cell">
                                 <span class="px-2 inline-flex text-xs leading-5 font-semibold">
