@@ -69,7 +69,7 @@
                                 
                                 <div>
                                     <div class="text-sm text-gray-500">Téléphone</div>
-                                    <div class="font-medium">jdnjend</div>
+                                    <div class="font-medium">{{$compte->tel}}</div>
                                 </div>
                                 
                                 <div>
