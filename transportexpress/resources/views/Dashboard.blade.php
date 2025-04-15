@@ -199,7 +199,7 @@
                                             Activer
                                         </button>
                                     </form>
-
+                                    @endif
                                     
                                      <form method="POST" action="">
                                      
