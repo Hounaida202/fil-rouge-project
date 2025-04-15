@@ -86,7 +86,7 @@
                                 </span>
                             </td>
                             <td class="px-3 sm:px-6 py-4 whitespace-nowrap text-sm text-gray-500 hidden md:table-cell">
-                            
+                            {{ $enAttente->ville }}
                             </td>
                             <td class="px-3 sm:px-6 py-4 whitespace-nowrap text-sm">
 
