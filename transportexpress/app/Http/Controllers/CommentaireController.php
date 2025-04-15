@@ -16,6 +16,7 @@ class CommentaireController extends Controller
     $commentaires = Commentaire::where('cible_id', $id)->with('cible')->get();
     $compte = User::findOrFail($id); 
 
+    return view('Profile', compact('commentaires', 'compte'));
     
 }
 
