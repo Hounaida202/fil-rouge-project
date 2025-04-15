@@ -37,6 +37,9 @@
                 <div class="mb-4 md:mb-0 md:mr-6">
                     <img src="" alt="" class="rounded-full h-32 w-32 border-4 border-white">
                 </div>
+                <div class="text-center md:text-left">
+
+                </div>
               </div>
             </div>
           </div>
