@@ -84,10 +84,7 @@
                                     <div class="font-medium">{{$compte->ville}}</div>
                                 </div>
                                 
-                                <div>
-                                    <div class="text-sm text-gray-500">Adresse</div>
-                                    <div class="font-medium">jndje"n</div>
-                                </div>
+                               
                                 
                                 <div>
                                     <div class="text-sm text-gray-500">Membre depuis</div>
