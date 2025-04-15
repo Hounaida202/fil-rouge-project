@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AccueilController;
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\ItemController;
+use App\Http\Controllers\CommentaireController;
 
 
 /*
@@ -37,4 +37,3 @@ Route::put('/desactiver/{id}', [AdminController::class, 'Desactiver'])->name('De
 Route::put('/activer/{id}', [AdminController::class, 'Activer'])->name('activer');
 
 Route::delete('/supprimer/{id}', [AdminController::class, 'Supprimer'])->name('Supprimer');
-Route::get('/detaille/{id}', [AdminController::class, 'ShowCompteDetaille'])->name('profile');

@@ -37,7 +37,8 @@
             <div class="bg-[#18534F] p-6">
               <div class="flex flex-col md:flex-row items-center">
                 <div class="mb-4 md:mb-0 md:mr-6">
-                    <img src="{{$compte->image}}" alt="" class="rounded-full h-32 w-32 border-4 border-white">
+                    <img src="{{ $compte->image ?? 'https://www.pngitem.com/pimgs/m/52-526033_unknown-person-icon-png-transparent-png.png' }}" alt="" class="rounded-full h-32 w-32 border-4 border-white">
+
                 </div>
                 <div class="text-center md:text-left">
                 <h1 class="text-2xl font-bold text-white mb-2">{{$compte->name}}</h1>
@@ -120,22 +121,23 @@
      <!-- une section pour les commentaires -->
         <div class="mt-8 bg-white rounded-lg shadow-md p-6">
         <h2 class="text-xl font-bold mb-6 text-gray-700">Commentaires (2)</h2>
-        @foreach($commentaires as commentaire)
-          <div class="mb-6 pb-6 border-b border-gray-200">
-                <div class="flex items-start mb-3">
-                        <img src="" alt="" class="rounded-full h-10 w-10 mr-3">
-                        <div>
-                            <div class="font-bold">Sophie Martin</div>
-                            <div class="text-sm text-gray-500">Il y a 2 semaines</div>
-                        </div>
+        @forelse($commentaires as $commentaire)
+  <div  class="mb-6 pb-6 border-b border-gray-200">
+    
+        <div class="flex items-start mb-3">
+        <img src="{{ $commentaire->auteur->image ?? 'https://www.pngitem.com/pimgs/m/52-526033_unknown-person-icon-png-transparent-png.png' }}" alt="" class="rounded-full h-10 w-10 mr-3">
+        <div>
+                    <div class="font-bold">{{ $commentaire->auteur->name ?? 'Utilisateur inconnu' }}</div>
+                    <div class="text-sm text-gray-500">Posté il y a {{ $commentaire->created_at->diffForHumans() }}</div>
                 </div>
-                <p class="text-gray-700">
-                        Excellent service! Thomas a livré notre marchandise très rapidement et dans des conditions parfaites. 
-                        Communication impeccable tout au long du trajet. Je recommande vivement ses services pour tous vos besoins
-                        de transport.
-                </p>
-          </div>
-          @endforeach
+        </div>
+        <p class="text-gray-700">
+                {{ $commentaire->description }}
+        </p>
+</div>
+@empty
+  <p class="text-gray-500">Aucun commentaire pour cet utilisateur.</p>
+@endforelse
                 <div class="mt-6 text-center">
                     <a href="" class="text-blue-600 hover:underline">Voir tous les commentaires</a>
                 </div>
