@@ -71,7 +71,8 @@ class AdminController extends Controller
             {
                 $actif=User::find($id);
                 $actif->compte='Actif';
-                
+                $actif->save();
+                return redirect()->back();
         
         }       
 }
