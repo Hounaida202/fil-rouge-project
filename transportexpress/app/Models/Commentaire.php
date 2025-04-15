@@ -17,6 +17,9 @@ class Commentaire extends Model
         return $this->belongsTo(User::class, 'auteur_id');
     }
 
-    
+    public function cible()
+    {
+        return $this->belongsTo(User::class, 'cible_id');
+    }
 }
 
