@@ -78,7 +78,7 @@
                                     <div class="text-sm text-gray-500">CIN</div>
                                     <div class="font-medium">hbdjebddb</div>
                                 </div>
-                                
+                                @endif
                                 <div>
                                     <div class="text-sm text-gray-500">Ville</div>
                                     <div class="font-medium">jdnkje"nd</div>
