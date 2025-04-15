@@ -192,7 +192,13 @@
                                     </form>
                                     @else
                                     
-
+                                    <form method="POST" action="{{ route('activer', $actif->id) }}">
+                                        @csrf
+                                        @method('PUT')
+                                        <button type="submit" class="bg-green-500 w-24 hover:bg-yellow-600 text-white px-2 sm:px-3 py-1 rounded text-xs sm:text-sm">
+                                            Activer
+                                        </button>
+                                    </form>
 
                                     
                                      <form method="POST" action="">
