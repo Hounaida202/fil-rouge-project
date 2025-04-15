@@ -33,7 +33,11 @@
             <!-- ---un div pour la partie de user et ses informations---- -->
           <div class="bg-white rounded-lg shadow-md overflow-hidden">
             <div class="bg-[#18534F] p-6">
-
+              <div class="flex flex-col md:flex-row items-center">
+                <div class="mb-4 md:mb-0 md:mr-6">
+                    <img src="" alt="" class="rounded-full h-32 w-32 border-4 border-white">
+                </div>
+              </div>
             </div>
           </div>
         </div>
