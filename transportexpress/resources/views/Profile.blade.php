@@ -71,6 +71,8 @@
                                     <div class="text-sm text-gray-500">Téléphone</div>
                                     <div class="font-medium">{{$compte->tel}}</div>
                                 </div>
+
+                                @if($compte->role==='Transporteur')
                                 
                                 <div>
                                     <div class="text-sm text-gray-500">CIN</div>
