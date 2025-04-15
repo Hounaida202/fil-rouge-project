@@ -69,6 +69,7 @@
                                 <div class="flex items-center">
                                     <div class="ml-0 sm:ml-4">
                                         <div class="text-sm font-medium text-gray-900">
+                                        {{ $enAttente->name }}
                                         </div>
                                         <div class="text-xs text-gray-500 sm:hidden">
                                         </div>
