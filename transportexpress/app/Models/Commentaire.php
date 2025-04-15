@@ -12,6 +12,11 @@ class Commentaire extends Model
 
     protected $fillable = ['description', 'auteur_id', 'cible_id'];
 
+    public function auteur()
+    {
+        return $this->belongsTo(User::class, 'auteur_id');
+    }
+
     
 }
 
