@@ -127,6 +127,11 @@
                             <div class="text-sm text-gray-500">Il y a 2 semaines</div>
                         </div>
                 </div>
+                <p class="text-gray-700">
+                        Excellent service! Thomas a livré notre marchandise très rapidement et dans des conditions parfaites. 
+                        Communication impeccable tout au long du trajet. Je recommande vivement ses services pour tous vos besoins
+                        de transport.
+                </p>
           </div>
         </div>
         </div>
