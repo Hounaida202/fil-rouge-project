@@ -115,6 +115,11 @@
                     </div>
                 </div>
           </div>
+    <!-- ----------------------------------------- -->
+     <!-- une section pour les commentaires -->
+        <div class="mt-8 bg-white rounded-lg shadow-md p-6">
+
+        </div>
         </div>
       </section>
      <!-- ---------------------------------------- -->
