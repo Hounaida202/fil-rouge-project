@@ -27,4 +27,5 @@ Route::get('/connexion',[AccueilController::class,'connexion'])->name('connexion
 Route::get('/message/reussite',[AccueilController::class,'showReussiteMsg'])->name('message_reussite');
 Route::get('/message/invalide',[AccueilController::class,'ShowinvalideMsg'])->name('message_invalide');
 Route::get('/dashboard', [AccueilController::class, 'index'])->name('dashboard');
+Route::get('/dashboard', [AdminController::class, 'show'])->name('dashboard');
 
