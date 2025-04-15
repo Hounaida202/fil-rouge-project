@@ -40,6 +40,9 @@
                 <div class="text-center md:text-left">
                 <h1 class="text-2xl font-bold text-white mb-2">db jhebd</h1>
                 <div class="text-blue-200 mb-2">db be </div>
+                <div class="flex items-center justify-center md:justify-start">
+                    
+                </div>
                 </div>
               </div>
             </div>
