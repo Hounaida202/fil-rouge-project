@@ -66,4 +66,10 @@ class AdminController extends Controller
             $compte = User::find($id); 
             return view('Profile', compact('compte')); 
             }
+
+         public function Activer($id)
+            {
+            
+        
+        }       
 }
