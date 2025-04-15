@@ -48,6 +48,7 @@
                                     <span>★</span>
                                     <span>★</span>
                                 </div>
+                                <span class="ml-2 text-white">(4.0/5 - 28 avis)</span>
                 </div>
                 </div>
               </div>
