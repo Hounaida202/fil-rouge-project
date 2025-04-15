@@ -173,7 +173,7 @@
                                 </span>
                             </td>
                             <td class="px-3 sm:px-6 py-4 whitespace-nowrap text-sm text-gray-500 hidden md:table-cell">
-                           
+                            {{$actif->ville}}
                             </td>
                             <td class="px-3 sm:px-6 py-4 whitespace-nowrap hidden md:table-cell">
                                 <span class="px-2 inline-flex text-xs leading-5 font-semibold ">
