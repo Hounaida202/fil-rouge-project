@@ -29,4 +29,5 @@ Route::get('/message/invalide',[AccueilController::class,'ShowinvalideMsg'])->na
 Route::get('/dashboard', [AccueilController::class, 'index'])->name('dashboard');
 Route::get('/dashboard', [AdminController::class, 'show'])->name('dashboard');
 Route::put('/valide/{id}', [AdminController::class, 'ValideRole'])->name('Valide');
+Route::put('/invalide/{id}', [AdminController::class, 'InvalideRole'])->name('Invalide');
 
