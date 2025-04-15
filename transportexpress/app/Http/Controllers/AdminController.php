@@ -69,7 +69,8 @@ class AdminController extends Controller
 
          public function Activer($id)
             {
-            
+                $actif=User::find($id);
+                
         
         }       
 }
