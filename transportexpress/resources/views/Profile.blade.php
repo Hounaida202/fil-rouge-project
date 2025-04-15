@@ -28,7 +28,11 @@
         </div>
     </nav>
      <!-- ---------------------------------------- -->
-    
+      <section class="py-8">
+
+      </section>
+     <!-- ---------------------------------------- -->
+
      <footer class="bg-[#143B39] text-white py-8">
             <div class="container mx-auto px-4">
                 <div class="flex flex-col md:flex-row md:justify-between md:items-start gap-8 flex-wrap">
