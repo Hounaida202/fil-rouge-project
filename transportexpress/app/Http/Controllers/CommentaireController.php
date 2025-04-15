@@ -11,5 +11,10 @@ class CommentaireController extends Controller
 {
 
 
+    public function afficherCommentaires($id)
+{ 
+   
+}
+
     
 }
