@@ -184,12 +184,13 @@
                                 <div class="flex flex-col sm:flex-row space-y-1 sm:space-y-0 sm:space-x-2">
                                 @if($actif->compte==='Actif')
                                     <form method="POST" action="">
-                                        
+                                    @csrf
+                                    @method('PUT')
                                         <button type="submit" class="bg-yellow-500 w-24 hover:bg-yellow-600 text-white px-2 sm:px-3 py-1 rounded text-xs sm:text-sm">
                                             Désactiver
                                         </button>
                                     </form>
-                            
+                                    @else
                                     
 
 
