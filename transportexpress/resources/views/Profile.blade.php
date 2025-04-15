@@ -120,7 +120,13 @@
         <div class="mt-8 bg-white rounded-lg shadow-md p-6">
         <h2 class="text-xl font-bold mb-6 text-gray-700">Commentaires (2)</h2>
           <div class="mb-6 pb-6 border-b border-gray-200">
-
+                <div class="flex items-start mb-3">
+                        <img src="" alt="Photo utilisateur" class="rounded-full h-10 w-10 mr-3">
+                        <div>
+                            <div class="font-bold">Sophie Martin</div>
+                            <div class="text-sm text-gray-500">Il y a 2 semaines</div>
+                        </div>
+                </div>
           </div>
         </div>
         </div>
