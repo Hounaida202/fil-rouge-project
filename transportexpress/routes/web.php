@@ -27,10 +27,14 @@ Route::get('/connexion',[AccueilController::class,'connexion'])->name('connexion
 Route::get('/message/reussite',[AccueilController::class,'showReussiteMsg'])->name('message_reussite');
 Route::get('/message/invalide',[AccueilController::class,'ShowinvalideMsg'])->name('message_invalide');
 Route::get('/dashboard', [AccueilController::class, 'index'])->name('dashboard');
+// Route::get('/dashboard/attente', [AdminController::class, 'showattente'])->name('showattente');
+// Route::get('/dashboard/actif', [AdminController::class, 'showactif'])->name('showactif');
 Route::get('/dashboard', [AdminController::class, 'show'])->name('dashboard');
+// routes/web.php
 Route::put('/valide/{id}', [AdminController::class, 'ValideRole'])->name('Valide');
 Route::put('/invalide/{id}', [AdminController::class, 'InvalideRole'])->name('Invalide');
 Route::put('/desactiver/{id}', [AdminController::class, 'Desactiver'])->name('Desactiver');
 Route::put('/activer/{id}', [AdminController::class, 'Activer'])->name('activer');
+
 Route::delete('/supprimer/{id}', [AdminController::class, 'Supprimer'])->name('Supprimer');
 Route::get('/detaille/{id}', [AdminController::class, 'ShowCompteDetaille'])->name('profile');
