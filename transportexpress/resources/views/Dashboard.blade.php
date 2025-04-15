@@ -149,7 +149,7 @@
                             </th>
                         </tr>
                     </thead>
-                    
+                    @foreach($Actifs as $actif)
                     <tbody class="bg-white divide-y divide-gray-200">
                         <tr>
                             <td class="px-3 sm:px-6 py-4 whitespace-nowrap">
