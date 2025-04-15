@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body class="bg-gray-100 font-sans">
 <nav class="bg-[#18534F] text-white p-4 shadow-md">
@@ -35,11 +37,11 @@
             <div class="bg-[#18534F] p-6">
               <div class="flex flex-col md:flex-row items-center">
                 <div class="mb-4 md:mb-0 md:mr-6">
-                    <img src="" alt="" class="rounded-full h-32 w-32 border-4 border-white">
+                    <img src="{{$compte->image}}" alt="" class="rounded-full h-32 w-32 border-4 border-white">
                 </div>
                 <div class="text-center md:text-left">
-                <h1 class="text-2xl font-bold text-white mb-2">db jhebd</h1>
-                <div class="text-blue-200 mb-2">db be </div>
+                <h1 class="text-2xl font-bold text-white mb-2">{{$compte->name}}</h1>
+                <div class="text-blue-200 mb-2">{{$compte->role}} </div>
                 <div class="flex items-center justify-center md:justify-start">
                                <div class="text-yellow-400 flex">
                                     <span>★</span>
@@ -62,7 +64,7 @@
                             <div class="space-y-4">
                                 <div>
                                     <div class="text-sm text-gray-500">Email</div>
-                                    <div class="font-medium">jdbjhed j</div>
+                                    <div class="font-medium">{{$compte->email}}</div>
                                 </div>
                                 
                                 <div>
@@ -121,7 +123,7 @@
         <h2 class="text-xl font-bold mb-6 text-gray-700">Commentaires (2)</h2>
           <div class="mb-6 pb-6 border-b border-gray-200">
                 <div class="flex items-start mb-3">
-                        <img src="" alt="Photo utilisateur" class="rounded-full h-10 w-10 mr-3">
+                        <img src="" alt="" class="rounded-full h-10 w-10 mr-3">
                         <div>
                             <div class="font-bold">Sophie Martin</div>
                             <div class="text-sm text-gray-500">Il y a 2 semaines</div>
