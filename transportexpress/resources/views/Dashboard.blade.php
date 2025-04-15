@@ -100,7 +100,8 @@
                                     </button>
                                 </form>
                                     <form method="POST" action="">
-                                     
+                                    @csrf
+                                    @method('PUT') 
                                     <button type="submit" value="Invalide" class="bg-orange-500 hover:bg-green-600 text-white px-2 sm:px-3 py-1 rounded text-xs sm:text-sm">
                                             Invalider
                                     </button>
