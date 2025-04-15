@@ -52,6 +52,7 @@ class AdminController extends Controller
             return redirect()->back();
 
         }
+       
         public function Supprimer($id)
             {
             $actif=User::find($id);
@@ -59,4 +60,6 @@ class AdminController extends Controller
             return redirect()->back();
 
             }
+
+
 }
