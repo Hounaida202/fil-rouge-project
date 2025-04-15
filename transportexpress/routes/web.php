@@ -37,3 +37,4 @@ Route::put('/desactiver/{id}', [AdminController::class, 'Desactiver'])->name('De
 Route::put('/activer/{id}', [AdminController::class, 'Activer'])->name('activer');
 
 Route::delete('/supprimer/{id}', [AdminController::class, 'Supprimer'])->name('Supprimer');
+Route::get('/detaille/{id}', [CommentaireController::class, 'afficherCommentaires'])->name('profile');
