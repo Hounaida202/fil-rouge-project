@@ -53,6 +53,67 @@
                 </div>
               </div>
             </div>
+            <div class="p-6">
+                    <div class="flex flex-wrap">
+                        
+                        <div class="w-full md:w-1/2 mb-6 md:pr-4">
+                            <h2 class="text-xl font-bold mb-4 text-gray-700">Informations du compte</h2>
+                            
+                            <div class="space-y-4">
+                                <div>
+                                    <div class="text-sm text-gray-500">Email</div>
+                                    <div class="font-medium">jdbjhed j</div>
+                                </div>
+                                
+                                <div>
+                                    <div class="text-sm text-gray-500">Téléphone</div>
+                                    <div class="font-medium">jdnjend</div>
+                                </div>
+                                
+                                <div>
+                                    <div class="text-sm text-gray-500">CIN</div>
+                                    <div class="font-medium">hbdjebddb</div>
+                                </div>
+                                
+                                <div>
+                                    <div class="text-sm text-gray-500">Ville</div>
+                                    <div class="font-medium">jdnkje"nd</div>
+                                </div>
+                                
+                                <div>
+                                    <div class="text-sm text-gray-500">Adresse</div>
+                                    <div class="font-medium">jndje"n</div>
+                                </div>
+                                
+                                <div>
+                                    <div class="text-sm text-gray-500">Membre depuis</div>
+                                    <div class="font-medium">le 29</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="w-full md:w-1/2">
+                            <h2 class="text-xl font-bold mb-4 text-gray-700">Statistiques</h2>
+                            
+                            <div class="flex mb-4">
+                                <div class="w-1/3 p-3 bg-blue-50 rounded-lg mr-2 text-center">
+                                    <div class="text-2xl font-bold text-blue-600">58</div>
+                                    <div class="text-sm text-gray-600">Livraisons</div>
+                                </div>
+                                <div class="w-1/3 p-3 bg-green-50 rounded-lg mr-2 text-center">
+                                    <div class="text-2xl font-bold text-green-600">97%</div>
+                                    <div class="text-sm text-gray-600">À l'heure</div>
+                                </div>
+                                <div class="w-1/3 p-3 bg-yellow-50 rounded-lg text-center">
+                                    <div class="text-2xl font-bold text-yellow-600">3</div>
+                                    <div class="text-sm text-gray-600">En cours</div>
+                                </div>
+                            </div>
+                            
+                            
+                        </div>
+                    </div>
+                </div>
           </div>
         </div>
       </section>
