@@ -38,7 +38,7 @@
                     <img src="" alt="" class="rounded-full h-32 w-32 border-4 border-white">
                 </div>
                 <div class="text-center md:text-left">
-
+                <h1 class="text-2xl font-bold text-white mb-2">db jhebd</h1>
                 </div>
               </div>
             </div>
