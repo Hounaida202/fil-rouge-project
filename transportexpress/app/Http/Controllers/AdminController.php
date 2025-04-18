@@ -28,6 +28,42 @@ class AdminController extends Controller
             
             return view('Dashboard', compact('enAttentes', 'Actifs'));
         }
+
+        public function showcomptes(Request $request)
+        {
+            $search = $request->input('search');
+            $role = $request->input('role');
+            $ville = $request->input('ville');
+        
+            $Actifs = User::where('status', 'valide')
+                          ->when($search, function ($query, $search) {
+                              return $query->where('name', 'like', "%$search%");
+                          })
+                          ->when($role, function ($query, $role) {
+                              return $query->where('role', $role);
+                          })
+                          ->when($ville, function ($query, $ville) {
+                              return $query->where('ville', $ville);
+                          })
+                          ->get();
+        
+            return view('AdminComptes', compact('Actifs'));
+        }
+        
+        
+// public function showcomptes(Request $request)
+// {
+//     $search = $request->input('search');
+
+//     $Actifs = User::where('status', 'valide')
+//                   ->when($search, function ($query, $search) {
+//                       return $query->where('name', 'like', "%$search%");
+//                   })
+//                   ->get();
+
+//     return view('AdminComptes', compact('Actifs', 'search'));
+// }
+
         public function ValideRole($id)
         {
             $enattente = User::find($id);
@@ -74,5 +110,24 @@ class AdminController extends Controller
                 $actif->save();
                 return redirect()->back();
         
-        }       
+        }   
+        
+        public function afficherlescomptes(){
+         return view('AdminComptes');
+        }
+
+
+
+        public function afficherlesreclamations(){
+            return view('Reclamations');
+           }
+
+
+
+
+
+    
+
+   
+
 }

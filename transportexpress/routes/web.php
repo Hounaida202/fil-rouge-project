@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AccueilController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CommentaireController;
+use App\Http\Controllers\ReclamationController;
+use App\Http\Controllers\PublicationController;
 
 
 /*
@@ -38,3 +40,11 @@ Route::put('/activer/{id}', [AdminController::class, 'Activer'])->name('activer'
 
 Route::delete('/supprimer/{id}', [AdminController::class, 'Supprimer'])->name('Supprimer');
 Route::get('/detaille/{id}', [CommentaireController::class, 'afficherCommentaires'])->name('profile');
+Route::get('/admin_comptes',[AdminController::class,'showcomptes'])->name('comptes');
+// Route::get('/admin_reclamations',[AdminController::class,'afficherlesraclamations'])->name('afficherlesraclamations');
+Route::get('/admin_reclamations/reclamations', [ReclamationController::class, 'afficherReclamations'])->name('reclamation');
+Route::DELETE('/admin_reclamations/supression/{id}', [ReclamationController::class, 'supprimerReclamations'])->name('supression');
+Route::PUT('/admin_reclamations/modification/{id}', [ReclamationController::class, 'modifierReclamations'])->name('modification');
+Route::GET('/detaille/pub/{id}', [PublicationController::class, 'afficherPublications'])->name('pub');
+
+// Route::get('/comptes', [AdminController::class, 'showcomptes'])->name('comptes');

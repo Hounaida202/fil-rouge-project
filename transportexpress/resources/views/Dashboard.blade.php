@@ -7,7 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body class="bg-gray-100 font-sans">
+<body class="bg-gray-100 font-sans static">
     <nav class="bg-[#18534F] text-white p-4 shadow-md">
         <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
             <div class="flex items-center w-full md:w-auto justify-between">
@@ -17,9 +17,9 @@
                 </button>
             </div>
             <div id="mobileMenu" class="hidden md:flex flex-col md:flex-row w-full md:w-auto space-y-3 md:space-y-0 md:space-x-6 mt-4 md:mt-0">
-                <a href="" class="hover:text-blue-200 font-medium block">Dashboard</a>
-                <a href="" class="hover:text-blue-200 font-medium block">Comptes</a>
-                <a href="" class="hover:text-blue-200 font-medium block">Réclamations</a>
+                <a href="{{route('dashboard')}}" class="hover:text-blue-200 font-medium block">Dashboard</a>
+                <a href="{{route('comptes')}}" class="hover:text-blue-200 font-medium block">Comptes</a>
+                <a href="{{route('reclamation')}}" class="hover:text-blue-200 font-medium block">Réclamations</a>
                 <a href="" class="hover:text-blue-200 font-medium block">Statistiques</a>
             </div>
             <div class="hidden md:flex items-center space-x-3 mt-4 md:mt-0">
@@ -171,9 +171,23 @@
                             </td>
                             <td class="px-3 sm:px-6 py-4 whitespace-nowrap hidden md:table-cell">
                                 <span class="px-2 inline-flex text-xs leading-5 font-semibold ">
+                                
+                                </span>
+                            </td>
+                            @if($actif->role==='Transporteur')
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">
                                 {{$actif->role}}
                                 </span>
                             </td>
+                            @else
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                {{$actif->role}}
+                                </span>
+                            </td>
+                            @endif
+
                             <td class="px-3 sm:px-6 py-4 whitespace-nowrap text-sm text-gray-500 hidden md:table-cell">
                             {{$actif->ville}}
                             </td>
@@ -211,7 +225,7 @@
                                              Supprimer
                                          </button>
                                      </form>
-                                    <a href="{{ route('profile', $actif->id) }}"   class="bg-gray-200 hover:bg-gray-300 text-gray-800 px-2 sm:px-3 py-1 rounded text-xs sm:text-sm">
+                                    <a href="{{ route('pub', $actif->id) }}"   class="bg-gray-200 hover:bg-gray-300 text-gray-800 px-2 sm:px-3 py-1 rounded text-xs sm:text-sm">
                                         Détails
                                     </a>
                                 </div>
@@ -294,4 +308,5 @@
        
     </footer>
 </body>
+
 </html>

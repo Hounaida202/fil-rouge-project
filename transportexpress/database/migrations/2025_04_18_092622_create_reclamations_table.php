@@ -13,11 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('notes', function (Blueprint $table) {
+        Schema::create('reclamations', function (Blueprint $table) {
             $table->id();
-            $table->string('valeur');
-            $table->foreignId('auteur_id')->constrained('users')->onDelete('cascade');
+            $table->string('titre');
+            $table->string('description');
             $table->foreignId('cible_id')->constrained('users')->onDelete('cascade');
+            $table->foreignId('auteur_id')->constrained('users')->onDelete('cascade');
+            $table->enum('status', ['en cours', 'traité']);
+
             $table->timestamps();
         });
     }
@@ -29,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('notes');
+        Schema::dropIfExists('reclamations');
     }
 };

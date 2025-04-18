@@ -19,8 +19,8 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->string('tel');
-            $table->string('ville');
+            $table->string('tel')->nullable();
+            $table->string('ville')->nullable();
             $table->string('image')->nullable();
             $table->string('cin')->nullable();
             $table->enum('role', ['Transporteur', 'Client','admin']);
