@@ -30,7 +30,11 @@
         </div>
     </nav>
     <section class="py-8">
-        
+      <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row gap-6">
+
+        </div>
+      </div>
     </section>
 
 
