@@ -33,8 +33,30 @@
       <div class="container mx-auto px-4">
         <div class="flex flex-col md:flex-row gap-6">
            <!-- ----------un coté pour le profil et ses commenatirs ---------- -->
-            <div class="bg-white rounded-lg shadow-md overflow-hidden mb-6"> 
-
+            <div>
+                <div class="bg-white rounded-lg shadow-md overflow-hidden mb-6"> 
+                       <div class="bg-[#18534F] p-6">
+                            <div class="flex flex-col items-center">
+                                <div class="mb-4">
+                                    <img src="" alt="" class="rounded-full h-24 w-24 border-4 border-white">
+                                </div>
+                                <div class="text-center">
+                                    <h1 class="text-xl font-bold text-white mb-2"></h1>
+                                    <div class="text-blue-200 mb-2"></div>
+                                    <div class="flex items-center justify-center">
+                                        <div class="text-yellow-400 flex">
+                                            <span>★</span>
+                                            <span>★</span>
+                                            <span>★</span>
+                                            <span>★</span>
+                                            <span>★</span>
+                                        </div>
+                                        <span class="ml-2 text-white"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </div>
             </div>
            <!-- -------------------------------------------------------------- -->
         </div>
