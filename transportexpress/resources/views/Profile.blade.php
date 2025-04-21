@@ -126,7 +126,16 @@
                 <div class="bg-white rounded-lg shadow-md p-6">
                    <h2 class="text-xl font-bold mb-6 text-gray-700">Publications récentes</h2>
                      <div class="mb-8 pb-6 border-b border-gray-200">
-
+                          <!-- les infos de compte auteur et temps -->
+                            <div class="flex items-center mb-4">
+                                <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                                    <img src="" alt="Photo de profil" class="w-full h-full object-cover">
+                                </div>
+                                <div>
+                                    <a href="" class="font-semibold text-blue-600 hover:underline"></a>
+                                    <p class="text-gray-500 text-sm">Transporteur • Publié il y a 2 heures</p>
+                                </div>
+                            </div>
                      </div>
                 </div>
             </div>
