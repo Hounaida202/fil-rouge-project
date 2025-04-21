@@ -137,7 +137,44 @@
                                 </div>
                             </div>
                               <h2 class="text-xl font-bold mb-4">Transport de meubles Paris-Lyon</h2>
-
+                              <div class="mb-4">
+                                <div>
+                                    <div class="space-y-3">
+                                        <div class="flex">
+                                            <span class="font-medium w-32">Ville de départ :</span>
+                                            <span>Paris</span>
+                                        </div>
+                                        <div class="flex">
+                                            <span class="font-medium w-32">Adresse départ :</span>
+                                            <span>15 Rue de la République, 75001</span>
+                                        </div>
+                                        <div class="flex">
+                                            <span class="font-medium w-32">Ville d'arrivée :</span>
+                                            <span>Lyon</span>
+                                        </div>
+                                        <div class="flex">
+                                            <span class="font-medium w-32">Adresse arrivée :</span>
+                                            <span>8 Place Bellecour, 69002</span>
+                                        </div>
+                                        <div class="flex">
+                                            <span class="font-medium w-32">Date de départ :</span>
+                                            <span>15/04/2025</span>
+                                        </div>
+                                        <div class="flex">
+                                            <span class="font-medium w-32">Type de marchandise :</span>
+                                            <span>Meubles</span>
+                                        </div>
+                                        <div class="flex">
+                                            <span class="font-medium w-32">Poids estimé :</span>
+                                            <span>350 kg</span>
+                                        </div>
+                                        <div class="flex">
+                                            <span class="font-medium w-32">Capacité :</span>
+                                            <span>800 kg disponible</span>
+                                        </div>
+                                    </div>
+                                </div>
+                           </div>
                      </div>
                 </div>
             </div>
