@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AccueilController;
-use App\Http\Controllers\AdminController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\CommentaireController;
 use App\Http\Controllers\ReclamationController;
 use App\Http\Controllers\PublicationController;
@@ -30,14 +30,14 @@ Route::get('/', function () {
 // Route::get('/message/invalide',[AccueilController::class,'ShowinvalideMsg'])->name('message_invalide');
 // Route::get('/dashboard', [AccueilController::class, 'index'])->name('dashboard');
 
-// Route::get('/dashboard', [AdminController::class, 'show'])->name('dashboard');
+Route::get('/dashboard', [UserController::class, 'showUsers'])->name('dashboard');
 // routes/web.php
-// Route::put('/valide/{id}', [AdminController::class, 'ValideRole'])->name('Valide');
-// Route::put('/invalide/{id}', [AdminController::class, 'InvalideRole'])->name('Invalide');
-// Route::put('/desactiver/{id}', [AdminController::class, 'Desactiver'])->name('Desactiver');
-// Route::put('/activer/{id}', [AdminController::class, 'Activer'])->name('activer');
+Route::put('/valide/{id}', [UserController::class, 'ValideRole'])->name('Valide');
+Route::put('/invalide/{id}', [UserController::class, 'InvalideRole'])->name('Invalide');
+Route::put('/desactiver/{id}', [UserController::class, 'Desactiver'])->name('Desactiver');
+Route::put('/activer/{id}', [UserController::class, 'Activer'])->name('activer');
 
-// Route::delete('/supprimer/{id}', [AdminController::class, 'Supprimer'])->name('Supprimer');
+Route::delete('/supprimer/{id}', [UserController::class, 'Supprimer'])->name('Supprimer');
 // Route::get('/detaille/{id}', [CommentaireController::class, 'afficherCommentaires'])->name('profile');
 // Route::get('/admin_comptes',[AdminController::class,'showcomptes'])->name('comptes');
 // Route::get('/admin_reclamations',[AdminController::class,'afficherlesraclamations'])->name('afficherlesraclamations');

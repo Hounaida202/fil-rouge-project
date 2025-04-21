@@ -12,7 +12,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.js"></script>
 </head>
 <body class="bg-gray-100 font-sans">
-    <!-- Barre de navigation -->
     <nav class="bg-[#18534F] text-white p-4 shadow-md">
         <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
             <div class="flex items-center w-full md:w-auto justify-between">
@@ -49,14 +48,10 @@
                     <button class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition">Filtrer</button>
                 </div>
             </div>
-
-            <!-- Liste des réclamations -->
             <div class="space-y-6">
-                <!-- Réclamation 1 -->
                  @foreach($reclamations as $reclamation)
                 <div class="bg-white rounded-lg shadow-md p-6">
                     <div class="flex justify-between items-start">
-                        <!-- Informations de l'émetteur -->
                         <div class="flex items-start">
                             <div class="mr-4">
                                 <a href="#">
@@ -68,10 +63,7 @@
                                 <p class="text-gray-500 text-sm">{{$reclamation->cible->role}} • Il y a {{ $reclamation->created_at->diffForHumans() }}</p>
                             </div>
                         </div>
-                        
-                        <!-- Boutons d'action -->
-                        <div class="flex space-x-2">
-                            
+                          <div class="flex space-x-2">
                             <form action="{{route('supression',$reclamation->id)}}" method="POST">  
                                 @csrf   
                                 @method('DELETE')
@@ -91,15 +83,11 @@
                             </div>
                         </div>
                     </div>
-                    
-                    <!-- Contenu de la réclamation -->
                     <div class="mt-4">
                         <h3 class="font-bold text-lg mb-2">{{$reclamation->titre}}</h3>
                         <p class="text-gray-700 mb-4">
                         {{$reclamation->description}}
                         </p>
-                        
-                        <!-- Personne réclamée -->
                         <div class="mt-4 flex items-center bg-gray-50 p-3 rounded-md">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
@@ -110,8 +98,6 @@
 
                         </div>
                     </div>
-                    
-                    <!-- Actions de modération -->
                     <div class="mt-4 pt-4 border-t border-gray-200 flex justify-end space-x-3">
                     <form action="{{route('modification',$reclamation->id)}}" method="POST">  
                                 @csrf   
@@ -122,20 +108,47 @@
                     </div>
                 </div>
                 @endforeach
-                <!-- Réclamation 2 -->
-                
-                
-                <!-- Bouton charger plus -->
-                <div class="text-center pt-4">
-                    <button class="px-6 py-3 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300 transition">
-                        Charger plus de réclamations
-                    </button>
-                </div>
             </div>
         </div>
     </section>
-
-    <!-- Footer vide comme demandé -->
-    <footer class="py-8"></footer>
+    <footer class="py-8">
+    <footer class="bg-[#143B39] text-white py-8">
+            <div class="container mx-auto px-4">
+                <div class="flex flex-col md:flex-row md:justify-between md:items-start gap-8 flex-wrap">
+                    <div class="md:w-1/4">
+                        <h3 class="text-xl font-bold mb-4">TransportExpress</h3>
+                        <p class="text-gray-400">Solutions de transport de marchandises fiables et efficaces.</p>
+                    </div>
+                    <div class="md:w-1/4">
+                        <h4 class="font-bold mb-4">Services</h4>
+                        <ul class="space-y-2">
+                            <li>
+                            <a href="" class="text-gray-400 hover:text-white">Transport National</a>
+                            </li>
+                            <li>
+                            <a href="" class="text-gray-400 hover:text-white">Transport International</a>
+                            </li>
+                            <li>
+                            <a href="" class="text-gray-400 hover:text-white">Suivi en Temps Réel</a>
+                            </li>
+                            
+                        </ul>
+                    </div>
+                    <div class="md:w-1/4">
+                        <h4 class="font-bold mb-4">Contact</h4>
+                        <ul class="space-y-2 text-gray-400">
+                            <li>Safi</li>
+                            <li>transportexpress@gmail.com</li>
+                            <li>+212 1111111111</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="border-t border-gray-700 mt-8 pt-6 text-center text-gray-400">
+                    <p>&copy; 2025 TransportExpress. Tous droits réservés.</p>
+                </div>
+            </div>   
+    </footer>
+</body>
+    </footer>
 </body>
 </html>

@@ -1,9 +1,9 @@
 <?php
-// namespace App\DAOs;
+namespace App\Http\DAOs\Interfaces;
 
-// interface AuthInterface {
+interface UserInterface {
 
-//     public function register($data);
-//     public function login($email);
-    
-// }
+    public function showEnAttente($perPage);
+    public function showActifs($perPage);
+
+}
