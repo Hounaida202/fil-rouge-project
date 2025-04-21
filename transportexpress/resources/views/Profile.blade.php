@@ -136,6 +136,8 @@
                                     <p class="text-gray-500 text-sm">Transporteur • Publié il y a 2 heures</p>
                                 </div>
                             </div>
+                              <h2 class="text-xl font-bold mb-4">Transport de meubles Paris-Lyon</h2>
+
                      </div>
                 </div>
             </div>
