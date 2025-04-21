@@ -125,7 +125,9 @@
             <div>
                 <div class="bg-white rounded-lg shadow-md p-6">
                    <h2 class="text-xl font-bold mb-6 text-gray-700">Publications récentes</h2>
+                     <div class="mb-8 pb-6 border-b border-gray-200">
 
+                     </div>
                 </div>
             </div>
           <!-- ------la fin de partie des publications---- -->
