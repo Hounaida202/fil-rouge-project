@@ -175,6 +175,14 @@
                                     </div>
                                 </div>
                            </div>
+                           <div class="mb-6">
+                                <h3 class="font-medium mb-2">Description :</h3>
+                                <p class="text-gray-600">
+                                    Transport de meubles avec camion 20m³. Espace disponible pour d'autres marchandises. 
+                                    Chargement prévu le matin du 15 avril, départ vers 10h. Livraison prévue à Lyon dans l'après-midi vers 16h.
+                                    Possibilité de faire des arrêts intermédiaires sur le trajet.
+                                </p>
+                            </div>
                      </div>
                 </div>
             </div>
