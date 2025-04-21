@@ -103,6 +103,23 @@
                             </div>
                         </div>
                 </div>
+                <!-- ----les commenatires-------- -->
+                <div class="bg-white rounded-lg shadow-md p-4">
+                        <h2 class="text-lg font-bold mb-4 text-gray-700">Commentaires (nombre ici)</h2>
+                        <div class="mb-4 pb-4 border-b border-gray-200">
+                            <div class="flex items-start mb-2">
+                                <img src="" alt="" class="rounded-full h-8 w-8 mr-2">
+                                <div>
+                                    <div class="font-bold text-sm"></div>
+                                    <div class="text-xs text-gray-500">Posté il y a (le temps ici) </div>
+                                </div>
+                            </div>
+                            <p class="text-gray-700 text-sm">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis omnis veritatis cum unde ad magnam laudantium esse magni exercitationem et.
+                            </p>
+                        </div>
+                    </div>
+                 <!-- -------- -->
             </div>
            <!-- -------------------------------------------------------------- -->
         </div>
