@@ -22,8 +22,8 @@
                 </button>
             </div>
             <div id="mobileMenu" class="hidden md:flex flex-col md:flex-row w-full md:w-auto space-y-3 md:space-y-0 md:space-x-6 mt-4 md:mt-0">
-                <a href="{{route('dashboard')}}" class="hover:text-blue-200 font-medium block">Dashboard</a>
-                <a href="{{route('comptes')}}" class="hover:text-blue-200 font-medium block">Comptes</a>
+                <a href="" class="hover:text-blue-200 font-medium block">Dashboard</a>
+                <a href="" class="hover:text-blue-200 font-medium block">Comptes</a>
                 <a href="" class="hover:text-blue-200 font-medium block">Réclamations</a>
                 <a href="" class="hover:text-blue-200 font-medium block">Statistiques</a>
             </div>

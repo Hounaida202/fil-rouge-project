@@ -3,8 +3,10 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use App\DAOs\AdminInterface;
-use App\DAOs\AdminRepository;
+use App\Http\DAOs\Interfaces\ReclamationInterface;
+use App\Http\DAOs\Repositories\ReclamationRepository;
+use App\Models\Reclamation;
+
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -14,7 +16,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind(AdminInterface::class, AdminRepository::class);
+        $this->app->bind(ReclamationInterface::class, ReclamationRepository::class);
 
 
     }
