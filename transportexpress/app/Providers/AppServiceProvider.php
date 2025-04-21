@@ -21,7 +21,6 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(ReclamationInterface::class, ReclamationRepository::class);
         $this->app->bind(UserInterface::class, UserRepository::class);
 
-
     }
 
     /**
