@@ -183,6 +183,9 @@
                                     Possibilité de faire des arrêts intermédiaires sur le trajet.
                                 </p>
                             </div>
+                            <div class="mb-6">
+                                <img src="" alt="" class="w-full h-auto object-cover rounded-md">
+                            </div>
                      </div>
                 </div>
             </div>
