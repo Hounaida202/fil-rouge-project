@@ -1,2 +1,8 @@
 <?php
-namespace App\Https\DAOs\Interfaces;
+namespace App\Http\DAOs\Interfaces;
+
+interface UserInterface {
+
+ 
+    
+}
