@@ -23,4 +23,11 @@ class UserController extends Controller
             $Actifs = $this->UserRepository->showActifs($perPage);
             return view('Dashboard', compact('enAttentes', 'Actifs'));
         }
+        public function ValideRole($id)
+        {
+            $enattente = $this->UserRepository->validerCompte($id);
+            $enattente->status = 'valide';
+            $enattente->save();
+            return redirect()->back();
+        }
 }
