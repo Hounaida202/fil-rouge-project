@@ -7,6 +7,7 @@ interface UserInterface {
     public function showActifs($perPage);
     public function validerCompte($id);
     public function invaliderCompte($id);
+    public function DesactiverCompte($id);
     
     
 }
