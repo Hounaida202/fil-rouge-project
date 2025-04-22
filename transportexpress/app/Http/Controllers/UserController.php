@@ -9,6 +9,11 @@ use App\Models\User;
 
 class UserController extends Controller
 {
+         protected $UserRepository;
 
+        public function __construct(UserInterface $UserRepository)
+        {
+            $this->UserRepository = $UserRepository;
+        }
 
 }
