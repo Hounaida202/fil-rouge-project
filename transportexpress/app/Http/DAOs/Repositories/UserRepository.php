@@ -8,5 +8,9 @@ class UserRepository implements UserInterface{
     {
         return User::where('status', 'en attente')->paginate($perPage);
     }
+    public function showActifs($perPage)
+    {
+        return User::where('status', 'valide')->paginate($perPage);
+    }
     
 }
