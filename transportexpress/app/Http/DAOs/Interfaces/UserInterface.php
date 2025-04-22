@@ -8,6 +8,6 @@ interface UserInterface {
     public function validerCompte($id);
     public function invaliderCompte($id);
     public function DesactiverCompte($id);
-    
+    public function ActiverCompte($id);
     
 }
