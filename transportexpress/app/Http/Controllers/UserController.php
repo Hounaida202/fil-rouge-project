@@ -44,4 +44,11 @@ class UserController extends Controller
             $actif->save();
             return redirect()->back();
         }
+        public function Activer($id)
+        {
+            $actif=$this->UserRepository->ActiverCompte($id);
+            $actif->compte='Actif';
+            $actif->save();
+            return redirect()->back();
+        } 
 }
