@@ -37,4 +37,11 @@ class UserController extends Controller
             $enattente->save();
             return redirect()->back();
         }
+        public function Desactiver($id)
+        {
+            $actif=$this->UserRepository->DesactiverCompte($id);
+            $actif->compte='Suspendu';
+            $actif->save();
+            return redirect()->back();
+        }
 }
