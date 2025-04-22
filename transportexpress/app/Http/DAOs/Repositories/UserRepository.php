@@ -12,5 +12,24 @@ class UserRepository implements UserInterface{
     {
         return User::where('status', 'valide')->paginate($perPage);
     }
-    
+    public function validerCompte($id)
+    {
+        return User::find($id);
+    }
+    public function invaliderCompte($id)
+    {
+        return User::find($id);
+    }
+    public function DesactiverCompte($id)
+    {
+        return User::find($id);
+    }
+    public function ActiverCompte($id)
+    {
+        return User::find($id);
+    }
+    public function SupprimerCompte($id)
+    {
+        return User::find($id);
+    }
 }
