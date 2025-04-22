@@ -51,4 +51,11 @@ class UserController extends Controller
             $actif->save();
             return redirect()->back();
         } 
+            public function Supprimer($id)
+            {
+            $actif=$this->UserRepository->SupprimerCompte($id);
+            $actif->delete();
+            return redirect()->back();
+
+            }
 }
