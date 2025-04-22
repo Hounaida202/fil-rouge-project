@@ -6,6 +6,7 @@ interface UserInterface {
     public function showEnAttente($perPage);
     public function showActifs($perPage);
     public function validerCompte($id);
+    public function invaliderCompte($id);
     
     
 }
