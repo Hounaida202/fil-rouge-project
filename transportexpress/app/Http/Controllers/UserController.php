@@ -16,4 +16,11 @@ class UserController extends Controller
             $this->UserRepository = $UserRepository;
         }
 
+        public function showUsers(Request $request)
+        {
+            $perPage = $request->input('per_page', 3);
+            $enAttentes = $this->UserRepository->showEnAttente($perPage);
+            $Actifs = $this->UserRepository->showActifs($perPage);
+            return view('Dashboard', compact('enAttentes', 'Actifs'));
+        }
 }
