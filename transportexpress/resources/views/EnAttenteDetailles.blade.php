@@ -70,7 +70,7 @@
                         
                         <div class="w-full md:w-1/2 mb-4">
                             <p class="text-gray-600 text-sm">Type de compte</p>
-                            <p class="font-medium">Client</p>
+                            <p class="font-medium">{{$enAttente->role}}</p>
                         </div>
                         
                         <div class="w-full md:w-1/2 mb-4">
