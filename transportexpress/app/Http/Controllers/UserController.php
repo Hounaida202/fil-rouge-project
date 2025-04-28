@@ -101,8 +101,9 @@ class UserController extends Controller
 
             }
            
-            public function EnAttenteDetailles(){
-                return view('EnAttenteDetailles');
+            public function EnAttenteDetailles($id){
+                $enAttente=User::find($id);
+                return view('EnAttenteDetailles',compact('enAttente'));
             }
 
 }

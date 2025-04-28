@@ -57,4 +57,4 @@ Route::PUT('/admin_reclamations/modification/{id}', [ReclamationController::clas
 
 // Route::get('/comptes', [AdminController::class, 'showcomptes'])->name('comptes');
 Route::get('/statistics', [StatisticController::class, 'coutComptes'])->name('statistics');
-Route::get('/preuve', [UserController::class, 'EnAttenteDetailles'])->name('preuve');
+Route::get('/preuve/{id}', [UserController::class, 'EnAttenteDetailles'])->name('preuve');
