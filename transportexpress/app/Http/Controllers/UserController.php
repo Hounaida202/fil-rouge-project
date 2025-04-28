@@ -50,13 +50,18 @@ class UserController extends Controller
             $enattente->save();
             return redirect('dashboard');
         }
-        public function Desactiver($id)
+        public function Desactiver(Request $request,$id)
         {
+            Remarque::create([
+                'titre' => $request->input('titre'), 
+                'description' => $request->input('description'), 
+            ]);
             $actif=$this->UserRepository->DesactiverCompte($id);
             $actif->compte='Suspendu';
             $actif->save();
             return redirect()->back();
         }
+        
         public function Activer($id)
         {
             $actif=$this->UserRepository->ActiverCompte($id);
