@@ -31,6 +31,10 @@
         </div>
     </nav>
     <div class="container mx-auto px-4 py-8">
+       <div class="flex justify-between items-center mb-6">
+            <h1 class="text-2xl font-bold">Vérification du Profil</h1>
+            <span class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm font-medium">En attente de validation</span>
+        </div>
         
     </div>
     <footer class="py-8"></footer>
