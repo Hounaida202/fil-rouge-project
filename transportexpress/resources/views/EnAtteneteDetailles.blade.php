@@ -82,7 +82,17 @@
                 </div>
             </div>
         </div>
-        
+        <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+            <h2 class="text-xl font-bold mb-4">Document d'identité</h2>
+            
+            <div class="flex flex-col items-center md:items-start">
+                <div class="w-full md:w-2/3 rounded-lg overflow-hidden shadow-md mb-2">
+                    <img src="/api/placeholder/800/500" alt="Photo du permis" class="w-full h-auto object-cover">
+                </div>
+                <p class="text-sm text-gray-500">Photo du permis</p>
+            </div>
+        </div>
+
     <footer class="py-8"></footer>
 </body>
 </html>
