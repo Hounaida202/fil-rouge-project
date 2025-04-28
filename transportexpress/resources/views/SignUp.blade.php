@@ -24,6 +24,11 @@
                         </div>
                     @endif 
                       @csrf
+
+                      <div class="w-full mb-6">
+    <label for="image" class="text-[#18534F] font-medium mb-2">Choisissez votre photo de profile</label>
+    <input type="file" id="image" name="image" required>
+                      </div>
                         <div class="w-full mb-6">
                             <label for="nom" class="text-[#18534F] font-medium mb-2">Nom</label>
                             <input type="text" id="nom" name="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none " required>
