@@ -41,14 +41,14 @@ class UserController extends Controller
             $enattente = $this->UserRepository->validerCompte($id);
             $enattente->status = 'valide';
             $enattente->save();
-            return redirect()->back();
+            return redirect('dashboard');
         }
         public function InvalideRole($id)
         {
             $enattente = $this->UserRepository->invaliderCompte($id);
             $enattente->status='Invalide';
             $enattente->save();
-            return redirect()->back();
+            return redirect('dashboard');
         }
         public function Desactiver($id)
         {
