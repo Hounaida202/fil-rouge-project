@@ -93,7 +93,14 @@
         </div>
 
         <div class="flex flex-col md:flex-row justify-end space-y-3 md:space-y-0 md:space-x-4">
-        
+        <form method="POST" action="{{route('Invalide',$enAttente->id)}}">
+                                    @csrf
+                                    @method('PUT')   
+                                    <button type="submit" value="Invalide" class="bg-red-600 hover:bg-red-700 text-white py-3 px-6 rounded-lg font-medium transition">
+                                        Refuser la demande
+                                    </button>
+                                    
+                                    </form>
 
             <form method="POST" action="{{ route('Valide', $enAttente->id) }}">
                                     @csrf
