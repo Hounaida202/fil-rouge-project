@@ -37,6 +37,52 @@
         </div>
         
     </div>
+    <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+            <div class="flex flex-col md:flex-row">
+                <div class="mb-6 md:mb-0 md:mr-8 flex flex-col items-center">
+                    <div class="w-48 h-48 rounded-lg overflow-hidden shadow-lg mb-2">
+                        <img src="/api/placeholder/300/300" alt="Photo de profil" class="w-full h-full object-cover">
+                    </div>
+                    <p class="text-sm text-gray-500">Photo de profil</p>
+                </div>
+                <div class="flex-1 flex flex-col">
+                    <h2 class="text-xl font-bold mb-4">Informations Personnelles</h2>
+                    
+                    <div class="flex flex-wrap">
+                        <div class="w-full md:w-1/2 mb-4">
+                            <p class="text-gray-600 text-sm">Nom complet</p>
+                            <p class="font-medium">Martin Dupont</p>
+                        </div>
+                        
+                        <div class="w-full md:w-1/2 mb-4">
+                            <p class="text-gray-600 text-sm">Email</p>
+                            <p class="font-medium">martin.dupont@email.com</p>
+                        </div>
+                        
+                        <div class="w-full md:w-1/2 mb-4">
+                            <p class="text-gray-600 text-sm">Numéro de téléphone</p>
+                            <p class="font-medium">+33 6 12 34 56 78</p>
+                        </div>
+                        
+                        <div class="w-full md:w-1/2 mb-4">
+                            <p class="text-gray-600 text-sm">Ville</p>
+                            <p class="font-medium">Lyon</p>
+                        </div>
+                        
+                        <div class="w-full md:w-1/2 mb-4">
+                            <p class="text-gray-600 text-sm">Type de compte</p>
+                            <p class="font-medium">Client</p>
+                        </div>
+                        
+                        <div class="w-full md:w-1/2 mb-4">
+                            <p class="text-gray-600 text-sm">Date d'inscription</p>
+                            <p class="font-medium">15/04/2025</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
     <footer class="py-8"></footer>
 </body>
 </html>
