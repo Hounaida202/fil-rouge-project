@@ -86,7 +86,7 @@
             
             <div class="flex flex-col items-center md:items-start">
                 <div class="w-full md:w-2/3 rounded-lg overflow-hidden shadow-md mb-2">
-                    <img src="{{asset('storage/'.$compte->preuve)}}" alt="" class="w-full h-auto object-cover">
+                    <img src="{{asset('storage/'.$enAttente->preuve)}}" alt="" class="w-full h-auto object-cover">
                 </div>
                 <p class="text-sm text-gray-500">Photo du permis</p>
             </div>

@@ -46,7 +46,7 @@ class UserController extends Controller
         public function InvalideRole($id)
         {
             $enattente = $this->UserRepository->invaliderCompte($id);
-            $enattente->status='Invalide';
+            $enattente->status='invalide';
             $enattente->save();
             return redirect('dashboard');
         }
@@ -75,10 +75,6 @@ class UserController extends Controller
             return redirect()->back();
 
             }
-
-           
-
-
 
             // ------dans les comptes a afficher chez l admin
 
