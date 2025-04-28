@@ -10,7 +10,6 @@ use App\Http\DAOs\Interfaces\AuthInterface;
 use App\Http\Requests\LoginRequest;
 use Illuminate\Auth\Events\Validated;
 use Illuminate\Support\Facades\Auth;
-// use Illuminate\Support\Facades\Request as FacadesRequest;
 use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
@@ -29,6 +28,11 @@ class AuthController extends Controller
 
                 public function register(SignupRequest $request)
             {
+                $path=null;
+                if($request->hasFile('preuve')){
+                    $path=$request->file('preuve')->store('preuves','public');
+                }
+                
                 $data=[
                         'name' => $request->name,
                         'email' => $request->email,
@@ -36,12 +40,15 @@ class AuthController extends Controller
                         'ville' => $request->ville,
                         'password' => Hash::make($request->password),
                         'role' => $request->role,
+                        'preuve'=>$path,
                 ];
 
                 $this->AuthRepository->register($data);
 
                 return redirect()->route('message_reussite');
             }
+
+
 
             public function ShowReussiteMsg()
             {
@@ -52,16 +59,6 @@ class AuthController extends Controller
                 return view('MessageInvalide');
             }
     
-    
-    
-// return redirect()->route('SignUp');
-// auth()->login($user);
-
-// ------------------------------------------------
-
-    // public function showLoginForm(){
-    //    return view('LogIn');
-    // }
 
     public function messages()
 {
@@ -73,18 +70,13 @@ class AuthController extends Controller
 
     public function login(Request $request){
 
-        // dd($request);
-        // exit;
       //chercher le user si existe
     
     $email = $request->email;
     $password = $request->password;
     
     $user=$this->AuthRepository->login($email);
-    // dd($user);
-    
- //la clareté , ce que ma rendu voire les chose bizzare ,  calvère, 
-    //comparer le mot de passe
+
     if($user && !Hash::check($password, $user->password)){
          
     }
@@ -105,35 +97,5 @@ class AuthController extends Controller
         }                    
       }
     }
-
-
-
-
-
-
-
-
-//     public function login(Request $request){
-//             $isvalid = $request->validate([
-//             'email' => ['required', 'email'],
-//             'password' => ['required'],
-//         ]);
-
-//         $user = User::where('email', $isvalid['email'])->first();
-
-//         if ($user && Hash::check($isvalid['password'], $user->password)) {
-
-//             auth()->login($user);
-
-
-//             if ($user->role == 'tourist') {  
-//                 return redirect()->route('tourist');  
-//             } 
-//             if ($user->role == 'proprietaire') {  
-//                 return redirect()->route('proprietaire');  
-//             }
-//         }
-//         return back()->withErrors(['email' => 'Identifiants incorrects'])->withInput();
-//    }
 
 }
