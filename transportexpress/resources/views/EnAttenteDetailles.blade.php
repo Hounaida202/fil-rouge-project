@@ -55,7 +55,7 @@
                         
                         <div class="w-full md:w-1/2 mb-4">
                             <p class="text-gray-600 text-sm">Email</p>
-                            <p class="font-medium">martin.dupont@email.com</p>
+                            <p class="font-medium">{{$enAttente->email}}</p>
                         </div>
                         
                         <div class="w-full md:w-1/2 mb-4">
