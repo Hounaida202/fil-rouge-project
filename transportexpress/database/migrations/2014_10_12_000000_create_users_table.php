@@ -26,7 +26,7 @@ return new class extends Migration
             $table->enum('role', ['Transporteur', 'Client','admin']);
             $table->enum('status', ['en attente', 'valide','invalide'])->default('en attente');
             $table->enum('compte', ['Actif', 'Suspendu'])->default('Actif');
-
+            $table->string('preuve')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

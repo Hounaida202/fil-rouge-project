@@ -13,7 +13,7 @@
             <div class="max-w-xl mx-auto bg-white rounded-lg shadow-md p-8">
                 <h1 class="text-3xl text-[#18534F] font-bold text-center mb-8">Créer votre compte</h1>
                 
-                <form action="{{route('register')}}" method="POST">
+                <form action="{{route('register')}}" method="POST" enctype="multipart/form-data">
                 @if ($errors->any())
                         <div class="bg-red-100 text-red-700 p-4 rounded mb-4">
                             <ul class="list-disc pl-5">
@@ -91,7 +91,7 @@
 
                         <div  class="mb-6" id="preuve" style="display: none;">
                             <label for="preuve" class="block text-[#18534F] font-medium mb-2">Prever</label>
-                            <input type="file" id="preuve" name="preuve" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                            <input type="file" id="preuve" name="preuve"  class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
                         </div>
 
                         <!-- --------les conditions -->
