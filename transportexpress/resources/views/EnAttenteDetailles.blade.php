@@ -65,7 +65,7 @@
                         
                         <div class="w-full md:w-1/2 mb-4">
                             <p class="text-gray-600 text-sm">Ville</p>
-                            <p class="font-medium">Lyon</p>
+                            <p class="font-medium">{{$enAttente->ville}}</p>
                         </div>
                         
                         <div class="w-full md:w-1/2 mb-4">
