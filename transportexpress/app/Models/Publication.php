@@ -11,6 +11,9 @@ class Publication extends Model
     protected $fillable=['titre','ville_depart','adresse_depart','ville_arrivee','adresse_arrivee','date_depart',
 'type','poids','description','image','prix','user_id'];
 
-    
+public function cible()
+{
+    return $this->belongsTo(User::class, 'user_id');
+}
 
 }

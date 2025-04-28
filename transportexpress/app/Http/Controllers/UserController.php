@@ -4,17 +4,30 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\DAOs\Interfaces\UserInterface;
-use App\Http\DAOs\Repositories\UserRepository;
+use App\Http\DAOs\Interfaces\CommentaireInterface;
+use App\Http\DAOs\Interfaces\NoteInterface;
+use App\Http\DAOs\Interfaces\PublicationInterface;
 use App\Models\User;
+use App\Models\Remarque;
+
 
 class UserController extends Controller
 {
          protected $UserRepository;
+         protected $CommentaireRepository;
+         protected $NoteRepository;
+         protected $PublicationRepository;
 
-        public function __construct(UserInterface $UserRepository)
+
+        public function __construct(UserInterface $UserRepository ,CommentaireInterface $CommentaireRepository,NoteInterface $NoteRepository ,PublicationInterface $PublicationRepository)
         {
             $this->UserRepository = $UserRepository;
+            $this->CommentaireRepository = $CommentaireRepository;
+            $this->NoteRepository = $NoteRepository;
+            $this->PublicationRepository = $PublicationRepository;
+
         }
+
 
         public function showUsers(Request $request)
         {
@@ -51,11 +64,42 @@ class UserController extends Controller
             $actif->save();
             return redirect()->back();
         } 
-            public function Supprimer($id)
+
+            public function Supprimer(Request $request,$id)
             {
+                Remarque::create([
+                    'titre' => $request->input('titre'), 
+                    'description' => $request->input('description'), 
+                ]);
             $actif=$this->UserRepository->SupprimerCompte($id);
-            $actif->delete();
             return redirect()->back();
 
             }
+
+           
+
+
+
+            // ------dans les comptes a afficher chez l admin
+
+            public function showcomptes(Request $request)
+            {
+                $data = $request->only(['search', 'role', 'ville']);
+                $Actifs = $this->UserRepository->ShowComptes($data);
+
+                return view('AdminComptes', compact('Actifs'));
+            }
+
+            public function ConsulterDetailles($id){
+                $compte=User::find($id);
+                $commentaires=$this->CommentaireRepository->afficherCommentaires($id);
+                $countcommentaires=$this->CommentaireRepository->count($id);
+                $count=$this->NoteRepository->count($id);
+                $avg=$this->NoteRepository->avg($id);
+                $publications=$this->PublicationRepository->afficherPublications($id);
+                return view('Profile', compact('compte','commentaires','count','avg','countcommentaires','publications'));
+
+            }
+
+
 }

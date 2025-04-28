@@ -6,6 +6,38 @@
     <title>Document</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+      
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+        }
+        
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 300px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .modal-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+    
+    </style>
 </head>
 <body class="bg-gray-100 font-sans static">
     <nav class="bg-[#18534F] text-white p-4 shadow-md">
@@ -18,9 +50,9 @@
             </div>
             <div id="mobileMenu" class="hidden md:flex flex-col md:flex-row w-full md:w-auto space-y-3 md:space-y-0 md:space-x-6 mt-4 md:mt-0">
                 <a href="{{route('dashboard')}}" class="hover:text-blue-200 font-medium block">Dashboard</a>
-                <a href="" class="hover:text-blue-200 font-medium block">Comptes</a>
-                <a href="" class="hover:text-blue-200 font-medium block">Réclamations</a>
-                <a href="" class="hover:text-blue-200 font-medium block">Statistiques</a>
+                <a href="{{route('comptes')}}" class="hover:text-blue-200 font-medium block">Comptes</a>
+                <a href="{{route('reclamation')}}" class="hover:text-blue-200 font-medium block">Réclamations</a>
+                <a href="{{route('statistics')}}" class="hover:text-blue-200 font-medium block">Statistiques</a>
             </div>
             <div class="hidden md:flex items-center space-x-3 mt-4 md:mt-0">
                 <span>Admin</span>
@@ -151,88 +183,110 @@
                         </tr>
                     </thead>
                     @foreach($Actifs as $actif)
+    <tbody class="bg-white divide-y divide-gray-200">
+        <tr>
+            <td class="px-3 sm:px-6 py-4 whitespace-nowrap">
+                <div class="flex items-center">
+                    <div class="ml-0 sm:ml-4">
+                        <div class="text-sm font-medium text-gray-900">
+                            {{$actif->name}}
+                        </div>
+                        <div class="text-xs text-gray-500 sm:hidden">
+                            {{$actif->email}} · {{$actif->role}}
+                        </div>
+                    </div>
+                </div>
+            </td>
+
+            <!-- Email -->
+            <td class="px-3 sm:px-6 py-4 whitespace-nowrap hidden sm:table-cell">
+                <div class="text-sm text-gray-900">{{$actif->email}}</div>
+            </td>
+
+            <!-- Role -->
+            <td class="px-3 sm:px-6 py-4 whitespace-nowrap hidden sm:table-cell">
+                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full 
+                    @if($actif->role === 'Transporteur') bg-yellow-100 text-yellow-800 
+                    @else bg-green-100 text-green-800 @endif">
+                    {{$actif->role}}
+                </span>
+            </td>
+
+            <!-- Ville -->
+            <td class="px-3 sm:px-6 py-4 whitespace-nowrap text-sm text-gray-500 hidden md:table-cell">
+                {{$actif->ville}}
+            </td>
+
+            <!-- Compte -->
+            <td class="px-3 sm:px-6 py-4 whitespace-nowrap hidden md:table-cell">
+                <span class="px-2 inline-flex text-xs leading-5 font-semibold">
+                    {{$actif->compte}}
+                </span>
+            </td>
+
+            <!-- Actions -->
+            <td class="px-3 sm:px-6 py-4 whitespace-nowrap text-sm">
+                <div class="flex flex-col sm:flex-row space-y-1 sm:space-y-0 sm:space-x-2">
+                    <!-- Activer -->
+                    <button onclick="openModal('{{ $actif->id }}')" class="bg-green-500 hover:bg-green-600 text-white px-2 sm:px-3 py-1 rounded text-xs sm:text-sm">
+                        Activer
+                    </button>
+
+                    <!-- Supprimer -->
+                    <button class="delete-btn bg-red-500 hover:bg-red-600 text-white px-2 sm:px-3 py-1 rounded text-xs sm:text-sm" onclick="openModal('{{ $actif->id }}')">
+                        Supprimer
+                    </button>
+
+                    <!-- Détails -->
+                    <a href="{{ route('detailles', $actif->id) }}" class="bg-gray-200 hover:bg-gray-300 text-gray-800 px-2 sm:px-3 py-1 rounded text-xs sm:text-sm">
+                        Détails
+                    </a>
+                </div>
+            </td>
+        </tr>
+
+        <!-- Modal de suppression -->
+        <div id="modal-{{ $actif->id }}" class="modal" style="display:none;">
+            <div class="modal-content bg-white rounded-xl shadow-2xl p-6 w-[600px] mx-auto">
+                <div class="flex items-center justify-center mb-4">
+                    <svg class="w-6 h-6 text-yellow-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path>
+                    </svg>
+                    <h2 class="text-xl font-bold text-gray-800">Suppression de compte</h2>
+                </div>
+
+                <p class="text-center font-medium text-lg text-gray-700 mb-3">Veuillez indiquer les informations suivantes :</p>
+                
+                <form action="/supprimer/{{ $actif->id }}" method="POST">
                     @csrf
-                    <tbody class="bg-white divide-y divide-gray-200">
-                        <tr>
-                            <td class="px-3 sm:px-6 py-4 whitespace-nowrap">
-                                <div class="flex items-center">
-                                    <div class="ml-0 sm:ml-4">
-                                        <div class="text-sm font-medium text-gray-900">
-                                           {{$actif->name}}
-                                        </div>
-                                        <div class="text-xs text-gray-500 sm:hidden">
-                                        {{$actif->email}} · {{$actif->role}}
-                                        </div>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="px-3 sm:px-6 py-4 whitespace-nowrap hidden sm:table-cell">
-                                <div class="text-sm text-gray-900">{{$actif->email}}</div>
-                            </td>
-                            <td class="px-3 sm:px-6 py-4 whitespace-nowrap hidden md:table-cell">
-                                <span class="px-2 inline-flex text-xs leading-5 font-semibold ">
-                                
-                                </span>
-                            </td>
-                            @if($actif->role==='Transporteur')
-                            <td class="px-6 py-4 whitespace-nowrap">
-                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">
-                                {{$actif->role}}
-                                </span>
-                            </td>
-                            @else
-                            <td class="px-6 py-4 whitespace-nowrap">
-                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                                {{$actif->role}}
-                                </span>
-                            </td>
-                            @endif
+                    @method('DELETE')
 
-                            <td class="px-3 sm:px-6 py-4 whitespace-nowrap text-sm text-gray-500 hidden md:table-cell">
-                            {{$actif->ville}}
-                            </td>
-                            <td class="px-3 sm:px-6 py-4 whitespace-nowrap hidden md:table-cell">
-                                <span class="px-2 inline-flex text-xs leading-5 font-semibold ">
-                                {{$actif->compte}}
-                                </span>
-                            </td>
-                            <td class="px-3 sm:px-6 py-4 whitespace-nowrap text-sm">
-                                <div class="flex flex-col sm:flex-row space-y-1 sm:space-y-0 sm:space-x-2">
-                                @if($actif->compte==='Actif')
-                                    <form method="POST" action="{{ route('Desactiver', $actif->id) }}">
-                                        @csrf
-                                        @method('PUT')
-                                        <button type="submit" class="bg-yellow-500 w-24 hover:bg-yellow-600 text-white px-2 sm:px-3 py-1 rounded text-xs sm:text-sm">
-                                            Désactiver
-                                        </button>
-                                    </form>
-                                @else
-                                    <form method="POST" action="{{ route('activer', $actif->id) }}">
-                                        @csrf
-                                        @method('PUT')
-                                        <button type="submit" class="bg-green-500 w-24 hover:bg-yellow-600 text-white px-2 sm:px-3 py-1 rounded text-xs sm:text-sm">
-                                            Activer
-                                        </button>
-                                    </form>
-                                @endif
+                    <div class="mb-3">
+                        <input name="titre" type="text" class="w-full px-3 py-2 text-gray-700 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Titre de la suppression (facultatif)">
+                    </div>
+                    <div class="mb-3">
+                        <textarea name="description" rows="3" class="w-full px-3 py-2 text-gray-700 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none" placeholder="Expliquez pourquoi vous souhaitez supprimer ce compte..."></textarea>
+                    </div>
+                    <div class="bg-gray-50 p-2 rounded-md mb-3">
+                        <p class="text-gray-700 text-sm text-center">Cette action ne peut pas être annulée.</p>
+                    </div>
 
+                    <div class="modal-buttons flex justify-between mt-4">
+                        <button type="button" class="bg-gray-300 hover:bg-gray-400 text-gray-800 px-4 py-2 rounded text-sm font-medium transition-all duration-200 flex-grow mr-2" onclick="closeModal('{{ $actif->id }}')">
+                            Annuler
+                        </button>
+                        <button type="submit" class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded text-sm font-medium transition-all duration-200 w-full flex items-center justify-center">
+                            Confirmer
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- Fin du Modal de suppression -->
 
-                                    
-                                     <form method="POST" action="{{route('Supprimer',$actif->id)}}">
-                                     @csrf
-                                     @method('DELETE')
-                                         <button type="submit" class="bg-red-500 hover:bg-red-600 text-white px-2 sm:px-3 py-1 rounded text-xs sm:text-sm">
-                                             Supprimer
-                                         </button>
-                                     </form>
-                                    <a href=""   class="bg-gray-200 hover:bg-gray-300 text-gray-800 px-2 sm:px-3 py-1 rounded text-xs sm:text-sm">
-                                        Détails
-                                    </a>
-                                </div>
-                            </td>
-                        </tr>    
-                    </tbody>
-                    @endforeach
+    </tbody>
+@endforeach
+
                 </table>
             </div>
             <div class="bg-gray-50 px-3 sm:px-6 py-3 flex flex-col sm:flex-row justify-between items-center space-y-3 sm:space-y-0">
@@ -263,12 +317,93 @@
         </div>
     </div>
 
-    <script>
-        document.getElementById('menuButton').addEventListener('click', function() {
-            const mobileMenu = document.getElementById('mobileMenu');
-            mobileMenu.classList.toggle('hidden');
-        });
-    </script>
+
+
+
+
+
+
+
+
+
+
+    <!-- Modal de confirmation pour la suppression  -->
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Modal pour l'activation -->
+    <div id="archiveModal" class="modal">
+  <div class="modal-content bg-white rounded-xl shadow-2xl p-6 w-[600px] mx-auto">
+    <div class="flex items-center justify-center mb-4">
+      <svg class="w-6 h-6 text-blue-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 13V7a2 2 0 00-2-2H6a2 2 0 00-2 2v6m16 0v6a2 2 0 01-2 2H6a2 2 0 01-2-2v-6m16 0H4"></path>
+      </svg>
+      <h2 class="text-xl font-bold text-gray-800">Activation du compte</h2>
+    </div>
+
+    <p class="text-center font-medium text-lg text-gray-700 mb-3">Êtes-vous sûr de vouloir activer ce compte ?</p>
+
+    <div class="bg-blue-50 p-3 rounded-md mb-3">
+      <p class="text-blue-800 text-sm text-center">Le compte sera activé et l'utilisateur pourra se connecter à la plateforme.</p>
+    </div>
+
+    <!-- Input ajouté ici -->
+    <div class="mb-4">
+      <label for="activation_note" class="block text-sm font-medium text-gray-700 mb-1">Ajouter un commentaire (optionnel)</label>
+      <input type="text" name="activation_note" id="activation_note" placeholder="Ex : Activation manuelle après vérification" class="w-full border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+    </div>
+
+    <div class="modal-buttons flex justify-between mt-4">
+      <button onclick="closeModal2()" class="bg-gray-300 hover:bg-gray-400 text-gray-800 px-4 py-2 rounded text-sm font-medium transition-all duration-200 flex-grow mr-2">
+        Annuler
+      </button>
+      <form id="archiveForm" method="POST" action="" class="flex-grow ml-2">
+        @csrf
+        @method('PUT')
+        <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded text-sm font-medium transition-all duration-200 w-full flex items-center justify-center">
+          <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v8m0 0l3-3m-3 3l-3-3m-6-4v6a2 2 0 002 2h12a2 2 0 002-2v-6M4 8h16"></path>
+          </svg>
+          Confirmer
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+     <!-- -------------------------------------- -->
+     <script>
+    // Ouvrir le modal
+    function openModal(id) {
+        document.getElementById('modal-' + id).style.display = 'block';
+    }
+
+    // Fermer le modal
+    function closeModal(id) {
+        document.getElementById('modal-' + id).style.display = 'none';
+    }
+
+    // Fermer le modal si l'utilisateur clique en dehors du modal
+    window.onclick = function(event) {
+        if (event.target.classList.contains('modal')) {
+            event.target.style.display = 'none';
+        }
+    }
+</script>
+
 
 <footer class="bg-[#143B39] text-white py-8">
             <div class="container mx-auto px-4">

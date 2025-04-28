@@ -12,7 +12,8 @@
         <div class="container mx-auto px-4">
            <div class="max-w-md mx-auto bg-white rounded-lg  p-8">
                 <h1 class="text-3xl text-[#18534F] font-bold text-center mb-8">Connectez-vous</h1>
-                <form action="" method="POST">
+                <form action="{{route('login')}}" method="POST">
+                    @csrf
                     <div class="mb-6">
                             <label for="email" class="text-[#18534F] font-medium mb-2">Email</label>
                             <input type="email" id="email" name="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>

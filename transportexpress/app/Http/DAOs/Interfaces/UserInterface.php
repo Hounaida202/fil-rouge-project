@@ -10,6 +10,7 @@ interface UserInterface {
     public function DesactiverCompte($id);
     public function ActiverCompte($id);
     public function SupprimerCompte($id);
-    
+    public function ShowComptes($data);
+
     
 }

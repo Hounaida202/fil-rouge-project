@@ -13,13 +13,11 @@ class NoteController extends Controller
     { 
         $notes = Note::where('cible_id', $id)->with('cible')->get();
         $compte = User::findOrFail($id); 
-    
+        $count=Note::where('cible_id',$id)->count('valeur');
+
         return view('Profile', compact('notes', 'compte'));
         
     }
-    public function compter($id){
-        $count=Note::where('cible_id',$id)->count('valeur');
-        return view('Profile', $count);
-    }
+    
 
 }

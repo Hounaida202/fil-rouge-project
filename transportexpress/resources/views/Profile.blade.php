@@ -33,57 +33,79 @@
       <div class="container mx-auto px-4">
         <div class="flex flex-col md:flex-row gap-6">
            <!-- ----------un coté pour le profil et ses commenatirs ---------- -->
+           <div class="md:w-1/3 w-full">
             <div>
+
+              
                 <div class="bg-white rounded-lg shadow-md overflow-hidden mb-6"> 
-                       <div class="bg-[#18534F] p-6">
-                            <div class="flex flex-col items-center">
-                                <div class="mb-4">
-                                    <img src="{{$compte->image}}" alt="" class="rounded-full h-24 w-24 border-4 border-white">
-                                </div>
-                                <div class="text-center">
-                                    <h1 class="text-xl font-bold text-white mb-2">{{$compte->name}}</h1>
-                                    <div class="text-blue-200 mb-2"></div>
-                                    <div class="flex items-center justify-center">
-                                        <div class="text-yellow-400 flex">
-                                            <span>★</span>
-                                            <span>★</span>
-                                            <span>★</span>
-                                            <span>★</span>
-                                            <span>★</span>
-                                        </div>
-                                        <span class="ml-2 text-white"></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                <!-- --------------------**** -->
+                <div class="bg-[#4C956C] p-6 relative">
+    <div class="absolute top-4 right-4">
+        <button onclick="toggleMenu(this)" class="text-white text-2xl font-bold focus:outline-none">⋮</button>
+        <div class="hidden mt-2 w-60 bg-white text-gray-700 rounded shadow-lg absolute right-0 z-10">
+            <form action="{{route('Supprimer',$compte->id)}}" method="POST">
+                @method('DELETE')
+               @csrf
+                <button class="block px-4 py-2 hover:bg-red-100 text-red-600">Supprimer le compte</button>
+            </form>
+            <form action="{{route('Desactiver',$compte->id)}}" method="POST">
+                @method('PUT')
+               @csrf
+            <button class="block px-4 py-2 hover:bg-gray-100">Archiver</button>
+            </form>
+            <button  class="block px-4 py-2 hover:bg-gray-100">Donner un avertissement</button>
+
+        </div>
+    </div>
+
+    <!-- Profil -->
+    <div class="flex flex-col items-center">
+        <div class="mb-4">
+            <img src="{{$compte->image ?? 'https://www.pngitem.com/pimgs/m/52-526033_unknown-person-icon-png-transparent-png.png' }}" alt="" class="rounded-full h-24 w-24 border-4 border-white">
+        </div>
+        <div class="text-center">
+            <h1 class="text-xl font-bold text-white mb-2">{{$compte->name}}</h1>
+            <div class="text-blue-200 mb-2">{{$compte->role}}</div>
+            <div class="flex items-center justify-center">
+                <!-- <div class="text-yellow-400 flex">
+                    <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                </div> -->
+                <span class="ml-2 text-white">( {{$avg}}/10 - {{$count}} avis)</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- --------------------**** -->
                         <div class="p-4">
                             <h2 class="text-lg font-bold mb-3 text-gray-700">Informations du compte</h2>
                             
                             <div class="space-y-3">
                                 <div>
                                     <div class="text-sm text-gray-500">Email</div>
-                                    <div class="font-medium"></div>
+                                    <div class="font-medium">{{$compte->email}}</div>
                                 </div>
                                 
                                 <div>
                                     <div class="text-sm text-gray-500">Téléphone</div>
-                                    <div class="font-medium"></div>
+                                    <div class="font-medium">{{$compte->tel}}</div>
                                 </div>
 
                                 <div>
                                     <div class="text-sm text-gray-500">CIN</div>
-                                    <div class="font-medium"></div>
+                                    <div class="font-medium">{{$compte->cin}}</div>
                                 </div>
                               
                                 
                                 <div>
                                     <div class="text-sm text-gray-500">Ville</div>
-                                    <div class="font-medium"></div>
+                                    <div class="font-medium">{{$compte->ville}}</div>
                                 </div>
                                 
                                 <div>
                                     <div class="text-sm text-gray-500">Membre depuis</div>
-                                    <div class="font-medium">le 29</div>
+                                    <div class="font-medium">le {{$compte->created_at}}</div>
                                 </div>
                             </div>
                             <h2 class="text-lg font-bold mb-3 mt-4 text-gray-700">Statistiques</h2>
@@ -102,29 +124,39 @@
                                 </div>
                             </div>
                         </div>
+                     
                 </div>
                 <!-- ----les commenatires-------- -->
                 <div class="bg-white rounded-lg shadow-md p-4">
-                        <h2 class="text-lg font-bold mb-4 text-gray-700">Commentaires (nombre ici)</h2>
-                        <div class="mb-4 pb-4 border-b border-gray-200">
-                            <div class="flex items-start mb-2">
-                                <img src="" alt="" class="rounded-full h-8 w-8 mr-2">
-                                <div>
-                                    <div class="font-bold text-sm"></div>
-                                    <div class="text-xs text-gray-500">Posté il y a (le temps ici) </div>
-                                </div>
-                            </div>
-                            <p class="text-gray-700 text-sm">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis omnis veritatis cum unde ad magnam laudantium esse magni exercitationem et.
-                            </p>
-                        </div>
+                        
+                        <h2 class="text-lg font-bold mb-4 text-gray-700">Commentaires ({{$countcommentaires}})</h2>
+                        @forelse($commentaires as $commentaire)
+  <div  class="mb-6 pb-6 border-b border-gray-200">
+    
+        <div class="flex items-start mb-3">
+        <img src="{{ $commentaire->auteur->image ?? 'https://www.pngitem.com/pimgs/m/52-526033_unknown-person-icon-png-transparent-png.png' }}" alt="" class="rounded-full h-10 w-10 mr-3">
+        <div>
+                    <div class="font-bold">{{ $commentaire->auteur->name ?? 'Utilisateur inconnu' }}</div>
+                    <div class="text-sm text-gray-500">Posté il y a {{ $commentaire->created_at->diffForHumans() }}</div>
+                </div>
+        </div>
+        <p class="text-gray-700">
+                {{ $commentaire->description }}
+        </p>
+</div>
+@empty
+  <p class="text-gray-500">Aucun commentaire pour cet utilisateur.</p>
+@endforelse
                     </div>
                  <!-- -------- -->
             </div>
+            </div>
            <!-- -------------------------------------------------------------- -->
+           <div class="md:w-2/3 w-full">
             <div>
                 <div class="bg-white rounded-lg shadow-md p-6">
                    <h2 class="text-xl font-bold mb-6 text-gray-700">Publications récentes</h2>
+                   @foreach($publications as $publication)
                      <div class="mb-8 pb-6 border-b border-gray-200">
                           <!-- les infos de compte auteur et temps -->
                             <div class="flex items-center mb-4">
@@ -178,23 +210,34 @@
                            <div class="mb-6">
                                 <h3 class="font-medium mb-2">Description :</h3>
                                 <p class="text-gray-600">
-                                    Transport de meubles avec camion 20m³. Espace disponible pour d'autres marchandises. 
-                                    Chargement prévu le matin du 15 avril, départ vers 10h. Livraison prévue à Lyon dans l'après-midi vers 16h.
-                                    Possibilité de faire des arrêts intermédiaires sur le trajet.
+                                    {{$publication->description}}
                                 </p>
                             </div>
                             <div class="mb-6">
                                 <img src="" alt="" class="w-full h-auto object-cover rounded-md">
                             </div>
                      </div>
+                     @endforeach
                 </div>
+            </div>
             </div>
           <!-- ------la fin de partie des publications---- -->
 
         </div>
       </div>
     </section>
-
+    <script>
+    function toggleMenu(button) {
+        const menu = button.nextElementSibling;
+        menu.classList.toggle('hidden');
+        document.addEventListener('click', function handler(e) {
+            if (!button.contains(e.target) && !menu.contains(e.target)) {
+                menu.classList.add('hidden');
+                document.removeEventListener('click', handler);
+            }
+        });
+    }
+</script>
 
 </body>
 </html>

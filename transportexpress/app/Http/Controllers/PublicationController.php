@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\DAOs\Interfaces\PublicationInterface;
 use Illuminate\Http\Request;
 use App\Models\Publication;
 use App\Models\User;
@@ -9,10 +10,14 @@ use App\Models\User;
 
 class PublicationController extends Controller
 {
+        protected $PublicationRepository;
+        public function __construct(PublicationInterface $PublicationRepository)
+        {
+            $this->PublicationRepository = $PublicationRepository;
+        }
  
     public function afficherPublications($id){
-        $compte = User::find($id);
-        $publications=Publication::where('user_id',$id)->get();
-        return view('Profile',compact('publications','compte'));
+        $publications=$this->PublicationRepository->afficherPublications($id);
+        return view('Profile',compact('publications'));
     }
 }

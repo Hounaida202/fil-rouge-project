@@ -26,9 +26,7 @@ class ReclamationController extends Controller
     }
     public function supprimerReclamations($id)
     { 
-        $reclamation=Reclamation::find($id);
-        $reclamation->delete();
-
+        $this->ReclamationRepository->afficherReclamations($id);
         return redirect()->back();
 
     }

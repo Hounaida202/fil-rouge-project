@@ -14,14 +14,14 @@
                 <span class="font-bold text-xl">TransportExpress</span>
             </div>
             <div class="hidden md:flex space-x-4">
-                <a href="#" class="hover:text-blue-200">Accueil</a>
-                <a href="#" class="hover:text-blue-200">Services</a>
-                <a href="#" class="hover:text-blue-200">À propos</a>
-                <a href="#" class="hover:text-blue-200">Contact</a>
+                <a href="" class="hover:text-blue-200">Accueil</a>
+                <a href="" class="hover:text-blue-200">Services</a>
+                <a href="" class="hover:text-blue-200">À propos</a>
+                <a href="" class="hover:text-blue-200">Contact</a>
             </div>
             <div class="flex space-x-2">
-                <a href="" class="bg-white text-blue-600 px-4 py-2 rounded hover:bg-blue-100">Connexion</a>
-                <a href="" class="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600">Inscription</a>
+                <a href="{{route('connexion')}}" class="bg-white text-blue-600 px-4 py-2 rounded hover:bg-blue-100">Connexion</a>
+                <a href="{{route('inscription')}}" class="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600">Inscription</a>
             </div>
         </div>
         <!-- ------------------------------------------------- -->

@@ -9,12 +9,13 @@ class AccueilController extends Controller
     public function show(){
         return  view('Accueil'); 
     }
-    public function inscription(){
+    public function ShowSignupForm(){
         return  view('SignUp'); 
     }
-    public function connexion(){
+    public function ShowLoginForm(){
         return  view('LogIn'); 
     }
+
     public function ShowReussiteMsg()
     {
         return view('Message');
@@ -23,8 +24,10 @@ class AccueilController extends Controller
      {
          return view('MessageInvalide');
      }
-     public function index(){
-        return  view('Dashboard'); 
-    }
- 
+    
+     public function ShowStatisticsPage()
+     {
+         return view('AdminStatistiques');
+     }
+    
 }
