@@ -94,10 +94,12 @@
         </div>
 
         <div class="flex flex-col md:flex-row justify-end space-y-3 md:space-y-0 md:space-x-4">
-        <button class="bg-red-600 hover:bg-red-700 text-white py-3 px-6 rounded-lg font-medium transition">
+            <button class="bg-red-600 hover:bg-red-700 text-white py-3 px-6 rounded-lg font-medium transition">
                 Refuser la demande
             </button>
-            
+            <button class="bg-green-600 hover:bg-green-700 text-white py-3 px-6 rounded-lg font-medium transition">
+                Valider le compte
+            </button>
         </div>
     <footer class="py-8"></footer>
 </body>
