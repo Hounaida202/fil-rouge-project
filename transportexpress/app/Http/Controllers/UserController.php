@@ -100,6 +100,9 @@ class UserController extends Controller
                 return view('Profile', compact('compte','commentaires','count','avg','countcommentaires','publications'));
 
             }
-
+           
+            public function EnAttenteDetailles(){
+                return view('EnAttenteDetailles');
+            }
 
 }
