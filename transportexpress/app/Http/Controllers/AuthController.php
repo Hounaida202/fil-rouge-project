@@ -27,17 +27,20 @@ class AuthController extends Controller
 
 
                 public function register(SignupRequest $request)
-            {
+            {   
                 $path=null;
                 if($request->hasFile('preuve')){
                     $path=$request->file('preuve')->store('preuves','public');
                 }
-                
+                if($request->hasFile('image')){
+                    $img=$request->file('image')->store('images','public');
+                }
                 $data=[
                         'name' => $request->name,
                         'email' => $request->email,
                         'tel' => $request->tel,
                         'ville' => $request->ville,
+                        'image'=>$img,
                         'password' => Hash::make($request->password),
                         'role' => $request->role,
                         'preuve'=>$path,

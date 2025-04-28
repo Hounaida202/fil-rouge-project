@@ -26,9 +26,21 @@
                       @csrf
 
                       <div class="w-full mb-6">
-    <label for="image" class="text-[#18534F] font-medium mb-2">Choisissez votre photo de profile</label>
-    <input type="file" id="image" name="image" required>
-                      </div>
+                            <label for="image" class="text-[#18534F] font-medium mb-2 block">Choisissez votre photo de profile</label>
+                            
+                            <div class="mx-auto mb-4 text-center">
+                                <!-- Conteneur circulaire pour l'upload -->
+                                <label for="image" class="cursor-pointer inline-block">
+                                    <div class="w-32 h-32 rounded-full bg-gray-200 flex items-center justify-center overflow-hidden border-2 border-[#18534F] hover:bg-gray-300 transition mx-auto">
+                                        <i class="fas fa-camera text-gray-400 text-3xl"></i>
+                                    </div>
+                                    <div class="mt-2 text-sm text-[#18534F]">Cliquez pour choisir une photo</div>
+                                    
+                                    <!-- Input file caché mais toujours fonctionnel -->
+                                    <input type="file" id="image" name="image" class="hidden" accept="image/*" required>
+                                </label>
+                            </div>
+                        </div>
                         <div class="w-full mb-6">
                             <label for="nom" class="text-[#18534F] font-medium mb-2">Nom</label>
                             <input type="text" id="nom" name="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none " required>
@@ -96,7 +108,7 @@
 
                         <div  class="mb-6" id="preuve" style="display: none;">
                             <label for="preuve" class="block text-[#18534F] font-medium mb-2">Prever</label>
-                            <input type="file" id="preuve" name="preuve"  class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                            <input type="file" id="preuve" name="preuve"  class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" >
                         </div>
 
                         <!-- --------les conditions -->

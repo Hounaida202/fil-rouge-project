@@ -114,9 +114,11 @@
                                 <div class="text-sm text-gray-900">{{ $enAttente->email }}</div>
                             </td>
                             <td class="px-3 sm:px-6 py-4 whitespace-nowrap hidden md:table-cell">
-                                <span class="px-2 inline-flex text-xs leading-5 font-semibold">
-                                {{ $enAttente->role }}
-                                </span>
+                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full 
+                    @if($enAttente->role === 'Transporteur') bg-yellow-100 text-yellow-800 
+                    @else bg-green-100 text-green-800 @endif">
+                    {{$enAttente->role}}
+                </span>
                             </td>
                             <td class="px-3 sm:px-6 py-4 whitespace-nowrap text-sm text-gray-500 hidden md:table-cell">
                             {{ $enAttente->ville }}
@@ -139,7 +141,7 @@
                                             Invalider
                                     </button>
                                     </form>
-                                    <a href="{{ route('detailles', $actif->id) }}" class="bg-gray-200 hover:bg-gray-300 text-gray-800 px-2 sm:px-3 py-1 rounded text-xs sm:text-sm">
+                                    <a href="" class="bg-gray-200 hover:bg-gray-300 text-gray-800 px-2 sm:px-3 py-1 rounded text-xs sm:text-sm">
                                         Détails
                                     </a>
                                 </div>
@@ -231,12 +233,21 @@
             <td class="px-3 sm:px-6 py-4 whitespace-nowrap text-sm">
                 <div class="flex flex-col sm:flex-row space-y-1 sm:space-y-0 sm:space-x-2">
                     <!-- Activer -->
-                    <button onclick="openModal('{{ $actif->id }}')" class="bg-green-500 hover:bg-green-600 text-white px-2 sm:px-3 py-1 rounded text-xs sm:text-sm">
-                        Activer
+                     @if($actif->compte=='Actif')
+                    <button  class=" desactive-btn bg-orange-500 hover:bg-green-600 text-white px-2 sm:px-3 py-1 rounded text-xs sm:text-sm" onclick="openModalDesactivation('{{ $actif->id }}')">
+                        Desactiver
                     </button>
-
+                     @else
+                     <form method="POST" action="{{ route('activer', $actif->id) }}">
+                                        @csrf
+                                        @method('PUT')
+                                        <button type="submit" class="bg-green-500 w-24 hover:bg-yellow-600 text-white px-2 sm:px-3 py-1 rounded text-xs sm:text-sm">
+                                            Activer
+                                        </button>
+                     </form>
+                    @endif
                     <!-- Supprimer -->
-                    <button class="delete-btn bg-red-500 hover:bg-red-600 text-white px-2 sm:px-3 py-1 rounded text-xs sm:text-sm" onclick="openModal('{{ $actif->id }}')">
+                    <button class="delete-btn bg-red-500 hover:bg-red-600 text-white px-2 sm:px-3 py-1 rounded text-xs sm:text-sm" onclick="openModal('{{ $actif->id }}')" >
                         Supprimer
                     </button>
 
@@ -286,6 +297,41 @@
             </div>
         </div>
         <!-- Fin du Modal de suppression -->
+
+        <!-- Modal de desactivation -->
+        <div id="desactivation-{{ $actif->id }}" class="modal" style="display:none;">
+            <div class="modal-content bg-white rounded-xl shadow-2xl p-6 w-[600px] mx-auto">
+                <div class="flex items-center justify-center mb-4">
+                    
+                    <h2 class="text-xl font-bold text-gray-800">Vous voulez desactiver ce compte ?</h2>
+                </div>
+
+                <p class="text-center font-medium text-lg text-gray-700 mb-3">Veuillez indiquer les informations suivantes :</p>
+                
+                <form action="/desactiver/{{ $actif->id }}" method="POST">
+                    @csrf
+                    @method('PUT')
+
+                    <div class="mb-3">
+                        <input name="titre" type="text" class="w-full px-3 py-2 text-gray-700 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Titre de l'action">
+                    </div>
+                    <div class="mb-3">
+                        <textarea name="description" rows="3" class="w-full px-3 py-2 text-gray-700 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none" placeholder="Expliquez pourquoi vous souhaitez desactiver ce compte"></textarea>
+                    </div>
+                 
+
+                    <div class="modal-buttons flex justify-between mt-4">
+                        <button type="button" class="bg-gray-300 hover:bg-gray-400 text-gray-800 px-4 py-2 rounded text-sm font-medium transition-all duration-200 flex-grow mr-2" onclick="closeModalDesactivation('{{ $actif->id }}')">
+                            Annuler
+                        </button>
+                        <button type="submit" class="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded text-sm font-medium transition-all duration-200 w-full flex items-center justify-center">
+                            Confirmer
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- Fin du Modal de desactivation -->
 
     </tbody>
 @endforeach
@@ -347,7 +393,7 @@
 
 
     <!-- Modal pour l'activation -->
-    <div id="archiveModal" class="modal">
+    <!-- <div id="archiveModal" class="modal">
   <div class="modal-content bg-white rounded-xl shadow-2xl p-6 w-[600px] mx-auto">
     <div class="flex items-center justify-center mb-4">
       <svg class="w-6 h-6 text-blue-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -362,13 +408,13 @@
       <p class="text-blue-800 text-sm text-center">Le compte sera activé et l'utilisateur pourra se connecter à la plateforme.</p>
     </div>
 
-    <!-- Input ajouté ici -->
-    <div class="mb-4">
+     Input ajouté ici -->
+    <!-- <div class="mb-4">
       <label for="activation_note" class="block text-sm font-medium text-gray-700 mb-1">Ajouter un commentaire (optionnel)</label>
       <input type="text" name="activation_note" id="activation_note" placeholder="Ex : Activation manuelle après vérification" class="w-full border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
-    </div>
+    </div> -->
 
-    <div class="modal-buttons flex justify-between mt-4">
+    <!-- <div class="modal-buttons flex justify-between mt-4">
       <button onclick="closeModal2()" class="bg-gray-300 hover:bg-gray-400 text-gray-800 px-4 py-2 rounded text-sm font-medium transition-all duration-200 flex-grow mr-2">
         Annuler
       </button>
@@ -384,27 +430,35 @@
       </form>
     </div>
   </div>
-</div>
+</div> -->
 
 
      <!-- -------------------------------------- -->
      <script>
-    // Ouvrir le modal
-    function openModal(id) {
-        document.getElementById('modal-' + id).style.display = 'block';
-    }
 
-    // Fermer le modal
+        
+        function openModal(id) {
+            document.getElementById('modal-' + id).style.display = 'block';}
+
+        
+    
     function closeModal(id) {
         document.getElementById('modal-' + id).style.display = 'none';
     }
 
-    // Fermer le modal si l'utilisateur clique en dehors du modal
-    window.onclick = function(event) {
-        if (event.target.classList.contains('modal')) {
-            event.target.style.display = 'none';
-        }
+    function openModalDesactivation(id) {
+            document.getElementById('desactivation-' + id).style.display = 'block';}
+
+        
+    
+    function closeModalDesactivation(id) {
+        document.getElementById('desactivation-' + id).style.display = 'none';
     }
+    // window.onclick = function(event) {
+    //     if (event.target.classList.contains('modal')) {
+    //         event.target.style.display = 'none';
+    //     }
+    // }
 </script>
 
 
