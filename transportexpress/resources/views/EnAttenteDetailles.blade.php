@@ -75,7 +75,7 @@
                         
                         <div class="w-full md:w-1/2 mb-4">
                             <p class="text-gray-600 text-sm">Date d'inscription</p>
-                            <p class="font-medium">15/04/2025</p>
+                            <p class="font-medium">{{$enAttente->created_at}}</p>
                         </div>
                     </div>
                 </div>
