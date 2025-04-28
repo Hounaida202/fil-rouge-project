@@ -88,10 +88,12 @@
                             </div>
                             
                         </div>
-                        <div  class="mb-6" id="preuve">
-                            <label for="ville" class="block text-[#18534F] font-medium mb-2">Ville</label>
+
+                        <div  class="mb-6" id="preuve" style="display: none;">
+                            <label for="preuve" class="block text-[#18534F] font-medium mb-2">Prever</label>
                             <input type="file" id="preuve" name="preuve" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
                         </div>
+
                         <!-- --------les conditions -->
                         <div class="mb-6">
                             <div class="flex items-start">
@@ -170,7 +172,23 @@
 
             }
         }
-        
+        let transporteur=document.getElementById("transporteur");
+        let client=document.getElementById("client");
+        let preuve=document.getElementById("preuve");
+         transporteur.addEventListener("change",function(){
+            if(transporteur.checked){
+                preuve.style.display="block";
+            }
+
+         });
+         client.addEventListener("change",function(){
+            if(client.checked){
+                preuve.style.display="none";
+            }
+
+         });
+
+
     </script>
 </body>
 </html>
