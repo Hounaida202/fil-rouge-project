@@ -141,7 +141,7 @@
                                             Invalider
                                     </button>
                                     </form>
-                                    <a href="" class="bg-gray-200 hover:bg-gray-300 text-gray-800 px-2 sm:px-3 py-1 rounded text-xs sm:text-sm">
+                                    <a href="{{route('preuve')}}" class="bg-gray-200 hover:bg-gray-300 text-gray-800 px-2 sm:px-3 py-1 rounded text-xs sm:text-sm">
                                         Détails
                                     </a>
                                 </div>
