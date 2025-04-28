@@ -93,26 +93,63 @@
         </div>
 
         <div class="flex flex-col md:flex-row justify-end space-y-3 md:space-y-0 md:space-x-4">
-        <form method="POST" action="{{route('Invalide',$enAttente->id)}}">
+                <form method="POST" action="{{route('Invalide',$enAttente->id)}}">
                                     @csrf
                                     @method('PUT')   
                                     <button type="submit" value="Invalide" class="bg-red-600 hover:bg-red-700 text-white py-3 px-6 rounded-lg font-medium transition">
                                         Refuser la demande
                                     </button>
                                     
-                                    </form>
+                </form>
 
-            <form method="POST" action="{{ route('Valide', $enAttente->id) }}">
+               <form method="POST" action="{{ route('Valide', $enAttente->id) }}">
                                     @csrf
                                     @method('PUT')
-                                    
                                     <button type="submit" value="Valide" class="bg-green-600 hover:bg-green-700 text-white py-3 px-6 rounded-lg font-medium transition">
                                         Valider le compte
                                     </button>
-                                </form>
+                </form>
         </div>
     </div>
 
-    <footer class="py-8"></footer>
+    <footer class="py-8">
+    <footer class="bg-[#143B39] text-white py-8">
+            <div class="container mx-auto px-4">
+                <div class="flex flex-col md:flex-row md:justify-between md:items-start gap-8 flex-wrap">
+                    <div class="md:w-1/4">
+                        <h3 class="text-xl font-bold mb-4">TransportExpress</h3>
+                        <p class="text-gray-400">Solutions de transport de marchandises fiables et efficaces.</p>
+                    </div>
+                    <div class="md:w-1/4">
+                        <h4 class="font-bold mb-4">Services</h4>
+                        <ul class="space-y-2">
+                            <li>
+                            <a href="" class="text-gray-400 hover:text-white">Transport National</a>
+                            </li>
+                            <li>
+                            <a href="" class="text-gray-400 hover:text-white">Transport International</a>
+                            </li>
+                            <li>
+                            <a href="" class="text-gray-400 hover:text-white">Suivi en Temps Réel</a>
+                            </li>
+                            
+                        </ul>
+                    </div>
+                    <div class="md:w-1/4">
+                        <h4 class="font-bold mb-4">Contact</h4>
+                        <ul class="space-y-2 text-gray-400">
+                            <li>Safi</li>
+                            <li>transportexpress@gmail.com</li>
+                            <li>+212 1111111111</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="border-t border-gray-700 mt-8 pt-6 text-center text-gray-400">
+                    <p>&copy; 2025 TransportExpress. Tous droits réservés.</p>
+                </div>
+            </div>
+       
+    </footer>
+    </footer>
 </body>
 </html>
