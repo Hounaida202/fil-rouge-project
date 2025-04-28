@@ -60,7 +60,7 @@
                         
                         <div class="w-full md:w-1/2 mb-4">
                             <p class="text-gray-600 text-sm">Numéro de téléphone</p>
-                            <p class="font-medium">+33 6 12 34 56 78</p>
+                            <p class="font-medium">{{$enAttente->tel}}</p>
                         </div>
                         
                         <div class="w-full md:w-1/2 mb-4">
