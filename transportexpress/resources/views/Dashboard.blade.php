@@ -207,8 +207,6 @@
             <td class="px-3 sm:px-6 py-4 whitespace-nowrap hidden sm:table-cell">
                 <div class="text-sm text-gray-900">{{$actif->email}}</div>
             </td>
-
-            <!-- Role -->
             <td class="px-3 sm:px-6 py-4 whitespace-nowrap hidden sm:table-cell">
                 <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full 
                     @if($actif->role === 'Transporteur') bg-yellow-100 text-yellow-800 
@@ -216,23 +214,16 @@
                     {{$actif->role}}
                 </span>
             </td>
-
-            <!-- Ville -->
             <td class="px-3 sm:px-6 py-4 whitespace-nowrap text-sm text-gray-500 hidden md:table-cell">
                 {{$actif->ville}}
             </td>
-
-            <!-- Compte -->
             <td class="px-3 sm:px-6 py-4 whitespace-nowrap hidden md:table-cell">
                 <span class="px-2 inline-flex text-xs leading-5 font-semibold">
                     {{$actif->compte}}
                 </span>
             </td>
-
-            <!-- Actions -->
             <td class="px-3 sm:px-6 py-4 whitespace-nowrap text-sm">
                 <div class="flex flex-col sm:flex-row space-y-1 sm:space-y-0 sm:space-x-2">
-                    <!-- Activer -->
                      @if($actif->compte=='Actif')
                     <button  class=" desactive-btn bg-orange-500 hover:bg-green-600 text-white px-2 sm:px-3 py-1 rounded text-xs sm:text-sm" onclick="openModalDesactivation('{{ $actif->id }}')">
                         Desactiver
@@ -246,19 +237,15 @@
                                         </button>
                      </form>
                     @endif
-                    <!-- Supprimer -->
                     <button class="delete-btn bg-red-500 hover:bg-red-600 text-white px-2 sm:px-3 py-1 rounded text-xs sm:text-sm" onclick="openModal('{{ $actif->id }}')" >
                         Supprimer
                     </button>
-
-                    <!-- Détails -->
                     <a href="{{ route('detailles', $actif->id) }}" class="bg-gray-200 hover:bg-gray-300 text-gray-800 px-2 sm:px-3 py-1 rounded text-xs sm:text-sm">
                         Détails
                     </a>
                 </div>
             </td>
         </tr>
-
         <!-- Modal de suppression -->
         <div id="modal-{{ $actif->id }}" class="modal" style="display:none;">
             <div class="modal-content bg-white rounded-xl shadow-2xl p-6 w-[600px] mx-auto">
@@ -297,7 +284,6 @@
             </div>
         </div>
         <!-- Fin du Modal de suppression -->
-
         <!-- Modal de desactivation -->
         <div id="desactivation-{{ $actif->id }}" class="modal" style="display:none;">
             <div class="modal-content bg-white rounded-xl shadow-2xl p-6 w-[600px] mx-auto">
@@ -318,8 +304,6 @@
                     <div class="mb-3">
                         <textarea name="description" rows="3" class="w-full px-3 py-2 text-gray-700 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none" placeholder="Expliquez pourquoi vous souhaitez desactiver ce compte"></textarea>
                     </div>
-                 
-
                     <div class="modal-buttons flex justify-between mt-4">
                         <button type="button" class="bg-gray-300 hover:bg-gray-400 text-gray-800 px-4 py-2 rounded text-sm font-medium transition-all duration-200 flex-grow mr-2" onclick="closeModalDesactivation('{{ $actif->id }}')">
                             Annuler
@@ -335,27 +319,16 @@
 
     </tbody>
 @endforeach
-
                 </table>
             </div>
             <div class="bg-gray-50 px-3 sm:px-6 py-3 flex flex-col sm:flex-row justify-between items-center space-y-3 sm:space-y-0">
                 <div class="flex items-center">
-                    <!-- <span class="text-xs sm:text-sm text-gray-700">
-                        Afficher 
-                        <select class="mx-1 bg-gray-50 border-gray-300 focus:ring-blue-500 focus:border-blue-500 rounded-md">
-                            <option>10</option>
-                            <option>25</option>
-                            <option>50</option>
-                            <option>100</option>
-                        </select>
-                        entrées
-                    </span> -->
-                    <form method="GET" action="{{ route('dashboard')}}">
+                    <form method="GET" action="{{route('dashboard')}}">
                         <label for="per_page">Choisissez le nombre de comptes par page :</label>
                         <select name="per_page" id="per_page" onchange="this.form.submit()">
-                            <option value="3" {{ request('per_page') == 3 ? 'selected' : '' }}>3 par page</option>
-                            <option value="5" {{ request('per_page') == 5 ? 'selected' : '' }}>5 par page</option>
-                            <option value="7" {{ request('per_page') == 7 ? 'selected' : '' }}>7 par page</option>
+                            <option value="3"{{request('per_page') == 3 ?'selected' :'' }}>3 par page</option>
+                            <option value="5"{{request('per_page') == 5 ?'selected' :'' }}>5 par page</option>
+                            <option value="7"{{request('per_page') == 7 ? 'selected' :'' }}>7 par page</option>
                         </select>
                     </form>
                 </div>
@@ -365,100 +338,22 @@
             </div>
         </div>
     </div>
-
-
-
-
-
-
-
-
-
-
-
-    <!-- Modal de confirmation pour la suppression  -->
-   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <!-- Modal pour l'activation -->
-    <!-- <div id="archiveModal" class="modal">
-  <div class="modal-content bg-white rounded-xl shadow-2xl p-6 w-[600px] mx-auto">
-    <div class="flex items-center justify-center mb-4">
-      <svg class="w-6 h-6 text-blue-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 13V7a2 2 0 00-2-2H6a2 2 0 00-2 2v6m16 0v6a2 2 0 01-2 2H6a2 2 0 01-2-2v-6m16 0H4"></path>
-      </svg>
-      <h2 class="text-xl font-bold text-gray-800">Activation du compte</h2>
-    </div>
-
-    <p class="text-center font-medium text-lg text-gray-700 mb-3">Êtes-vous sûr de vouloir activer ce compte ?</p>
-
-    <div class="bg-blue-50 p-3 rounded-md mb-3">
-      <p class="text-blue-800 text-sm text-center">Le compte sera activé et l'utilisateur pourra se connecter à la plateforme.</p>
-    </div>
-
-     Input ajouté ici -->
-    <!-- <div class="mb-4">
-      <label for="activation_note" class="block text-sm font-medium text-gray-700 mb-1">Ajouter un commentaire (optionnel)</label>
-      <input type="text" name="activation_note" id="activation_note" placeholder="Ex : Activation manuelle après vérification" class="w-full border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
-    </div> -->
-
-    <!-- <div class="modal-buttons flex justify-between mt-4">
-      <button onclick="closeModal2()" class="bg-gray-300 hover:bg-gray-400 text-gray-800 px-4 py-2 rounded text-sm font-medium transition-all duration-200 flex-grow mr-2">
-        Annuler
-      </button>
-      <form id="archiveForm" method="POST" action="" class="flex-grow ml-2">
-        @csrf
-        @method('PUT')
-        <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded text-sm font-medium transition-all duration-200 w-full flex items-center justify-center">
-          <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v8m0 0l3-3m-3 3l-3-3m-6-4v6a2 2 0 002 2h12a2 2 0 002-2v-6M4 8h16"></path>
-          </svg>
-          Confirmer
-        </button>
-      </form>
-    </div>
-  </div>
-</div> -->
-
-
      <!-- -------------------------------------- -->
      <script>
-
         
-        function openModal(id) {
-            document.getElementById('modal-' + id).style.display = 'block';}
-
+     function openModal(id){
+            document.getElementById('modal-'+id).style.display='block';}
         
-    
-    function closeModal(id) {
-        document.getElementById('modal-' + id).style.display = 'none';
+    function closeModal(id){
+        document.getElementById('modal-'+id).style.display='none';
     }
-
-    function openModalDesactivation(id) {
-            document.getElementById('desactivation-' + id).style.display = 'block';}
-
-        
+    function openModalDesactivation(id){
+            document.getElementById('desactivation-'+id).style.display='block';}
     
-    function closeModalDesactivation(id) {
-        document.getElementById('desactivation-' + id).style.display = 'none';
+    function closeModalDesactivation(id){
+        document.getElementById('desactivation-'+id).style.display='none';
     }
-    // window.onclick = function(event) {
-    //     if (event.target.classList.contains('modal')) {
-    //         event.target.style.display = 'none';
-    //     }
-    // }
+   
 </script>
 
 
