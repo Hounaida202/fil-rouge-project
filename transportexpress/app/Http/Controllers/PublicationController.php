@@ -20,4 +20,9 @@ class PublicationController extends Controller
         $publications=$this->PublicationRepository->afficherPublications($id);
         return view('Profile',compact('publications'));
     }
+
+    public function afficherAllPublications(){
+        $publications=$this->PublicationRepository->afficherAllPublications();
+        return view('Client/Home',compact('publications'));
+    }
 }
