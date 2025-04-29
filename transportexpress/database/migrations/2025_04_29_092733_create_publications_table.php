@@ -26,7 +26,7 @@ return new class extends Migration
             $table->string('description');
             $table->string('image')->nullable();
             $table->string('prix')->nullable();
-            $table->enum('etat',['en cours','expiré'])->nullable();
+            $table->enum('etat',['en cours','expiré'])->nullable()->default('en cours');
             $table->string('localisation');
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->timestamps();
