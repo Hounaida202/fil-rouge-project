@@ -103,7 +103,7 @@
             <div>
                 <h3 class="font-bold text-lg">{{$publication->user->name}}</h3>
                 <div class="flex items-center gap-3 text-gray-600 text-sm">
-                    <span>ahmed.benali@gmail.com</span>
+                    <span>{{$publication->user->email}}</span>
                     <span class="px-2 py-0.5 bg-blue-100 text-blue-800 rounded-full">Transporteur</span>
                 </div>
             </div>
