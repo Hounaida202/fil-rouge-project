@@ -88,7 +88,11 @@
                         <option value="Expiré">Expiré</option>
                     </select>
                 </div>
-                
+                <div class="w-full md:w-auto flex items-end">
+                    <button class="bg-[#18534F] hover:bg-[#143B39] text-white px-4 py-1.5 rounded focus:outline-none text-sm">
+                        Filtrer
+                    </button>
+                </div>
             </div>
         </div>
         
