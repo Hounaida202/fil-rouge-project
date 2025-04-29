@@ -96,6 +96,7 @@
             </div>
         </div>
         <div class="space-y-6">
+            
             @foreach($publications as $publication)
     <div class="bg-white rounded-lg shadow-lg overflow-hidden">
         <div class="p-4 border-b flex items-center gap-4">
@@ -104,7 +105,7 @@
                 <h3 class="font-bold text-lg">{{$publication->user->name}}</h3>
                 <div class="flex items-center gap-3 text-gray-600 text-sm">
                     <span>{{$publication->user->email}}</span>
-                    <span class="px-2 py-0.5 bg-blue-100 text-blue-800 rounded-full">Transporteur</span>
+                    <span class="px-2 py-0.5 bg-blue-100 text-blue-800 rounded-full">{{$publication->user->role}}</span>
                 </div>
             </div>
         </div>

@@ -12,7 +12,9 @@ class PublicationRepository implements PublicationInterface{
         return Publication::where('user_id',$id)->with('cible')->get();
     }
     public function afficherAllPublications()
-    {
-        return Publication::with('user')->get();
-    }
+    {   
+        return Publication::with('user')
+        ->whereHas('user', function ($query) {
+            $query->where('role', 'Transporteur');
+        })->get();    }
 }

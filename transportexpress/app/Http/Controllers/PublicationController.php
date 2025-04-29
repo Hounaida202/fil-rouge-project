@@ -23,6 +23,7 @@ class PublicationController extends Controller
 
     public function afficherAllPublications(){
         $publications=$this->PublicationRepository->afficherAllPublications();
-        return view('Client/Home',compact('publications'));
+            return view('Client/Home',compact('publications'));
+        
     }
 }
