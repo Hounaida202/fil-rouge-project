@@ -40,6 +40,24 @@
     </style>
 </head>
 <body class="bg-gray-100 font-sans static">
+    <!-- une sweet alert pour la confirmation de suppression -->
+    <div id="supressionSuccesAlert" class="bg-" style="display:none;">
+        
+    </div>
+    <div id="desactivationSuccesAlert" class="bg-" style="display:none;">
+        
+    </div>
+    <div id="activationSuccesAlert" class="" style="display:none;">
+        <div>
+
+        </div>
+    </div>
+    <div id="validationSuccesAlert" class="bg-" style="display:none;">
+        
+    </div>
+    <div id="invalidationSuccesAlert" class="bg-" style="display:none;">
+        
+    </div>
     <nav class="bg-[#18534F] text-white p-4 shadow-md">
         <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
             <div class="flex items-center w-full md:w-auto justify-between">
@@ -276,7 +294,7 @@
                         <button type="button" class="bg-gray-300 hover:bg-gray-400 text-gray-800 px-4 py-2 rounded text-sm font-medium transition-all duration-200 flex-grow mr-2" onclick="closeModal('{{ $actif->id }}')">
                             Annuler
                         </button>
-                        <button type="submit" class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded text-sm font-medium transition-all duration-200 w-full flex items-center justify-center">
+                        <button type="submit" id="suppression" class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded text-sm font-medium transition-all duration-200 w-full flex items-center justify-center">
                             Confirmer
                         </button>
                     </div>
@@ -317,10 +335,11 @@
         </div>
         <!-- Fin du Modal de desactivation -->
 
-    </tbody>
-@endforeach
+                        </tbody>
+                    @endforeach
                 </table>
             </div>
+
             <div class="bg-gray-50 px-3 sm:px-6 py-3 flex flex-col sm:flex-row justify-between items-center space-y-3 sm:space-y-0">
                 <div class="flex items-center">
                     <form method="GET" action="{{route('dashboard')}}">
