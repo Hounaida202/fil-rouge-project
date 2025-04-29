@@ -95,6 +95,66 @@
                 </div>
             </div>
         </div>
+        <div class="space-y-6">
+    <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+        <div class="p-4 border-b flex items-center gap-4">
+            <img src="" alt="" class="w-14 h-14 rounded-full object-cover">
+            <div>
+                <h3 class="font-bold text-lg">Ahmed Benali</h3>
+                <div class="flex items-center gap-3 text-gray-600 text-sm">
+                    <span>ahmed.benali@gmail.com</span>
+                    <span class="px-2 py-0.5 bg-blue-100 text-blue-800 rounded-full">Transporteur</span>
+                </div>
+            </div>
+        </div>
+        <div class="p-6">
+            <div class="flex justify-between items-start mb-4">
+                <h2 class="text-2xl font-bold">Transport de mobilier de bureau</h2>
+                <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full font-medium">En cours</span>
+            </div>
+            <div class="flex flex-wrap mb-6">
+                <div class="w-full md:w-1/2 mb-2">
+                    <p class="flex items-center gap-2 mb-2">
+                        <i class="fas fa-map-marker-alt text-[#18534F] w-5"></i>
+                        <span class="font-medium">Ville:</span> Casablanca
+                    </p>
+                    <p class="flex items-center gap-2 mb-2">
+                        <i class="fas fa-calendar text-[#18534F] w-5"></i>
+                        <span class="font-medium">Date:</span> 03/05/2025
+                    </p>
+                    <p class="flex items-center gap-2 mb-2">
+                        <i class="fas fa-tag text-[#18534F] w-5"></i>
+                        <span class="font-medium">Type:</span> Lourd
+                    </p>
+                </div>
+                <div class="w-full md:w-1/2 mb-2">
+                    <p class="flex items-center gap-2 mb-2">
+                        <i class="fas fa-weight-hanging text-[#18534F] w-5"></i>
+                        <span class="font-medium">Quantité max:</span> 500 kg
+                    </p>
+                    <p class="flex items-center gap-2 mb-2">
+                        <i class="fas fa-money-bill-wave text-[#18534F] w-5"></i>
+                        <span class="font-medium">Prix:</span>
+                    </p>
+                </div>
+            </div>
+            <div class="mb-6">
+                <h4 class="font-medium mb-2">Description:</h4>
+                <p class="text-gray-700">
+                </p>
+            </div>
+            
+            <div class="flex gap-3 justify-center">
+                <button class="px-4 py-2 bg-[#18534F] hover:bg-[#143B39] text-white rounded font-medium transition text-sm">
+                    <i class="fas fa-bookmark mr-1"></i>Réserver
+                </button>
+                <button class="px-4 py-2 border border-[#18534F] text-[#18534F] hover:bg-gray-50 rounded font-medium transition text-sm">
+                    <i class="far fa-clock mr-1"></i>Enregistrer
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
         
     </div>
 </body>
