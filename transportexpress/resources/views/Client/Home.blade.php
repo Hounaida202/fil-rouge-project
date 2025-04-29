@@ -96,11 +96,12 @@
             </div>
         </div>
         <div class="space-y-6">
+            @foreach($publications as $publication)
     <div class="bg-white rounded-lg shadow-lg overflow-hidden">
         <div class="p-4 border-b flex items-center gap-4">
             <img src="" alt="" class="w-14 h-14 rounded-full object-cover">
             <div>
-                <h3 class="font-bold text-lg">Ahmed Benali</h3>
+                <h3 class="font-bold text-lg">{{$publication->user->name}}</h3>
                 <div class="flex items-center gap-3 text-gray-600 text-sm">
                     <span>ahmed.benali@gmail.com</span>
                     <span class="px-2 py-0.5 bg-blue-100 text-blue-800 rounded-full">Transporteur</span>
@@ -109,9 +110,12 @@
         </div>
         <div class="p-6">
             <div class="flex justify-between items-start mb-4">
-                <h2 class="text-2xl font-bold">Transport de mobilier de bureau</h2>
+                <h2 class="text-2xl font-bold">{{$publication->titre}}</h2>
                 <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full font-medium">En cours</span>
             </div>
+            <div class="w-96 mx-auto mb-8 rounded-lg overflow-hidden border">
+                        <img src="" alt="Image du transport" class="w-full h-auto object-cover">
+                    </div>
             <div class="flex flex-wrap mb-6">
                 <div class="w-full md:w-1/2 mb-2">
                     <p class="flex items-center gap-2 mb-2">
@@ -158,6 +162,7 @@
             </div>
         </div>
     </div>
+    @endforeach
 </div>
     </div>
 </body>
