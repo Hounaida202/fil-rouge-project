@@ -60,6 +60,26 @@
                     </select>
 
                 </div>
+                <div class="w-full md:w-auto">
+                    <label class="block text-sm text-gray-600 mb-1">Type</label>
+                    <select class="w-full md:w-40 px-2 py-1.5 border rounded focus:outline-none focus:ring-1 focus:ring-[#18534F] text-sm">
+                        <option value="">Tous les types</option>
+                        <option value="Fragile">Fragile</option>
+                        <option value="Lourd">Lourd</option>
+                        <option value="Standard">Standard</option>
+                        <option value="Périssable">Périssable</option>
+                        <option value="Liquide">Liquide</option>
+                        <option value="Chimique">Chimique</option>
+                        <option value="Matériel électronique">Matériel électronique</option>
+                        <option value="Animaux vivants">Animaux vivants</option>
+                        <option value="Produits médicaux">Produits médicaux</option>
+                        <option value="Matériaux dangereux">Matériaux dangereux</option>
+                        <option value="Textile">Textile</option>
+                        <option value="Meubles">Meubles</option>
+                        <option value="Aliments secs">Aliments secs</option>
+                        <option value="Véhicules">Véhicules</option>
+                    </select>
+                </div>
                 
             </div>
         </div>
