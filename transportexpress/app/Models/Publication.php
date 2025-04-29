@@ -9,7 +9,7 @@ class Publication extends Model
 {
     use HasFactory;
     protected $fillable=['titre','ville_depart','adresse_depart','ville_arrivee','adresse_arrivee','date_depart',
-'type','poids','description','image','prix','user_id'];
+'type','poids','description','image','prix','etat','localisation','user_id'];
 
 public function cible()
 {
