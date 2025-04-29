@@ -116,7 +116,7 @@
                 <div class="w-full md:w-1/2 mb-2">
                     <p class="flex items-center gap-2 mb-2">
                         <i class="fas fa-map-marker-alt text-[#18534F] w-5"></i>
-                        <span class="font-medium">Ville:</span> Casablanca
+                        <span class="font-medium">Ville de départ:</span> Casablanca
                     </p>
                     <p class="flex items-center gap-2 mb-2">
                         <i class="fas fa-calendar text-[#18534F] w-5"></i>
@@ -128,6 +128,10 @@
                     </p>
                 </div>
                 <div class="w-full md:w-1/2 mb-2">
+                    <p class="flex items-center gap-2 mb-2">
+                        <i class="fas fa-map-marker-alt text-[#18534F] w-5"></i>
+                        <span class="font-medium">Ville d'arrivé:</span> Safi
+                    </p>
                     <p class="flex items-center gap-2 mb-2">
                         <i class="fas fa-weight-hanging text-[#18534F] w-5"></i>
                         <span class="font-medium">Quantité max:</span> 500 kg
@@ -155,7 +159,6 @@
         </div>
     </div>
 </div>
-        
     </div>
 </body>
 </html>
