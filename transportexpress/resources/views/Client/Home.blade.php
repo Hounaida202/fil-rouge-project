@@ -9,6 +9,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body class="bg-gray-100 font-sans">
-    
+<div class="container mx-auto px-4 py-8 max-w-4xl">
+        <div class="flex justify-between items-center mb-6">
+            <h1 class="text-2xl font-bold">Publications disponibles</h1>
+            <a href="" class="bg-[#18534F] hover:bg-[#143B39] text-white py-1.5 px-3 rounded font-medium transition text-sm">
+                <i class="fas fa-plus mr-1"></i>Créer une publication
+            </a>
+        </div>
+        
+    </div>
 </body>
 </html>
