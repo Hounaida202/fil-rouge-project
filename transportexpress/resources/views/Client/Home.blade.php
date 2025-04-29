@@ -16,6 +16,11 @@
                 <i class="fas fa-plus mr-1"></i>Créer une publication
             </a>
         </div>
+        <div class="bg-white rounded shadow-md p-3 mb-6">
+            <div class="flex flex-wrap gap-3">
+                
+            </div>
+        </div>
         
     </div>
 </body>
