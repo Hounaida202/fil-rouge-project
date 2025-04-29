@@ -80,6 +80,14 @@
                         <option value="Véhicules">Véhicules</option>
                     </select>
                 </div>
+                <div class="w-full md:w-auto">
+                    <label class="block text-sm text-gray-600 mb-1">Statut</label>
+                    <select class="w-full md:w-40 px-2 py-1.5 border rounded focus:outline-none focus:ring-1 focus:ring-[#18534F] text-sm">
+                        <option value="">Tous</option>
+                        <option value="En cours">En cours</option>
+                        <option value="Expiré">Expiré</option>
+                    </select>
+                </div>
                 
             </div>
         </div>
