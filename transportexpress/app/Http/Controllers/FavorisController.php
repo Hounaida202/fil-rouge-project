@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 class FavorisController extends Controller
 {
     public function ajouterAuxFavoris($publication_id){
+        $user_id=Auth::id();
         
     }
 }
