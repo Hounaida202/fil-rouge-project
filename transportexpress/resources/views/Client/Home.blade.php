@@ -23,7 +23,7 @@
                 <a href="" class="hover:text-blue-200 font-medium block">Favoris</a>
                 <a href="" class="hover:text-blue-200 font-medium block">Notification</a>
             </div>
-            <div class="hidden md:flex items-center space-x-3 mt-4 md:mt-0">
+            <div  class="hidden md:flex items-center space-x-3 mt-4 md:mt-0">
                 <span>{{ Auth::user()->name }}</span>
                 <img src="{{asset('storage/'.Auth::user()->image)}}" alt="" class="w-8 h-8  rounded-full ">
             </div>
@@ -38,7 +38,6 @@
         </div>
         <!-- -------qulque chose ici -->
         <div class="space-y-6">
-            
             @foreach($publications as $publication)
     <div class="bg-white rounded-lg shadow-lg overflow-hidden">
         <div class="p-4 border-b flex items-center gap-4">

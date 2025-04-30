@@ -53,7 +53,7 @@ Route::get('/dashboard', [UserController::class, 'showUsers'])->name('dashboard'
 Route::get('/admin_reclamations/reclamations', [ReclamationController::class, 'afficherReclamations'])->name('reclamation');
 Route::DELETE('/admin_reclamations/supression/{id}', [ReclamationController::class, 'supprimerReclamations'])->name('supression');
 Route::PUT('/admin_reclamations/modification/{id}', [ReclamationController::class, 'modifierReclamations'])->name('modification');
-Route::GET('/publications', [PublicationController::class, 'afficherAllPublications'])->name('publications');
+Route::GET('/Client_PageHome', [PublicationController::class, 'afficherAllPublications'])->name('publications');
 Route::GET('/formulaire', function(){
     return view('Client/Publication');
 })->name('formulaire');
@@ -62,3 +62,4 @@ Route::POST('/ajouterPublication', [PublicationController::class, 'ajouterPublic
 // Route::get('/comptes', [AdminController::class, 'showcomptes'])->name('comptes');
 Route::get('/statistics', [StatisticController::class, 'coutComptes'])->name('statistics');
 Route::get('/preuve/{id}', [UserController::class, 'EnAttenteDetailles'])->name('preuve');
+
