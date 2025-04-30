@@ -7,5 +7,7 @@ use Illuminate\Support\Facades\Auth;
 
 class FavorisController extends Controller
 {
-   
+    public function ajouterAuxFavoris($publication_id){
+        
+    }
 }
