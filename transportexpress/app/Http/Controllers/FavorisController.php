@@ -13,6 +13,6 @@ class FavorisController extends Controller
             'user_id'=>$user_id,
             'publication_id'=>$publication_id,
           ]);
-          
+          return view('Client/Home');
     }
 }
