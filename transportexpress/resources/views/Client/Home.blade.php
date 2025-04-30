@@ -106,9 +106,12 @@
                         <i class="fas fa-bookmark mr-1"></i>Réserver
                     </button>
                 </div>
-                <button class="px-4 py-2 border border-[#18534F] text-[#18534F] hover:bg-gray-50 rounded font-medium transition text-sm">
-                    <i class="far fa-clock mr-1"></i>Enregistrer
-                </button>
+                <form action="{{route('ajouterFavoris',$publication->id)}}" method="POST">
+                    @csrf  
+                    <button class="px-4 py-2 border border-[#18534F] text-[#18534F] hover:bg-gray-50 rounded font-medium transition text-sm">
+                        <i class="far fa-clock mr-1"></i>Enregistrer
+                    </button>
+                </form>
             </div>
             @else
                    <div class="flex gap-3 justify-center opacity-60">

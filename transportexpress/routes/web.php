@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AccueilController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\FavorisController;
 use App\Http\Controllers\StatisticController;
 use App\Http\Controllers\ReclamationController;
 use App\Http\Controllers\PublicationController;
@@ -63,3 +64,4 @@ Route::POST('/ajouterPublication', [PublicationController::class, 'ajouterPublic
 Route::get('/statistics', [StatisticController::class, 'coutComptes'])->name('statistics');
 Route::get('/preuve/{id}', [UserController::class, 'EnAttenteDetailles'])->name('preuve');
 
+Route::POST('/ajouterFavoris/{id}', [FavorisController::class, 'ajouterAuxFavoris'])->name('ajouterFavoris');
