@@ -40,7 +40,7 @@
     </style>
 </head>
 <body class="bg-gray-100 font-sans static">
-    <!-- une sweet alert pour la confirmation de suppression -->
+    <!-- une sweet alerts pour la confirmation de suppression -->
     <div id="supressionSuccesAlert" class="bg-" style="display:none;">
         
     </div>
@@ -176,7 +176,7 @@
             </div>
         </div> 
 
-        <!-- comptes validés a gerer -->
+        <!-- -----comptes validés a gerer----- -->
         <div class="bg-white rounded-lg shadow-md overflow-hidden mb-6">
             <div class="p-4 bg-gray-50 border-b border-gray-200">
                 <h2 class="font-semibold text-gray-800">Comptes validés récents</h2>
@@ -221,7 +221,6 @@
                 </div>
             </td>
 
-            <!-- Email -->
             <td class="px-3 sm:px-6 py-4 whitespace-nowrap hidden sm:table-cell">
                 <div class="text-sm text-gray-900">{{$actif->email}}</div>
             </td>
@@ -352,7 +351,7 @@
                     </form>
                 </div>
                 <div class="flex gap-1 sm:gap-2">
-                    {{ $Actifs->links() }}
+                    {{$Actifs->links()}}
                 </div>
             </div>
         </div>

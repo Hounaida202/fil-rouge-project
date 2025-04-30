@@ -16,5 +16,11 @@ class PublicationRepository implements PublicationInterface{
         return Publication::with('user')
         ->whereHas('user', function ($query) {
             $query->where('role', 'Transporteur');
-        })->get();    }
+        })->get();   
+     }
+
+     public function ajouterPublication($data){
+        return Publication::create($data);
+
+     }
 }

@@ -93,9 +93,17 @@ class AuthController extends Controller
         }
         if ($user->status == "valide") {
             
-            if ($user->role = 'admin') {
+            if ($user->role == 'admin') {
                 Auth()->login($user);
                 return redirect()->route('dashboard');
+            }
+            if ($user->role == 'Transporteur') {
+                Auth()->login($user);
+                return redirect()->route('publicvhgvhgations');
+            }
+            if ($user->role == 'Client') {
+                Auth()->login($user);
+                return redirect()->route('publications');
             }
         }                    
       }
