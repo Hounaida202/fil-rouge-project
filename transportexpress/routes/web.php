@@ -54,14 +54,17 @@ Route::get('/dashboard', [UserController::class, 'showUsers'])->name('dashboard'
 Route::get('/admin_reclamations/reclamations', [ReclamationController::class, 'afficherReclamations'])->name('reclamation');
 Route::DELETE('/admin_reclamations/supression/{id}', [ReclamationController::class, 'supprimerReclamations'])->name('supression');
 Route::PUT('/admin_reclamations/modification/{id}', [ReclamationController::class, 'modifierReclamations'])->name('modification');
-Route::GET('/Client_PageHome', [PublicationController::class, 'afficherAllPublications'])->name('publications');
+Route::GET('/Client_PageHome', [PublicationController::class, 'afficherAllPublications'])->name('filtrerPublications');
 Route::GET('/formulaire', function(){
     return view('Client/Publication');
 })->name('formulaire');
-Route::POST('/ajouterPublication', [PublicationController::class, 'ajouterPublication'])->name('ajouterPublication');
 
+Route::POST('/ajouterPublication', [PublicationController::class, 'ajouterPublication'])->name('ajouterPublication');
+Route::get('/HistoriquesClient', [PublicationController::class, 'HistoriquesClient'])->name('HistoriquesClient');
 // Route::get('/comptes', [AdminController::class, 'showcomptes'])->name('comptes');
 Route::get('/statistics', [StatisticController::class, 'coutComptes'])->name('statistics');
 Route::get('/preuve/{id}', [UserController::class, 'EnAttenteDetailles'])->name('preuve');
-
 Route::POST('/ajouterFavoris/{id}', [FavorisController::class, 'ajouterAuxFavoris'])->name('ajouterFavoris');
+Route::get('/siExiste/{id}', [FavorisController::class, 'siExiste'])->name('siExiste');
+Route::get('/afficherFavoris', [FavorisController::class, 'afficherFavoris'])->name('afficherFavoris');
+// Route::get('/filtrer', [PublicationController::class, 'filtrer'])->name('filtrerPublications');

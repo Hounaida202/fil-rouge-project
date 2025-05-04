@@ -30,7 +30,7 @@
         </div>
     </nav>
     <section class="py-8">
-      <div class="container mx-auto px-4 overflow-hidden">
+      <div class="container mx-auto px-4">
         <div class="flex flex-col md:flex-row gap-6">
            <!-- ----------un coté pour le profil et ses commenatirs ---------- -->
            <div class="md:w-1/3 w-full">
@@ -154,10 +154,10 @@
            <!-- -------------------------------------------------------------- -->
            <div class="md:w-2/3 w-full">
             <div>
-                <div class="bg-white rounded-lg shadow-md p-6 ">
+                <div class="bg-white rounded-lg shadow-md p-6">
                    <h2 class="text-xl font-bold mb-6 text-gray-700">Publications récentes</h2>
                    @foreach($publications as $publication)
-                     <div class="mb-8 pb-6 border-b border-gray-200 ">
+                     <div class="mb-8 pb-6 border-b border-gray-200">
                           <!-- les infos de compte auteur et temps -->
                             <div class="flex items-center mb-4">
                                 <div class="w-12 h-12 rounded-full overflow-hidden mr-4">

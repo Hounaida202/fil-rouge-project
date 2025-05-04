@@ -18,9 +18,9 @@
                 </button>
             </div>
             <div id="mobileMenu" class="hidden md:flex flex-col md:flex-row w-full md:w-auto space-y-3 md:space-y-0 md:space-x-6 mt-4 md:mt-0">
-                <a href="" class="hover:text-blue-200 font-medium block">Home</a>
-                <a href="" class="hover:text-blue-200 font-medium block">Historique</a>
-                <a href="" class="hover:text-blue-200 font-medium block">Favoris</a>
+                <a href="{{route('filtrerPublications')}}" class="hover:text-blue-200 font-medium block">Home</a>
+                <a href="{{route('HistoriquesClient')}}" class="hover:text-blue-200 font-medium block">Historique</a>
+                <a href="{{route('afficherFavoris')}}" class="hover:text-blue-200 font-medium block">Favoris</a>
                 <a href="" class="hover:text-blue-200 font-medium block">Notification</a>
             </div>
             <div  class="hidden md:flex items-center space-x-3 mt-4 md:mt-0">
@@ -36,8 +36,86 @@
                 <i class="fas fa-plus mr-1"></i>Créer une publication
             </a>
         </div>
-        <!-- -------qulque chose ici -->
-        <div class="space-y-6">
+        <form method="GET" action="{{ route('filtrerPublications') }}" class="bg-white rounded shadow-md p-3 mb-6">
+    <div class="flex flex-wrap gap-3">
+            <div class="w-full md:w-auto">
+                    <label class="block text-sm text-gray-600 mb-1">Ville</label>
+                    <select name="ville_depart"  class="w-full md:w-40 px-2 py-1.5 border rounded focus:outline-none focus:ring-1 focus:ring-[#18534F] text-sm">
+                        <option value="">Toutes les villes</option>
+                        <option value="Agadir">Agadir</option>
+                        <option value="Al Hoceïma">Al Hoceïma</option>
+                        <option value="Azilal">Azilal</option>
+                        <option value="Beni Mellal">Beni Mellal</option>
+                        <option value="Casablanca">Casablanca</option>
+                        <option value="Dakhla">Dakhla</option>
+                        <option value="El Jadida">El Jadida</option>
+                        <option value="Errachidia">Errachidia</option>
+                        <option value="Essaouira">Essaouira</option>
+                        <option value="Fès">Fès</option>
+                        <option value="Guelmim">Guelmim</option>
+                        <option value="Ifrane">Ifrane</option>
+                        <option value="Kénitra">Kénitra</option>
+                        <option value="Khénifra">Khénifra</option>
+                        <option value="Khouribga">Khouribga</option>
+                        <option value="Laâyoune">Laâyoune</option>
+                        <option value="Larache">Larache</option>
+                        <option value="Marrakech">Marrakech</option>
+                        <option value="Meknès">Meknès</option>
+                        <option value="Mohammédia">Mohammédia</option>
+                        <option value="Nador">Nador</option>
+                        <option value="Ouarzazate">Ouarzazate</option>
+                        <option value="Oujda">Oujda</option>
+                        <option value="Rabat">Rabat</option>
+                        <option value="Safi">Safi</option>
+                        <option value="Salé">Salé</option>
+                        <option value="Settat">Settat</option>
+                        <option value="Sidi Bennour">Sidi Bennour</option>
+                        <option value="Tan-Tan">Tan-Tan</option>
+                        <option value="Tanger">Tanger</option>
+                        <option value="Taourirt">Taourirt</option>
+                        <option value="Taroudant">Taroudant</option>
+                        <option value="Taza">Taza</option>
+                        <option value="Tétouan">Tétouan</option>
+                        <option value="Tiznit">Tiznit</option>
+                    </select>
+
+                </div>
+                <div class="w-full md:w-auto">
+                    <label class="block text-sm text-gray-600 mb-1">Type</label>
+                    <select name="type"  class="w-full md:w-40 px-2 py-1.5 border rounded focus:outline-none focus:ring-1 focus:ring-[#18534F] text-sm">
+                        <option value="">Tous les types</option>
+                        <option value="Fragile">Fragile</option>
+                        <option value="Lourd">Lourd</option>
+                        <option value="Standard">Standard</option>
+                        <option value="Périssable">Périssable</option>
+                        <option value="Liquide">Liquide</option>
+                        <option value="Chimique">Chimique</option>
+                        <option value="Matériel électronique">Matériel électronique</option>
+                        <option value="Animaux vivants">Animaux vivants</option>
+                        <option value="Produits médicaux">Produits médicaux</option>
+                        <option value="Matériaux dangereux">Matériaux dangereux</option>
+                        <option value="Textile">Textile</option>
+                        <option value="Meubles">Meubles</option>
+                        <option value="Aliments secs">Aliments secs</option>
+                        <option value="Véhicules">Véhicules</option>
+                    </select>
+                </div>
+                <div class="w-full md:w-auto">
+                    <label class="block text-sm text-gray-600 mb-1">Statut</label>
+                    <select name="etat"  class="w-full md:w-40 px-2 py-1.5 border rounded focus:outline-none focus:ring-1 focus:ring-[#18534F] text-sm">
+                        <option value="">Tous</option>
+                        <option value="en cours">En cours</option>
+                        <option value="expiré">Expiré</option>
+                    </select>
+                </div>
+                <div class="w-full md:w-auto flex items-end">
+                    <button class="bg-[#18534F] hover:bg-[#143B39] text-white px-4 py-1.5 rounded focus:outline-none text-sm">
+                        Filtrer
+                    </button>
+                </div>
+                </div>
+                </form>
+                <div class="space-y-6">
             @foreach($publications as $publication)
     <div class="bg-white rounded-lg shadow-lg overflow-hidden">
         <div class="p-4 border-b flex items-center gap-4">
@@ -106,12 +184,18 @@
                         <i class="fas fa-bookmark mr-1"></i>Réserver
                     </button>
                 </div>
+                @if(\App\Http\Controllers\FavorisController::siExiste($publication->id))
+                    <button class="px-4 py-2 border border-[#18534F] text-[#18534F] hover:bg-gray-50 rounded font-medium transition text-sm">
+                        <i class="far fa-clock mr-1"></i>Retiré depuis favoris
+                    </button>
+                @else
                 <form action="{{route('ajouterFavoris',$publication->id)}}" method="POST">
                     @csrf  
                     <button class="px-4 py-2 border border-[#18534F] text-[#18534F] hover:bg-gray-50 rounded font-medium transition text-sm">
                         <i class="far fa-clock mr-1"></i>Enregistrer
                     </button>
                 </form>
+                @endif
             </div>
             @else
                    <div class="flex gap-3 justify-center opacity-60">

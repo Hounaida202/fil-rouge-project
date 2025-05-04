@@ -103,7 +103,7 @@ class AuthController extends Controller
             }
             if ($user->role == 'Client') {
                 Auth()->login($user);
-                return redirect()->route('publications');
+                return redirect()->route('filtrerPublications');
             }
         }                    
       }
