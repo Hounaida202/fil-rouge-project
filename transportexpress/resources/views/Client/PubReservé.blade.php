@@ -21,12 +21,7 @@
                 <a href="{{route('filtrerPublications')}}" class="hover:text-blue-200 font-medium block">Home</a>
                 <a href="{{route('HistoriquesClient')}}" class="hover:text-blue-200 font-medium block">Historique</a>
                 <a href="{{route('afficherFavoris')}}" class="hover:text-blue-200 font-medium block">Favoris</a>
-                <div class="relative">
-                    <button id="notificationButton" class="hover:text-blue-200 font-medium block flex items-center relative">
-                        Notification
-                        <span class="flex h-5 w-5 items-center justify-center bg-red-500 text-white text-xs rounded-full absolute -top-2 -right-4">5</span>
-                    </button>
-                </div>
+                
             </div>
             <div class="hidden md:flex items-center space-x-3 mt-4 md:mt-0">
                 <span>{{ Auth::user()->name }}</span>

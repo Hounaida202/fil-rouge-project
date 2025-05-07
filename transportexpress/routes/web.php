@@ -97,3 +97,5 @@ Route::get('/pubreserver/{reservation_id}/{notification_id}', [PublicationContro
 Route::get('/reservationn/{id}/pdf', [ReservationController::class, 'telechargerPDF'])->name('reservationn.telecharger_pdf');
 // Route::get('/profile/{id}', [UserController::class, 'profile'])->name('profile');
 Route::post('/proposition/{id}/{autre_id}', [NotificationController::class, 'NotifClient'])->name('proposition');
+
+Route::get('/pubproposer/{notification_id}', [PublicationController::class, 'PublicationProposer'])->name('pubproposer');

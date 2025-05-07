@@ -63,17 +63,10 @@ class AuthController extends Controller
             }
     
 
-    public function messages()
-{
-    return [
-        'email.exists' => 'Cet email n existe pas.', 
-        'password.confirmed' => 'Les mots de passe est incorecte.',
-    ];
-}
 
     public function login(Request $request){
 
-      //chercher le user si existe
+      //--- chercher le user si existe
     
     $email = $request->email;
     $password = $request->password;

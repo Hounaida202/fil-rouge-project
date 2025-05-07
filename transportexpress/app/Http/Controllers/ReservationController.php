@@ -13,7 +13,6 @@ class ReservationController extends Controller
 {
     public function reserver_notifier_inserer(Request $request, $id, $autre_id)
 {
-    // Créer la réservation
     $reservation = Reservation::create([
         'user_id' => Auth::id(),
         'publication_id' => $id,
@@ -21,7 +20,6 @@ class ReservationController extends Controller
         'autre_id' => $autre_id,
     ]);
 
-    // Générer le PDF (si nécessaire)
     $user = Auth::user();
     $pdf = Pdf::loadView('pdf.reservation', [
         'reservation' => $reservation,
@@ -32,8 +30,8 @@ class ReservationController extends Controller
     Notification::create([
         'auteur_id' => Auth::id(),
         'cible_id' => $autre_id,
-        'publication_id' => $id, // Ou définir selon la logique de ton projet
-        'reservation_id' => $reservation->id,  // Utiliser l'ID de la réservation créée
+        'publication_id' => $id, 
+        'reservation_id' => $reservation->id,  
     ]);
 
         return $pdf->download('reservation_'.$reservation->id.'.pdf');
@@ -45,11 +43,6 @@ class ReservationController extends Controller
 {
     $reservation = Reservation::with('publication')->findOrFail($id);
     $user = auth()->user();
-
-    // Vérifier que l'utilisateur a le droit de voir cette réservation
-    if ($reservation->user_id !== $user->id && $reservation->autre_id !== $user->id) {
-        abort(403, 'Accès non autorisé');
-    }
 
     $pdf = Pdf::loadView('pdf.reservation', [
         'reservation' => $reservation,
@@ -64,6 +57,32 @@ class ReservationController extends Controller
         $publication=Notification::where('publication_id', $publication_id)->where('auteur_id', $user_id)->exists(); 
         return $publication;
     }
+
+    // public function reserver_notifier_inserer(Request $request, $id, $autre_id)
+    // {
+    //     $reservation = Reservation::create([
+    //         'user_id' => Auth::id(),
+    //         'publication_id' => $id,
+    //         'localisation' => $request->localisation,
+    //         'autre_id' => $autre_id,
+    //     ]);
+    
+    //     $user = Auth::user();
+    //     $pdf = Pdf::loadView('pdf.reservation', [
+    //         'reservation' => $reservation,
+    //         'user' => $user
+    //     ]);
+    
+        
+    //     Notification::create([
+    //         'auteur_id' => Auth::id(),
+    //         'cible_id' => $autre_id,
+    //         'publication_id' => $id, 
+    //         'reservation_id' => $reservation->id,  
+    //     ]);
+    
+    //         return $pdf->download('reservation_'.$reservation->id.'.pdf');
+    //     }
 
     
 }

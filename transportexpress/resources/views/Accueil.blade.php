@@ -13,12 +13,7 @@
                 <div class="flex items-center">
                 <span class="font-bold text-xl">TransportExpress</span>
             </div>
-            <div class="hidden md:flex space-x-4">
-                <a href="" class="hover:text-blue-200">Accueil</a>
-                <a href="" class="hover:text-blue-200">Services</a>
-                <a href="" class="hover:text-blue-200">À propos</a>
-                <a href="" class="hover:text-blue-200">Contact</a>
-            </div>
+            
             <div class="flex space-x-2">
                 <a href="{{route('connexion')}}" class="bg-white text-blue-600 px-4 py-2 rounded hover:bg-blue-100">Connexion</a>
                 <a href="{{route('inscription')}}" class="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600">Inscription</a>
@@ -65,41 +60,34 @@
         </div>
     </section>
     <!-- ------------------------------------------------- -->
-    <section class="py-12  bg-gray-100">
-    <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-8">Pourquoi Nous Choisir</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="flex items-start">
-                    
-                    <div>
-                        <h3 class="text-xl font-bold mb-2">Rapidité</h3>
-                        <p class="text-gray-600">Livraison dans les délais promis, toujours à l'heure.</p>
-                    </div>
-                </div>
-                <div class="flex items-start">
-                   
-                    <div>
-                        <h3 class="text-xl font-bold mb-2">Sécurité</h3>
-                        <p class="text-gray-600">Vos marchandises sont entre de bonnes mains, sécurisées pendant tout le trajet.</p>
-                    </div>
-                </div>
-                <div class="flex items-start">
-                    
-                    <div>
-                        <h3 class="text-xl font-bold mb-2">Service Client</h3>
-                        <p class="text-gray-600">Une équipe dédiée à votre écoute pour répondre à toutes vos questions.</p>
-                    </div>
-                </div>
-                <div class="flex items-start">
-                    
-                    <div>
-                        <h3 class="text-xl font-bold mb-2">Prix Compétitifs</h3>
-                        <p class="text-gray-600">Des tarifs transparents et adaptés à votre budget.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <section class="bg-gray-100 py-12">
+  <div class="container mx-auto px-4">
+    <h2 class="text-3xl font-bold text-center mb-8">Pourquoi Nous Choisir</h2>
+    <div class="grid md:grid-cols-2 gap-8">
+      <!-- Élément 1 -->
+      <div>
+        <h3 class="text-xl font-semibold mb-2">Rapidité</h3>
+        <p>Livraison dans les délais promis, toujours à l'heure.</p>
+      </div>
+      <!-- Élément 2 -->
+      <div>
+        <h3 class="text-xl font-semibold mb-2">Sécurité</h3>
+        <p>Vos marchandises sont entre de bonnes mains, sécurisées pendant tout le trajet.</p>
+      </div>
+      <!-- Élément 3 -->
+      <div>
+        <h3 class="text-xl font-semibold mb-2">Service Client</h3>
+        <p>Une équipe dédiée à votre écoute pour répondre à toutes vos questions.</p>
+      </div>
+      <!-- Élément 4 -->
+      <div>
+        <h3 class="text-xl font-semibold mb-2">Prix Compétitifs</h3>
+        <p>Des tarifs transparents et adaptés à votre budget.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 
     <!-- --------------------------------------------- -->
     <section class="py-12 bg-white">

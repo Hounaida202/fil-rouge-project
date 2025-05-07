@@ -33,13 +33,15 @@
                         </div>
                         <div>
                             <!-- Notification 1 -->
-                            <div>
+                             <!-- pour les notifications de transporteur -->
+                             @if(Auth::user() && Auth::user()->role == 'Transporteur')
+                             <div>
                             @forelse($notifications as $notification)
                                 <a href="{{ route('pubreserver', ['reservation_id' => $notification->reservation->id, 'notification_id' => $notification->id]) }}">
                                     <div class="p-4 border-b hover:bg-gray-50 text-black {{ $notification->is_read ? 'bg-white' : 'bg-gray-200' }}">
                                         <div class="flex">
-                                            <img src="" alt="User" class="h-10 w-10 rounded-full mr-3">
-                                            <div>
+                                            <img src=" {{asset('storage/'.$notification->auteur->image)}}" alt="User" class="h-10 w-10 rounded-full mr-3">
+                                            <div>  
                                                 <p class="text-sm">
                                                     <span class="font-medium">{{ $notification->auteur->name }}</span>
                                                     a fait une réservation pour l'un de vos services
@@ -52,11 +54,32 @@
                                 @empty
                                     <p class="text-gray-500 m-8">Pas encore des notifications.</p>
                                 @endforelse
-
-
                             </div>
-                            <!-- Notification 2 -->
-                            
+                            @else
+                            <!-- Notification pour le client  -->
+
+                            <div>
+                            @forelse($notifications as $notification)
+                                <a href="{{route('pubproposer',['notification_id' => $notification->id])}}">
+                                    <div class="p-4 border-b hover:bg-gray-50 text-black {{ $notification->is_read ? 'bg-white' : 'bg-gray-200' }}">
+                                        <div class="flex">
+                                            <img src=" {{asset('storage/'.$notification->auteur->image)}}" alt="User" class="h-10 w-10 rounded-full mr-3">
+                                            <div>
+                                                <p class="text-sm">
+                                                    <span class="font-medium">{{ $notification->auteur->name }}</span>
+                                                    vous a proposé un service
+
+                                                </p>
+                                                <p class="text-xs text-gray-500 mt-1">Il y a 5 minutes</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                                @empty
+                                    <p class="text-gray-500 m-8">Pas encore des notifications.</p>
+                                @endforelse
+                            </div>
+                            @endif
                             <!-- Notification 3 -->
                             
                             <!-- Notification 4 -->
@@ -189,8 +212,8 @@
                 @endif
             </div>
             @if($publication->image!=null)
-                    <div class="w-96 mx-auto mb-8 rounded-lg overflow-hidden border">
-                        <img src="{{asset('storage/'.$publication->image)}}" alt="Image du transport" class="w-full h-auto object-cover">
+                    <div class="w-96 mx-auto mb-8 rounded-lg overflow-hidden ">
+                        <img src="{{asset('storage/'.$publication->image)}}" alt="" class="w-full h-auto object-cover">
                     </div>
                     @endif
             <div class="flex flex-wrap mb-6">
@@ -369,7 +392,6 @@
         }
     });
 
-    // Modal functions for publication reservations
     function OpenModal(id){
         document.getElementById('modal-'+ id).style.display='flex';
     }

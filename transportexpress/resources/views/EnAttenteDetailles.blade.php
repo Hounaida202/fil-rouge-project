@@ -81,8 +81,9 @@
                 </div>
             </div>
         </div>
+        @if($enAttente->preuve!= null)
         <div class="bg-white rounded-lg shadow-md p-6 mb-6">
-            <h2 class="text-xl font-bold mb-4">Document d'identité</h2>
+            <h2 class="text-xl font-bold mb-4">Documents</h2>
             
             <div class="flex flex-col items-center md:items-start">
                 <div class="w-full md:w-2/3 rounded-lg overflow-hidden shadow-md mb-2">
@@ -91,7 +92,7 @@
                 <p class="text-sm text-gray-500">Photo du permis</p>
             </div>
         </div>
-
+        @endif
         <div class="flex flex-col md:flex-row justify-end space-y-3 md:space-y-0 md:space-x-4">
                 <form method="POST" action="{{route('Invalide',$enAttente->id)}}">
                                     @csrf

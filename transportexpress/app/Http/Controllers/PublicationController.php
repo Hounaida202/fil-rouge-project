@@ -142,6 +142,23 @@ class PublicationController extends Controller
     $reservation = Reservation::findOrFail($reservation_id);
 
     return view('Client/PubReservé', compact('reservation'));
+}  
+
+public function PublicationProposer( $notification_id )
+{
+    $notification=Notification::findOrFail($notification_id);
+
+    if ($notification_id) {
+        $notification = Notification::where('id', $notification_id)
+            ->where('cible_id', auth()->id())
+            ->first();
+
+        if ($notification && !$notification->is_read) {
+            $notification->is_read = true;
+            $notification->save();
+        }
+    }
+    return view('Client/PubProposition',compact('notification'));
 }
 
 }
