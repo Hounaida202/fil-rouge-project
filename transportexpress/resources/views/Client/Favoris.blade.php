@@ -37,7 +37,7 @@
         <!-- -------qulque chose ici -->
        
         <div class="space-y-6">
-        @foreach($mesFavoris as $favoris)
+        @forelse($mesFavoris as $favoris)
         <div class="bg-white rounded-lg shadow-lg overflow-hidden">
         <div class="p-4 border-b flex items-center gap-4">
             <img src="{{$favoris->publication->user->image}}" alt="" class="w-14 h-14 rounded-full object-cover">
@@ -105,9 +105,13 @@
                         <i class="fas fa-bookmark mr-1"></i>Réserver
                     </button>
                 </div>
+                <form action="{{ route('retirerFavoris', $favoris->publication->id) }}" method="POST">
+                    @csrf 
+                    @method('DELETE')
                     <button class="px-4 py-2 border border-[#18534F] text-[#18534F] hover:bg-gray-50 rounded font-medium transition text-sm">
-                        <i class="far fa-clock mr-1"></i>Retiré depuis favoris
+                        <i class="far fa-clock mr-1"></i>Retiré des favoris
                     </button>
+                </form>
                 
             </div>
             @else
@@ -116,7 +120,7 @@
                             <i class="fas fa-bookmark mr-1"></i>Réserver
                         </button>
                         <button disabled class="px-4 py-2 border border-gray-500 text-gray-500 rounded font-medium cursor-not-allowed text-sm">
-                            <i class="far fa-clock mr-1"></i>Enregistrer
+                            <i class="far fa-clock mr-1"></i>Retiré des favoris
                         </button>
                     </div>
             @endif
@@ -147,7 +151,9 @@
             </div>
         </div>
     </div>
-    @endforeach
+    @empty
+         <p class="text-gray-500">Pas des favoris ajouté.</p>
+     @endforelse
 </div>
 
 
