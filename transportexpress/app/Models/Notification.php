@@ -29,4 +29,6 @@ class Notification extends Model
     {
         return $this->belongsTo(Reservation::class, 'reservation_id');
     }
+
+   
 }

@@ -16,13 +16,17 @@ return new class extends Migration
         Schema::create('notifications', function (Blueprint $table) {
             $table->id();
             $table->foreignId('auteur_id')->constrained('users')->onDelete('cascade');
-            $table->foreignId('cible_id')->constrained('users')->onDelete('cascade');
-            $table->foreignId('publication_id')->constrained('publications')->onDelete('cascade');
-            $table->foreignId('reservation_id')->constrained('reservations')->onDelete('cascade');
-            $table->boolean('is_read')->default(false);
+        $table->foreignId('cible_id')->constrained('users')->onDelete('cascade');
+        $table->foreignId('publication_id')->nullable()->constrained('publications')->onDelete('cascade');
+        $table->foreignId('reservation_id')->nullable()->constrained('reservations')->onDelete('cascade');
 
+        $table->boolean('is_read')->default(false);
             $table->timestamps();
         });
+
+
+
+       
     }
 
     /**

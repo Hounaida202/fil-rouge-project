@@ -48,30 +48,10 @@
     <div class="text-center">
         <h1 class="text-xl font-bold text-white mb-2">{{$compte->name}}</h1>
         <div class="text-blue-200 mb-2">{{$compte->role}}</div>
-        <div class="flex items-center justify-center">
-            <!-- <div class="text-yellow-400 flex">
-                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-            </div> -->
-            <span class="ml-2 text-white">( {{$avg}}/10 - {{$count}} avis)</span>
-        </div>
-    </div>
-    
-    <!-- Système de notation simple -->
-    <div class="mt-3 flex items-center">
-
-        <form action="{{ route('note.store') }}" method="POST" class="flex items-center">
-    @csrf
-    <input type="hidden" name="cible_id" value="{{ $cible->id }}"> <!-- $cible est l'utilisateur à évaluer -->
-
-    <input type="number" name="valeur" min="1" max="10"
-        value="{{ $noteExistante->valeur ?? '' }}" onkeydown="return false;"
-        class="w-16 h-8 text-center rounded-l-md border-0" placeholder="1-10" />
-
-    <button type="submit" class="bg-blue-500 text-white h-8 px-3 rounded-r-md">Évaluer</button>
-</form>
-
         
     </div>
+    
+   
 </div>
 </div>
 
@@ -91,10 +71,6 @@
                                     <div class="font-medium">{{$compte->tel}}</div>
                                 </div>
 
-                                <div>
-                                    <div class="text-sm text-gray-500">CIN</div>
-                                    <div class="font-medium">{{$compte->cin}}</div>
-                                </div>
                               
                                 
                                 <div>

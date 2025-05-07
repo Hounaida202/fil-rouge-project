@@ -40,23 +40,7 @@
                 <div class="bg-white rounded-lg shadow-md overflow-hidden mb-6"> 
                 <!-- --------------------**** -->
                 <div class="bg-[#4C956C] p-6 relative">
-    <div class="absolute top-4 right-4">
-        <button onclick="toggleMenu(this)" class="text-white text-2xl font-bold focus:outline-none">⋮</button>
-        <div class="hidden mt-2 w-60 bg-white text-gray-700 rounded shadow-lg absolute right-0 z-10">
-            <form action="{{route('Supprimer',$compte->id)}}" method="POST">
-                @method('DELETE')
-               @csrf
-                <button class="block px-4 py-2 hover:bg-red-100 text-red-600">Supprimer le compte</button>
-            </form>
-            <form action="{{route('Desactiver',$compte->id)}}" method="POST">
-                @method('PUT')
-               @csrf
-            <button class="block px-4 py-2 hover:bg-gray-100">Archiver</button>
-            </form>
-            <button  class="block px-4 py-2 hover:bg-gray-100">Donner un avertissement</button>
-
-        </div>
-    </div>
+   
 
     <!-- Profil -->
     <div class="flex flex-col items-center">
@@ -66,12 +50,7 @@
         <div class="text-center">
             <h1 class="text-xl font-bold text-white mb-2">{{$compte->name}}</h1>
             <div class="text-blue-200 mb-2">{{$compte->role}}</div>
-            <div class="flex items-center justify-center">
-                <!-- <div class="text-yellow-400 flex">
-                    <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-                </div> -->
-                <span class="ml-2 text-white">( {{$avg}}/10 - {{$count}} avis)</span>
-            </div>
+            
         </div>
     </div>
 </div>

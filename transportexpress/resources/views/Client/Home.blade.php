@@ -34,7 +34,7 @@
                         <div>
                             <!-- Notification 1 -->
                             <div>
-                            @foreach($notifications as $notification)
+                            @forelse($notifications as $notification)
                                 <a href="{{ route('pubreserver', ['reservation_id' => $notification->reservation->id, 'notification_id' => $notification->id]) }}">
                                     <div class="p-4 border-b hover:bg-gray-50 text-black {{ $notification->is_read ? 'bg-white' : 'bg-gray-200' }}">
                                         <div class="flex">
@@ -49,7 +49,9 @@
                                         </div>
                                     </div>
                                 </a>
-                            @endforeach
+                                @empty
+                                    <p class="text-gray-500 m-8">Pas encore des notifications.</p>
+                                @endforelse
 
 
                             </div>
@@ -230,10 +232,12 @@
                     @if($publication->user->role =='Client')
           <!-- ----------------pour la page de transporteur----------------- -->
                     <div class="flex gap-3 justify-center">
-                <div >
-                    <button onclick="OpenModal2('{{$publication->id}}')" class="px-4 py-2 bg-[#18534F] hover:bg-[#143B39] text-white rounded font-medium transition text-sm">
-                        <i class="fas fa-bookmark mr-1"></i>Envoyer une proposition
-                    </button>
+                <div>
+                    <form action="{{}}">
+                        <button  class="px-4 py-2 bg-[#18534F] hover:bg-[#143B39] text-white rounded font-medium transition text-sm">
+                            <i class="fas fa-bookmark mr-1"></i>Envoyer une proposition
+                        </button>
+                    </form>
                 </div>
                 @if(\App\Http\Controllers\FavorisController::siExiste($publication->id))
                 <form action="{{ route('retirerFavoris', $publication->id) }}" method="POST">
@@ -296,8 +300,6 @@
                     </button>
                 </div>
                 <div class="p-5">
-                <form action="{{ route('reserver', [$publication->id, $publication->user->id]) }}" method="POST">
-                @csrf
                     <div class="mb-5">
                         <label for="localisation"  class="block text-sm font-medium text-gray-700 mb-1">Localisation exacte pour le rendez-vous</label>
                         <input type="text" name="localisation" id="localisation" class="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-[#18534F] text-sm" placeholder="Adresse complète où le transporteur vous retrouvera">
@@ -306,6 +308,8 @@
                         <button onclick="closeModal('{{$publication->id}}')"  class=" annuler px-3 py-1.5 border border-gray-300 text-gray-700 rounded font-medium transition text-sm hover:bg-gray-100">
                             Annuler
                         </button>
+                        <form action="{{ route('reserver', [$publication->id, $publication->user->id]) }}" method="POST">
+                        @csrf
                             <button type="submit"  class="px-4 py-1.5 bg-[#18534F] hover:bg-[#143B39] text-white rounded font-medium transition text-sm">
                                 Reserver <i class="fas fa-arrow-right ml-1"></i>
                             </button>
