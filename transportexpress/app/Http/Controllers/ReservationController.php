@@ -58,4 +58,12 @@ class ReservationController extends Controller
 
     return $pdf->download('reservationn_' . $reservation->id . '.pdf');
 }
+
+    public static function isEnvoyer($publication_id){
+        $user_id=Auth::id();
+        $publication=Notification::where('publication_id', $publication_id)->where('auteur_id', $user_id)->exists(); 
+        return $publication;
+    }
+
+    
 }

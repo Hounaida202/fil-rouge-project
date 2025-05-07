@@ -80,8 +80,12 @@ class AuthController extends Controller
     
     $user=$this->AuthRepository->login($email);
 
+    if (!$user) {
+        return back()->withErrors(['email' => 'Email non trouvé'])->withInput();
+    }
     if($user && !Hash::check($password, $user->password)){
-         
+        return back()->withErrors(['password' => 'le mot de passe incorrect'])->withInput();
+
     }
     if($user && Hash::check($password, $user->password)){
         //   creer la session
@@ -98,10 +102,11 @@ class AuthController extends Controller
                 return redirect()->route('dashboard');
             }
             
-            else  {
+            else {
                 Auth()->login($user);
                 return redirect()->route('filtrerPublications');
             }
+
         }                    
       }
     }

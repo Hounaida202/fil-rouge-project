@@ -83,6 +83,7 @@ Route::POST('/postCommentaire/{id}', [CommentaireController::class, 'postComment
 Route::post('/notes', [NoteController::class, 'storeOrUpdate'])->name('note.store')->middleware('auth');
 Route::post('/reserver/{id}/{autre_id}', [ReservationController::class, 'reserver_notifier_inserer'])->name('reserver');
 Route::get('/siExiste/{id}', [ReservationController::class, 'siExiste'])->name('siExiste');
+Route::get('/isEnvoyer/{id}', [ReservationController::class, 'isEnvoyer'])->name('isEnvoyer');
 
 
 // Route::get('/getNotification',  function (){
@@ -95,4 +96,4 @@ Route::get('/siExiste/{id}', [ReservationController::class, 'siExiste'])->name('
 Route::get('/pubreserver/{reservation_id}/{notification_id}', [PublicationController::class, 'PublicationReserver'])->name('pubreserver');
 Route::get('/reservationn/{id}/pdf', [ReservationController::class, 'telechargerPDF'])->name('reservationn.telecharger_pdf');
 // Route::get('/profile/{id}', [UserController::class, 'profile'])->name('profile');
-Route::post('/proposition/{id}/{autre_id}', [ReservationController::class, 'NotifClient'])->name('proposition');
+Route::post('/proposition/{id}/{autre_id}', [NotificationController::class, 'NotifClient'])->name('proposition');

@@ -233,12 +233,18 @@
           <!-- ----------------pour la page de transporteur----------------- -->
                     <div class="flex gap-3 justify-center">
                 <div>
-                    <form action="{{ route('proposition', [$publication->id, $publication->user->id]) }}" method="POST">
-                        @csrf
-                        <button type="submit" class="px-4 py-2 bg-[#18534F] hover:bg-[#143B39] text-white rounded font-medium transition text-sm">
-                            <i class="fas fa-bookmark mr-1"></i>Envoyer une proposition
-                        </button>
-                    </form>
+                @if(\App\Http\Controllers\ReservationController::isEnvoyer($publication->id))
+                    <button disabled class="px-4 py-2 bg-[#18534F] rounded  text-sm px-4 py-2 border border-gray-500 text-gray-500 rounded font-medium cursor-not-allowed ">
+                    <i class="fas fa-check mr-1"></i>Proposition envoyé
+                    </button>
+                @else
+                <form action="{{ route('proposition', [$publication->id, $publication->user->id]) }}" method="POST">
+                    @csrf
+                    <button type="submit" class="px-4 py-2 bg-[#18534F] hover:bg-[#143B39] text-white rounded font-medium transition text-sm">
+                        <i class="fas fa-bookmark mr-1"></i>Envoyer une proposition
+                    </button>
+                </form>
+                @endif
                 </div>
                 @if(\App\Http\Controllers\FavorisController::siExiste($publication->id))
                 <form action="{{ route('retirerFavoris', $publication->id) }}" method="POST">
@@ -249,12 +255,19 @@
                     </button>
                 </form>
                   @else
+                  @if(\App\Http\Controllers\ReservationController::isEnvoyer($publication->id))
+                  <button disabled class=" px-4 py-2 border border-[#18534F] text-[#18534F] hover:bg-gray-50 rounded font-medium transition cursor-not-allowed text-sm">
+                        <i class="far fa-clock mr-1"></i>Enregistrer
+                    </button>
+                
+                @else
                 <form action="{{route('ajouterFavoris',$publication->id)}}" method="POST">
                     @csrf  
                     <button class="px-4 py-2 border border-[#18534F] text-[#18534F] hover:bg-gray-50 rounded font-medium transition text-sm">
                         <i class="far fa-clock mr-1"></i>Enregistrer
                     </button>
                 </form>
+                @endif
                 @endif
             </div>
       <!-- ----------------------------------------- -->
