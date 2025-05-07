@@ -14,18 +14,15 @@ class NotificationController extends Controller
         return view('Client/Home',compact('notifications'));
     }
 
-//     public function lire($id)
-// {
-//     $notification = Notification::where('id', $id)
-//         ->where('user_id', auth()->id())
-//         ->firstOrFail();
-
-//     $notification->is_read = true;
-//     $notification->save();
-
-//     return redirect()->back();
-// }
 
 
+public function NotifClient($id, $autre_id){
+    Notification::create([
+        'auteur_id' => Auth::id(),
+        'cible_id' => $autre_id,
+        'publication_id' => $id, 
+    ]);
+    return redirect()->back();
+}   
 
 }

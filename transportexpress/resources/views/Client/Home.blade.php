@@ -233,8 +233,9 @@
           <!-- ----------------pour la page de transporteur----------------- -->
                     <div class="flex gap-3 justify-center">
                 <div>
-                    <form action="{{}}">
-                        <button  class="px-4 py-2 bg-[#18534F] hover:bg-[#143B39] text-white rounded font-medium transition text-sm">
+                    <form action="{{ route('proposition', [$publication->id, $publication->user->id]) }}" method="POST">
+                        @csrf
+                        <button type="submit" class="px-4 py-2 bg-[#18534F] hover:bg-[#143B39] text-white rounded font-medium transition text-sm">
                             <i class="fas fa-bookmark mr-1"></i>Envoyer une proposition
                         </button>
                     </form>

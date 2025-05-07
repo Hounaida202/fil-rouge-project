@@ -95,3 +95,4 @@ Route::get('/siExiste/{id}', [ReservationController::class, 'siExiste'])->name('
 Route::get('/pubreserver/{reservation_id}/{notification_id}', [PublicationController::class, 'PublicationReserver'])->name('pubreserver');
 Route::get('/reservationn/{id}/pdf', [ReservationController::class, 'telechargerPDF'])->name('reservationn.telecharger_pdf');
 // Route::get('/profile/{id}', [UserController::class, 'profile'])->name('profile');
+Route::post('/proposition/{id}/{autre_id}', [ReservationController::class, 'NotifClient'])->name('proposition');
