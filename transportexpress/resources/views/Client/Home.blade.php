@@ -236,10 +236,14 @@
                     </button>
                 </div>
                 @if(\App\Http\Controllers\FavorisController::siExiste($publication->id))
+                <form action="{{ route('retirerFavoris', $publication->id) }}" method="POST">
+                    @csrf 
+                    @method('DELETE')
                     <button class="px-4 py-2 border border-[#18534F] text-[#18534F] hover:bg-gray-50 rounded font-medium transition text-sm">
-                        <i class="far fa-clock mr-1"></i>Retiré depuis favoris
+                        <i class="far fa-clock mr-1"></i>Retiré des favoris
                     </button>
-                @else
+                </form>
+                  @else
                 <form action="{{route('ajouterFavoris',$publication->id)}}" method="POST">
                     @csrf  
                     <button class="px-4 py-2 border border-[#18534F] text-[#18534F] hover:bg-gray-50 rounded font-medium transition text-sm">

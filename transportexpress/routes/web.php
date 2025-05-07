@@ -71,6 +71,9 @@ Route::get('/HistoriquesClient', [PublicationController::class, 'HistoriquesClie
 Route::get('/statistics', [StatisticController::class, 'coutComptes'])->name('statistics');
 Route::get('/preuve/{id}', [UserController::class, 'EnAttenteDetailles'])->name('preuve');
 Route::POST('/ajouterFavoris/{id}', [FavorisController::class, 'ajouterAuxFavoris'])->name('ajouterFavoris');
+
+Route::delete('/retirerFavoris/{id}', [FavorisController::class, 'retirerFavoris'])->name('retirerFavoris');
+
 Route::get('/siExiste/{id}', [FavorisController::class, 'siExiste'])->name('siExiste');
 Route::get('/afficherFavoris', [FavorisController::class, 'afficherFavoris'])->name('afficherFavoris');
 // Route::get('/filtrer', [PublicationController::class, 'filtrer'])->name('filtrerPublications');
