@@ -17,6 +17,16 @@ class FavorisController extends Controller
           return redirect()->back();
         }
 
+        public function retirerFavoris($publication_id) {
+            $user_id = Auth::id();
+        
+            Favoris::where('user_id', $user_id)
+                   ->where('publication_id', $publication_id)
+                   ->delete();
+        
+            return redirect()->back();
+        }
+        
         public static function siExiste($publication_id)
         {   $user_id=Auth::id();
             $favoris=Favoris::where('publication_id', $publication_id)->where('user_id', $user_id)->exists(); 

@@ -40,7 +40,7 @@
             <div class="flex flex-col md:flex-row">
                 <div class="mb-6 md:mb-0 md:mr-8 flex flex-col items-center">
                     <div class="w-48 h-48 rounded-lg overflow-hidden shadow-lg mb-2">
-                        <img src="{{$enAttente->image}}" alt="" class="w-full h-full object-cover">
+                        <img src="{{asset('storage/'.$enAttente->image)}}" alt="" class="w-full h-full object-cover">
                     </div>
                     <p class="text-sm text-gray-500">Photo de profil</p>
                 </div>
