@@ -21,11 +21,57 @@
                 <a href="{{route('filtrerPublications')}}" class="hover:text-blue-200 font-medium block">Home</a>
                 <a href="{{route('HistoriquesClient')}}" class="hover:text-blue-200 font-medium block">Historique</a>
                 <a href="{{route('afficherFavoris')}}" class="hover:text-blue-200 font-medium block">Favoris</a>
-                <a href="" class="hover:text-blue-200 font-medium block">Notification</a>
+                <div class="relative">
+                    <button id="notificationButton" class="hover:text-blue-200 font-medium block flex items-center relative">
+                        Notification
+                        <span class="flex h-5 w-5 items-center justify-center bg-red-500 text-white text-xs rounded-full absolute -top-2 -right-4">{{$countNotif}}</span>
+                    </button>
+                    <!-- Dropdown Notifications -->
+                    <div id="notificationDropdown" class="hidden absolute right-0 mt-2 w-80 bg-white rounded-md shadow-lg z-50 max-h-96 overflow-y-auto" style="max-height: 500px;">
+                        <div class="p-3 border-b bg-[#18534F] text-white flex justify-between items-center rounded-t-md">
+                            <h3 class="font-medium">Notifications</h3>
+                        </div>
+                        <div>
+                            <!-- Notification 1 -->
+                            <div>
+                            @foreach($notifications as $notification)
+                                <a href="{{ route('pubreserver', ['reservation_id' => $notification->reservation->id, 'notification_id' => $notification->id]) }}">
+                                    <div class="p-4 border-b hover:bg-gray-50 text-black {{ $notification->is_read ? 'bg-white' : 'bg-gray-200' }}">
+                                        <div class="flex">
+                                            <img src="" alt="User" class="h-10 w-10 rounded-full mr-3">
+                                            <div>
+                                                <p class="text-sm">
+                                                    <span class="font-medium">{{ $notification->auteur->name }}</span>
+                                                    a fait une réservation pour l'un de vos services
+                                                </p>
+                                                <p class="text-xs text-gray-500 mt-1">Il y a 5 minutes</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            @endforeach
+
+
+                            </div>
+                            <!-- Notification 2 -->
+                            
+                            <!-- Notification 3 -->
+                            
+                            <!-- Notification 4 -->
+                            
+                            <!-- Notification 5 -->
+                            
+                        </div>
+                    </div>
+
+
+
+
+                </div>
             </div>
-            <div  class="hidden md:flex items-center space-x-3 mt-4 md:mt-0">
+            <div class="hidden md:flex items-center space-x-3 mt-4 md:mt-0">
                 <span>{{ Auth::user()->name }}</span>
-                <img src="{{asset('storage/'.Auth::user()->image)}}" alt="" class="w-8 h-8  rounded-full ">
+                <img src="{{asset('storage/'.Auth::user()->image)}}" alt="" class="w-8 h-8 rounded-full">
             </div>
         </div>
     </nav>
@@ -117,11 +163,14 @@
                 </form>
                 <div class="space-y-6">
             @foreach($publications as $publication)
-    <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+            @if(!\App\Http\Controllers\PublicationController::siExiste($publication->id))
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
         <div class="p-4 border-b flex items-center gap-4">
             <img src="{{$publication->user->image}}" alt="" class="w-14 h-14 rounded-full object-cover">
             <div>
-                <h3 class="font-bold text-lg">{{$publication->user->name}}</h3>
+                <a href="{{route('autreprofile',$publication->user->id)}}">
+                    <h3 class="font-bold text-lg">{{$publication->user->name}}</h3>
+                </a>
                 <div class="flex items-center gap-3 text-gray-600 text-sm">
                     <span>{{$publication->user->email}}</span>
                     <span class="px-2 py-0.5 bg-blue-100 text-blue-800 rounded-full">{{$publication->user->role}}</span>
@@ -178,6 +227,30 @@
                 </p>
             </div>
             @if($publication->etat=='en cours')
+                    @if($publication->user->role =='Client')
+          <!-- ----------------pour la page de transporteur----------------- -->
+                    <div class="flex gap-3 justify-center">
+                <div >
+                    <button onclick="OpenModal2('{{$publication->id}}')" class="px-4 py-2 bg-[#18534F] hover:bg-[#143B39] text-white rounded font-medium transition text-sm">
+                        <i class="fas fa-bookmark mr-1"></i>Envoyer une proposition
+                    </button>
+                </div>
+                @if(\App\Http\Controllers\FavorisController::siExiste($publication->id))
+                    <button class="px-4 py-2 border border-[#18534F] text-[#18534F] hover:bg-gray-50 rounded font-medium transition text-sm">
+                        <i class="far fa-clock mr-1"></i>Retiré depuis favoris
+                    </button>
+                @else
+                <form action="{{route('ajouterFavoris',$publication->id)}}" method="POST">
+                    @csrf  
+                    <button class="px-4 py-2 border border-[#18534F] text-[#18534F] hover:bg-gray-50 rounded font-medium transition text-sm">
+                        <i class="far fa-clock mr-1"></i>Enregistrer
+                    </button>
+                </form>
+                @endif
+            </div>
+      <!-- ----------------------------------------- -->
+
+                    @else
             <div class="flex gap-3 justify-center">
                 <div >
                     <button onclick="OpenModal('{{$publication->id}}')" class="px-4 py-2 bg-[#18534F] hover:bg-[#143B39] text-white rounded font-medium transition text-sm">
@@ -197,6 +270,7 @@
                 </form>
                 @endif
             </div>
+            @endif
             @else
                    <div class="flex gap-3 justify-center opacity-60">
                         <button disabled class="px-4 py-2 bg-gray-500 text-white rounded font-medium cursor-not-allowed text-sm">
@@ -218,43 +292,75 @@
                     </button>
                 </div>
                 <div class="p-5">
+                <form action="{{ route('reserver', [$publication->id, $publication->user->id]) }}" method="POST">
+                @csrf
                     <div class="mb-5">
-                        <label for="localisation" class="block text-sm font-medium text-gray-700 mb-1">Localisation exacte pour le rendez-vous</label>
-                        <input type="text" id="localisation" class="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-[#18534F] text-sm" placeholder="Adresse complète où le transporteur vous retrouvera">
+                        <label for="localisation"  class="block text-sm font-medium text-gray-700 mb-1">Localisation exacte pour le rendez-vous</label>
+                        <input type="text" name="localisation" id="localisation" class="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-[#18534F] text-sm" placeholder="Adresse complète où le transporteur vous retrouvera">
                     </div>
                     <div class="border-t pt-4 flex justify-between items-center">
                         <button onclick="closeModal('{{$publication->id}}')"  class=" annuler px-3 py-1.5 border border-gray-300 text-gray-700 rounded font-medium transition text-sm hover:bg-gray-100">
                             Annuler
                         </button>
-                        <button class="px-4 py-1.5 bg-[#18534F] hover:bg-[#143B39] text-white rounded font-medium transition text-sm">
-                            Aller au paiement <i class="fas fa-arrow-right ml-1"></i>
-                        </button>
+                            <button type="submit"  class="px-4 py-1.5 bg-[#18534F] hover:bg-[#143B39] text-white rounded font-medium transition text-sm">
+                                Reserver <i class="fas fa-arrow-right ml-1"></i>
+                            </button>
+                        </form>
                     </div>
                 </div>
             </div>
+            <!-- ---------deuxiem modal pour le transporteur------------- -->
+            
+             <!-- --------------------------------------------- -->
         </div>
     </div>
+    @endif
     @endforeach
 </div>
     </div>
 </body>
-<script>
-        // let reserverBtn=document.getElementById('reserver');
-        // let modal=document.getElementById('modal');
-        // let annuler=document.querySelector('.annuler');
-        // reserverBtn.addEventListener('click',function(){
-        //         modal.style.display='flex';
-        // });
-        // annuler.addEventListener('click',function(){
-        //         modal.style.display='none';
-        // });
-function OpenModal(id){
-    document.getElementById('modal-'+ id).style.display='flex';
-}
-function closeModal(id){
-    document.getElementById('modal-'+ id).style.display='none';
-}
 
-        
-    </script>
+
+<script>
+    // Toggle mobile menu
+    document.getElementById('menuButton').addEventListener('click', function() {
+        const mobileMenu = document.getElementById('mobileMenu');
+        if (mobileMenu.classList.contains('hidden')) {
+            mobileMenu.classList.remove('hidden');
+        } else {
+            mobileMenu.classList.add('hidden');
+        }
+    });
+
+    // Toggle notification dropdown
+    document.getElementById('notificationButton').addEventListener('click', function(e) {
+        e.stopPropagation();
+        const dropdown = document.getElementById('notificationDropdown');
+        dropdown.classList.toggle('hidden');
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function(e) {
+        const dropdown = document.getElementById('notificationDropdown');
+        if (!dropdown.classList.contains('hidden') && !e.target.closest('#notificationButton')) {
+            dropdown.classList.add('hidden');
+        }
+    });
+
+    // Modal functions for publication reservations
+    function OpenModal(id){
+        document.getElementById('modal-'+ id).style.display='flex';
+    }
+    
+    function closeModal(id){
+        document.getElementById('modal-'+ id).style.display='none';
+    }
+    function OpenModal2(id){
+        document.getElementById('modal2-'+ id).style.display='flex';
+    }
+    
+    function closeModal2(id){
+        document.getElementById('modal2-'+ id).style.display='none';
+    }
+</script>
 </html>

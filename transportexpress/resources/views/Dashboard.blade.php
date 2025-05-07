@@ -40,24 +40,7 @@
     </style>
 </head>
 <body class="bg-gray-100 font-sans static">
-    <!-- une sweet alerts pour la confirmation de suppression -->
-    <div id="supressionSuccesAlert" class="bg-" style="display:none;">
-        
-    </div>
-    <div id="desactivationSuccesAlert" class="bg-" style="display:none;">
-        
-    </div>
-    <div id="activationSuccesAlert" class="" style="display:none;">
-        <div>
-
-        </div>
-    </div>
-    <div id="validationSuccesAlert" class="bg-" style="display:none;">
-        
-    </div>
-    <div id="invalidationSuccesAlert" class="bg-" style="display:none;">
-        
-    </div>
+   
     <nav class="bg-[#18534F] text-white p-4 shadow-md">
         <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
             <div class="flex items-center w-full md:w-auto justify-between">

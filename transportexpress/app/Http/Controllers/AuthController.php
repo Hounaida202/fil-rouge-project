@@ -86,7 +86,7 @@ class AuthController extends Controller
     if($user && Hash::check($password, $user->password)){
         //   creer la session
         if($user->status == "en attente"){
-            return back()->with('error', 'Votre compte est en cours de traitement.');
+            return redirect()->route('message_encours');
         }
         if($user->status == "invalide"){
             return redirect()->route('message_invalide');
@@ -97,11 +97,8 @@ class AuthController extends Controller
                 Auth()->login($user);
                 return redirect()->route('dashboard');
             }
-            if ($user->role == 'Transporteur') {
-                Auth()->login($user);
-                return redirect()->route('publicvhgvhgations');
-            }
-            if ($user->role == 'Client') {
+            
+            else  {
                 Auth()->login($user);
                 return redirect()->route('filtrerPublications');
             }

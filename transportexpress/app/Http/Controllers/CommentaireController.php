@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Commentaire;
 use App\Models\Note;
+use Illuminate\Support\Facades\Auth;
 
 
 class CommentaireController extends Controller
@@ -22,6 +23,17 @@ class CommentaireController extends Controller
 //     return view('Profile', compact('commentaires'));
     
 // }
+
+public function postCommentaire(Request $request ,$id){
+
+    Commentaire::create([
+        'description'=>$request->description,
+        'auteur_id'=>Auth::id(),
+        'cible_id'=>$id,
+    ]);
+    return redirect()->back();
+
+}
 
     
 }

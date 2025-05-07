@@ -24,7 +24,10 @@ class AccueilController extends Controller
      {
          return view('MessageInvalide');
      }
-    
+     public function ShowEncoursMsg()
+     {
+         return view('MessageEncours');
+     }
      public function ShowStatisticsPage()
      {
          return view('AdminStatistiques');

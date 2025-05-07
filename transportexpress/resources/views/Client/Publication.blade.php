@@ -18,7 +18,7 @@
                 </button>
             </div>
             <div id="mobileMenu" class="hidden md:flex flex-col md:flex-row w-full md:w-auto space-y-3 md:space-y-0 md:space-x-6 mt-4 md:mt-0">
-                <a href="{{route('publications')}}" class="hover:text-blue-200 font-medium block">Home</a>
+                <a href="{{route('filtrerPublications')}}" class="hover:text-blue-200 font-medium block">Home</a>
                 <a href="" class="hover:text-blue-200 font-medium block">Historique</a>
                 <a href="" class="hover:text-blue-200 font-medium block">Favoris</a>
                 <a href="" class="hover:text-blue-200 font-medium block">Notifications</a>
@@ -32,7 +32,7 @@
     <div class="container mx-auto px-4 py-8 max-w-4xl">
         <div class="flex justify-between items-center mb-6">
             <h1 class="text-2xl font-bold">Ajouter une publication</h1>
-            <a href="{{route('publications')}}" class="bg-gray-200 hover:bg-gray-300 text-gray-800 py-1.5 px-3 rounded font-medium transition text-sm">
+            <a href="{{route('filtrerPublications')}}" class="bg-gray-200 hover:bg-gray-300 text-gray-800 py-1.5 px-3 rounded font-medium transition text-sm">
                 <i class="fas fa-arrow-left mr-1"></i>Retour
             </a>
         </div>

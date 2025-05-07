@@ -24,7 +24,7 @@
                 <a href="{{route('dashboard')}}" class="hover:text-blue-200 font-medium block">Dashboard</a>
                 <a href="{{route('comptes')}}" class="hover:text-blue-200 font-medium block">Comptes</a>
                 <a href="{{route('reclamation')}}" class="hover:text-blue-200 font-medium block">Réclamations</a>
-                <a href="" class="hover:text-blue-200 font-medium block">Statistiques</a>
+                <a href="{{route('statistics')}}" class="hover:text-blue-200 font-medium block">Statistiques</a>
             </div>
             <div class="hidden md:flex items-center space-x-3 mt-4 md:mt-0">
                 <span>Admin</span>
@@ -170,9 +170,9 @@
                                 </span>
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                                <div class="flex space-x-2">
+                                <a href="{{ route('detailles', $actif->id) }}" class="flex space-x-2">
                                     <button class="text-blue-600 hover:text-blue-900">Voir</button>
-                                </div>
+                                </a>
                             </td>
                         </tr>
 

@@ -7,9 +7,10 @@ use App\Http\DAOs\Interfaces\UserInterface;
 use App\Http\DAOs\Interfaces\CommentaireInterface;
 use App\Http\DAOs\Interfaces\NoteInterface;
 use App\Http\DAOs\Interfaces\PublicationInterface;
+use App\Models\Publication;
 use App\Models\User;
 use App\Models\Remarque;
-
+use App\Models\Reservation;
 
 class UserController extends Controller
 {
@@ -76,8 +77,8 @@ class UserController extends Controller
                     'titre' => $request->input('titre'), 
                     'description' => $request->input('description'), 
                 ]);
-            $actif=$this->UserRepository->SupprimerCompte($id);
-            return redirect()->back();
+            $this->UserRepository->SupprimerCompte($id);
+            return redirect()->route('dashboard');
 
             }
 
@@ -98,7 +99,10 @@ class UserController extends Controller
                 $count=$this->NoteRepository->count($id);
                 $avg=$this->NoteRepository->avg($id);
                 $publications=$this->PublicationRepository->afficherPublications($id);
-                return view('Profile', compact('compte','commentaires','count','avg','countcommentaires','publications'));
+                $countpub=Publication::where('user_id',$id)->count();
+                $countreservation=Reservation::where('user_id',$id)->count();
+
+                return view('Profile', compact('compte','commentaires','count','avg','countcommentaires','publications','countpub','countreservation'));
 
             }
            
@@ -106,5 +110,15 @@ class UserController extends Controller
                 $enAttente=User::find($id);
                 return view('EnAttenteDetailles',compact('enAttente'));
             }
+            public function AutreProfile($id){
+                $compte=User::find($id);
+                $commentaires=$this->CommentaireRepository->afficherCommentaires($id);
+                $countcommentaires=$this->CommentaireRepository->count($id);
+                $count=$this->NoteRepository->count($id);
 
+                $avg=$this->NoteRepository->avg($id);
+                $publications=$this->PublicationRepository->afficherPublications($id);
+                return view('Client/AutreProfile',compact('compte','commentaires','count','avg','countcommentaires','publications'));
+            }
+            
 }

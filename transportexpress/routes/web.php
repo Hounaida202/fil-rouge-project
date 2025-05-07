@@ -8,7 +8,12 @@ use App\Http\Controllers\FavorisController;
 use App\Http\Controllers\StatisticController;
 use App\Http\Controllers\ReclamationController;
 use App\Http\Controllers\PublicationController;
-
+use App\Http\Controllers\CommentaireController;
+use App\Http\Controllers\NoteController;
+use App\Http\Controllers\ReservationController;
+use App\Http\Controllers\NotificationController;
+use App\Models\Notification;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,6 +36,7 @@ Route::get('/connexion',[AccueilController::class,'ShowLoginForm'])->name('conne
 Route::post('/register',[AuthController::class,'register'])->name('register');
 Route::post('/login',[AuthController::class,'login'])->name('login');
 Route::get('/message/reussite',[AccueilController::class,'showReussiteMsg'])->name('message_reussite');
+Route::get('/message/encours',[AccueilController::class,'showENcoursMsg'])->name('message_encours');
 Route::get('/message/invalide',[AccueilController::class,'ShowinvalideMsg'])->name('message_invalide');
 Route::put('/valide/{id}', [UserController::class, 'ValideRole'])->name('Valide');
 Route::put('/invalide/{id}', [UserController::class, 'InvalideRole'])->name('Invalide');
@@ -68,3 +74,21 @@ Route::POST('/ajouterFavoris/{id}', [FavorisController::class, 'ajouterAuxFavori
 Route::get('/siExiste/{id}', [FavorisController::class, 'siExiste'])->name('siExiste');
 Route::get('/afficherFavoris', [FavorisController::class, 'afficherFavoris'])->name('afficherFavoris');
 // Route::get('/filtrer', [PublicationController::class, 'filtrer'])->name('filtrerPublications');
+
+Route::get('/autreprofile/{id}', [UserController::class, 'AutreProfile'])->name('autreprofile');
+Route::POST('/postCommentaire/{id}', [CommentaireController::class, 'postCommentaire'])->name('postCommentaire');
+Route::post('/notes', [NoteController::class, 'storeOrUpdate'])->name('note.store')->middleware('auth');
+Route::post('/reserver/{id}/{autre_id}', [ReservationController::class, 'reserver_notifier_inserer'])->name('reserver');
+Route::get('/siExiste/{id}', [ReservationController::class, 'siExiste'])->name('siExiste');
+
+
+// Route::get('/getNotification',  function (){
+//     $id=Auth::id();
+//     $notifications=Notification::where('cible_id',$id)->get();
+//     return view('Client.Home',compact('notifications'));
+// })->name('getNotification');
+
+
+Route::get('/pubreserver/{reservation_id}/{notification_id}', [PublicationController::class, 'PublicationReserver'])->name('pubreserver');
+Route::get('/reservationn/{id}/pdf', [ReservationController::class, 'telechargerPDF'])->name('reservationn.telecharger_pdf');
+// Route::get('/profile/{id}', [UserController::class, 'profile'])->name('profile');
