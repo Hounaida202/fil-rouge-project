@@ -102,10 +102,11 @@
             </div>
            
             </div>
-                   <div class="flex gap-3 justify-center  pb-4">
+                   <div class="flex gap-3 justify-center  pb-4">      
                         <a href="{{ route('reservationn.telecharger_pdf', $reservation->id) }}" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">
-                            <i class="fas fa-download mr-1"></i> Télécharger en PDF
+                            <i class="fas fa-download mr-1"></i> Télécharger votre document
                         </a>
+
                     </div>
         </div>
 

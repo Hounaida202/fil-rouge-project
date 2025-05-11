@@ -122,7 +122,8 @@
                         </button>
                     </div>
                     <div class="p-5">
-                        <div class="mb-5">
+                    <form action="{{ route('reserver2', [$notification->publication->id, $notification->auteur->id]) }}" method="POST">
+                    <div class="mb-5">
                             <label for="localisation"  class="block text-sm font-medium text-gray-700 mb-1">Localisation exacte pour le rendez-vous</label>
                             <input type="text" name="localisation" id="localisation" class="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-[#18534F] text-sm" placeholder="Adresse complète où le transporteur vous retrouvera">
                         </div>
@@ -130,13 +131,12 @@
                             <button onclick="closeModal('{{$notification->publication->id}}')"  class=" annuler px-3 py-1.5 border border-gray-300 text-gray-700 rounded font-medium transition text-sm hover:bg-gray-100">
                                 Annuler
                             </button>
-                            <form action="{{ route('reserver', [$notification->publication->id, $notification->publication->user->id]) }}" method="POST">
                             @csrf
                                 <button type="submit"  class="px-4 py-1.5 bg-[#18534F] hover:bg-[#143B39] text-white rounded font-medium transition text-sm">
                                     Envoyer <i class="fas fa-arrow-right ml-1"></i>
                                 </button>
-                            </form>
-                        </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
 </body>

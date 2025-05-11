@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Publication;
 use App\Models\Notification;
 use App\Models\Commentaire;
+use App\Models\User;
 
 use App\Models\Reservation;
 use Illuminate\Support\Facades\Auth;
@@ -141,22 +142,37 @@ class PublicationController extends Controller
     return view('Client/PubReservé', compact('reservation'));
 }  
 
-public function PublicationProposer( $notification_id )
+// public function PublicationProposer( $notification_id ,$auteur_id )
+// {
+//     $notification=Notification::findOrFail($notification_id);
+//     $auteur=Notification::findOrFail($auteur_id);
+
+//     if ($notification_id) {
+//         $notification = Notification::where('id', $notification_id)
+//             ->where('cible_id', auth()->id())
+//             ->first();
+
+//         if ($notification && !$notification->is_read) {
+//             $notification->is_read = true;
+//             $notification->save();
+//         }
+//     }
+//     return view('Client/PubProposition',compact('notification','auteur'));
+// }
+public function PublicationProposer($notification_id, $transport_id)
 {
-    $notification=Notification::findOrFail($notification_id);
+    $notification = Notification::where('id', $notification_id)
+        ->where('cible_id', auth()->id())
+        ->firstOrFail();
 
-    if ($notification_id) {
-        $notification = Notification::where('id', $notification_id)
-            ->where('cible_id', auth()->id())
-            ->first();
-
-        if ($notification && !$notification->is_read) {
-            $notification->is_read = true;
-            $notification->save();
-        }
+    if (!$notification->is_read) {
+        $notification->is_read = true;
+        $notification->save();
     }
-    return view('Client/PubProposition',compact('notification'));
+
+    $auteur = User::findOrFail($transport_id);
+
+    return view('Client/PubProposition', compact('notification', 'auteur'));
 }
-  
 
 }

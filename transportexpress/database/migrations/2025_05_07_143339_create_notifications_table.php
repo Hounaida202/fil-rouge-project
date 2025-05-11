@@ -19,6 +19,7 @@ return new class extends Migration
         $table->foreignId('cible_id')->constrained('users')->onDelete('cascade');
         $table->foreignId('publication_id')->nullable()->constrained('publications')->onDelete('cascade');
         $table->foreignId('reservation_id')->nullable()->constrained('reservations')->onDelete('cascade');
+        $table->string('type')->nullable();
 
         $table->boolean('is_read')->default(false);
             $table->timestamps();

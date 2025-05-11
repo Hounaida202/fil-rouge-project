@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Notification extends Model
 {
     use HasFactory;
-    protected $fillable = ['auteur_id','cible_id','publication_id','reservation_id'];
+    protected $fillable = ['auteur_id','cible_id','publication_id','reservation_id','type'];
 
 
     public function publication()

@@ -39,7 +39,8 @@
                              <!-- pour les notifications de transporteur -->
                              @if(Auth::user() && Auth::user()->role == 'Transporteur')
                              <div>
-                            @forelse($notifications as $notification)
+                            @forelse($notifications->sortByDesc('created_at') as $notification)
+                            @if($notification->type==="reservation")
                                 <a href="{{ route('pubreserver', ['reservation_id' => $notification->reservation->id, 'notification_id' => $notification->id]) }}">
                                     <div class="p-4 border-b hover:bg-gray-50 text-black {{ $notification->is_read ? 'bg-white' : 'bg-gray-200' }}">
                                         <div class="flex">
@@ -54,6 +55,22 @@
                                         </div>
                                     </div>
                                 </a>
+                                    @else
+                                    <a href="{{ route('pubreserver', ['reservation_id' => $notification->reservation->id, 'notification_id' => $notification->id]) }}">
+                                        <div class="p-4 border-b hover:bg-gray-50 text-black {{ $notification->is_read ? 'bg-white' : 'bg-gray-200' }}">
+                                            <div class="flex">
+                                                <img src=" {{asset('storage/'.$notification->auteur->image)}}" alt="User" class="h-10 w-10 rounded-full mr-3">
+                                                <div>  
+                                                    <p class="text-sm">
+                                                        <span class="font-medium">{{ $notification->auteur->name }}</span>
+                                                        a accepter votre proposition , veuillez importer votre document des informations
+                                                    </p>
+                                                    <p class="text-xs text-gray-500 mt-1">Il y a 5 minutes</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    @endif
                                 @empty
                                     <p class="text-gray-500 m-8">Pas encore des notifications.</p>
                                 @endforelse
@@ -62,9 +79,9 @@
                             <!-- Notification pour le client  -->
 
                             <div>
-                            @forelse($notifications as $notification)
-                                <a href="{{route('pubproposer',['notification_id' => $notification->id])}}">
-                                    <div class="p-4 border-b hover:bg-gray-50 text-black {{ $notification->is_read ? 'bg-white' : 'bg-gray-200' }}">
+                            @forelse($notifications->sortByDesc('created_at') as $notification)
+                            <a href="{{ route('pubproposer', ['notification_id' => $notification->id, 'transport_id' => $notification->auteur->id]) }}">
+                            <div class="p-4 border-b hover:bg-gray-50 text-black {{ $notification->is_read ? 'bg-white' : 'bg-gray-200' }}">
                                         <div class="flex">
                                             <img src=" {{asset('storage/'.$notification->auteur->image)}}" alt="User" class="h-10 w-10 rounded-full mr-3">
                                             <div>
@@ -197,7 +214,7 @@
                 </div>
                 </form>
                 <div class="space-y-6">
-            @foreach($publications as $publication)
+            @foreach($publications->sortByDesc('created_at') as $publication)
             @if(!\App\Http\Controllers\PublicationController::siExiste($publication->id))
             <div class="bg-white rounded-lg shadow-lg overflow-hidden">
         <div class="p-4 border-b flex items-center gap-4">
@@ -377,7 +394,6 @@
 
 
 <script>
-    // Toggle mobile menu
     document.getElementById('menuButton').addEventListener('click', function() {
         const mobileMenu = document.getElementById('mobileMenu');
         if (mobileMenu.classList.contains('hidden')) {
@@ -387,14 +403,12 @@
         }
     });
 
-    // Toggle notification dropdown
     document.getElementById('notificationButton').addEventListener('click', function(e) {
         e.stopPropagation();
         const dropdown = document.getElementById('notificationDropdown');
         dropdown.classList.toggle('hidden');
     });
 
-    // Close dropdown when clicking outside
     document.addEventListener('click', function(e) {
         const dropdown = document.getElementById('notificationDropdown');
         if (!dropdown.classList.contains('hidden') && !e.target.closest('#notificationButton')) {
