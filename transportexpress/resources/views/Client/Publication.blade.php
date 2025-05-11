@@ -19,13 +19,18 @@
             </div>
             <div id="mobileMenu" class="hidden md:flex flex-col md:flex-row w-full md:w-auto space-y-3 md:space-y-0 md:space-x-6 mt-4 md:mt-0">
                 <a href="{{route('filtrerPublications')}}" class="hover:text-blue-200 font-medium block">Home</a>
-                <a href="" class="hover:text-blue-200 font-medium block">Historique</a>
-                <a href="" class="hover:text-blue-200 font-medium block">Favoris</a>
-                <a href="" class="hover:text-blue-200 font-medium block">Notifications</a>
+                <a href="{{route('HistoriquesClient')}}" class="hover:text-blue-200 font-medium block">Historique</a>
+                <a href="{{route('afficherFavoris')}}" class="hover:text-blue-200 font-medium block">Favoris</a>
             </div>
-            <div class="hidden md:flex items-center space-x-3 mt-4 md:mt-0">
+            <div  class="hidden md:flex items-center space-x-3 mt-4 md:mt-0">
                 <span>{{ Auth::user()->name }}</span>
-                <img src="https://img.freepik.com/photos-premium/personnage-tres-mignon-nuage-personnage-enfant-mignon_454018-1392.jpg" alt="" class="w-8 h-8  rounded-full ">
+                <img src="{{asset('storage/'.Auth::user()->image)}}" alt="" class="w-8 h-8  rounded-full ">
+                <form action="{{ route('logout') }}" method="POST" >
+                    @csrf
+                    <button type="submit" style="background: none; border: none; cursor: pointer;">
+                        <i class="fas fa-power-off" style="font-size: 20px; color: #333;"></i>
+                    </button>
+                </form>
             </div>
         </div>
     </nav>
@@ -91,16 +96,7 @@
                     </div>
                 </div>
 
-                <div class="flex flex-wrap -mx-2 mb-5">
-                    <div class="w-full md:w-1/2 px-2 mb-4 md:mb-0">
-                        <label for="adresse_depart" class="block text-sm font-medium text-gray-700 mb-1">Adresse de départ*</label>
-                        <input type="text" id="adresse_depart" name="adresse_depart" required class="w-full px-3 py-2 border rounded focus:outline-none focus:ring-1 focus:ring-[#18534F] text-sm" placeholder="Adresse complète du point de départ">
-                    </div>
-                    <div class="w-full md:w-1/2 px-2">
-                        <label for="adresse_arrivee" class="block text-sm font-medium text-gray-700 mb-1">Adresse d'arrivée*</label>
-                        <input type="text" id="adresse_arrivee" name="adresse_arrivee" required class="w-full px-3 py-2 border rounded focus:outline-none focus:ring-1 focus:ring-[#18534F] text-sm" placeholder="Adresse complète du point d'arrivée">
-                    </div>
-                </div>
+               
 
                 <div class="flex flex-wrap -mx-2 mb-5">
                     <div class="w-full md:w-1/2 px-2 mb-4 md:mb-0">
@@ -134,10 +130,7 @@
                     </div>
                 </div>
 
-                <div class="mb-5">
-                    <label for="localisation" class="block text-sm font-medium text-gray-700 mb-1">Localisation exacte (facultatif)</label>
-                    <input type="text" id="localisation" name="localisation" class="w-full px-3 py-2 border rounded focus:outline-none focus:ring-1 focus:ring-[#18534F] text-sm" placeholder="Coordonnées GPS ou point de repère spécifique">
-                </div>
+                
 
                 <div class="mb-5">
                     <label for="description" class="block text-sm font-medium text-gray-700 mb-1">Description détaillée*</label>

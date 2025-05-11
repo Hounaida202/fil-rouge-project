@@ -7,6 +7,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
 </head>
 <body class="bg-gray-100 font-sans">
 <nav class="bg-[#18534F] text-white p-4 shadow-md">
@@ -17,6 +19,7 @@
                     <i class="fas fa-bars text-2xl"></i>
                 </button>
             </div>
+            
             <div id="mobileMenu" class="hidden md:flex flex-col md:flex-row w-full md:w-auto space-y-3 md:space-y-0 md:space-x-6 mt-4 md:mt-0">
                 <a href="{{route('filtrerPublications')}}" class="hover:text-blue-200 font-medium block">Home</a>
                 <a href="{{route('HistoriquesClient')}}" class="hover:text-blue-200 font-medium block">Historique</a>
@@ -96,9 +99,16 @@
             </div>
             <div class="hidden md:flex items-center space-x-3 mt-4 md:mt-0">
                 <span>{{ Auth::user()->name }}</span>
-                <img src="{{asset('storage/'.Auth::user()->image)}}" alt="" class="w-8 h-8 rounded-full">
+                <img src="{{asset('storage/'.Auth::user()->image)}}" alt="" class="w-8 h-8 rounded-full mr-4">
+                <form action="{{ route('logout') }}" method="POST" >
+                    @csrf
+                    <button type="submit" style="background: none; border: none; cursor: pointer;">
+                        <i class="fas fa-power-off" style="font-size: 20px; color: #333;"></i>
+                    </button>
+                </form>
             </div>
         </div>
+        
     </nav>
 <div class="container mx-auto px-4 py-8 max-w-4xl relative">
         <div class="flex justify-between items-center mb-6">
@@ -191,7 +201,7 @@
             @if(!\App\Http\Controllers\PublicationController::siExiste($publication->id))
             <div class="bg-white rounded-lg shadow-lg overflow-hidden">
         <div class="p-4 border-b flex items-center gap-4">
-            <img src="{{$publication->user->image}}" alt="" class="w-14 h-14 rounded-full object-cover">
+            <img src="{{asset('storage/'.$publication->user->image)}}" alt="" class="w-14 h-14 rounded-full object-cover">
             <div>
                 <a href="{{route('autreprofile',$publication->user->id)}}">
                     <h3 class="font-bold text-lg">{{$publication->user->name}}</h3>
@@ -256,7 +266,7 @@
           <!-- ----------------pour la page de transporteur----------------- -->
                     <div class="flex gap-3 justify-center">
                 <div>
-                @if(\App\Http\Controllers\ReservationController::isEnvoyer($publication->id))
+                @if(\App\Http\Controllers\NotificationController::isEnvoyer($publication->id))
                     <button disabled class="px-4 py-2 bg-[#18534F] rounded  text-sm px-4 py-2 border border-gray-500 text-gray-500 rounded font-medium cursor-not-allowed ">
                     <i class="fas fa-check mr-1"></i>Proposition envoyé
                     </button>
@@ -278,7 +288,7 @@
                     </button>
                 </form>
                   @else
-                  @if(\App\Http\Controllers\ReservationController::isEnvoyer($publication->id))
+                  @if(\App\Http\Controllers\NotificationController::isEnvoyer($publication->id))
                   <button disabled class=" px-4 py-2 border border-[#18534F] text-[#18534F] hover:bg-gray-50 rounded font-medium transition cursor-not-allowed text-sm">
                         <i class="far fa-clock mr-1"></i>Enregistrer
                     </button>

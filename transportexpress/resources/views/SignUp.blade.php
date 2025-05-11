@@ -29,14 +29,12 @@
                             <label for="image" class="text-[#18534F] font-medium mb-2 block">Choisissez votre photo de profile</label>
                             
                             <div class="mx-auto mb-4 text-center">
-                                <!-- Conteneur circulaire pour l'upload -->
                                 <label for="image" class="cursor-pointer inline-block">
                                     <div class="w-32 h-32 rounded-full bg-gray-200 flex items-center justify-center overflow-hidden border-2 border-[#18534F] hover:bg-gray-300 transition mx-auto">
                                         <i class="fas fa-camera text-gray-400 text-3xl"></i>
                                     </div>
                                     <div class="mt-2 text-sm text-[#18534F]">Cliquez pour choisir une photo</div>
                                     
-                                    <!-- Input file caché mais toujours fonctionnel -->
                                     <input type="file" id="image" name="image" class="hidden" accept="image/*" required>
                                 </label>
                             </div>
@@ -55,7 +53,7 @@
                     <!-- -------------- -->
                         <div class="mb-6">
                             <label for="tel" class="text-[#18534F] font-medium mb-2">Numéro de téléphone</label>
-                            <input type="tel" id="tel" name="tel" oninput="validateTel()" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                            <input type="tel" id="tel" name="tel"  class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
                             <p id="tel-msg"></p>
                         </div>
                    <!-- -------------- -->

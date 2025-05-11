@@ -17,9 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('titre');
             $table->string('ville_depart');
-            $table->string('adresse_depart')->nullable();
             $table->string('ville_arrivee');
-            $table->string('adresse_arrivee')->nullable();
             $table->string('date_depart')->nullable();
             $table->string('type');
             $table->string('poids')->nullable();
@@ -27,7 +25,6 @@ return new class extends Migration
             $table->string('image')->nullable();
             $table->string('prix')->nullable();
             $table->enum('etat',['en cours','expiré'])->nullable()->default('en cours');
-            $table->string('localisation');
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->timestamps();
         });

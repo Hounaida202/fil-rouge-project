@@ -19,6 +19,7 @@ return new class extends Migration
             $table->foreignId('publication_id')->constrained('publications')->onDelete('cascade');
             $table->string('localisation');
             $table->foreignId('autre_id')->constrained('users')->onDelete('cascade');
+            
             $table->timestamps();
         });
     }

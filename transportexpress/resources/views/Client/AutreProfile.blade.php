@@ -9,24 +9,28 @@
 </head>
 <body class="bg-gray-100  font-sans">
 <nav class="bg-[#18534F] text-white p-4 shadow-md">
-        <div class="container mx-auto flex justify-between items-center">
-            <div class="flex items-center">
+        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
+            <div class="flex items-center w-full md:w-auto justify-between">
                 <span class="font-bold text-xl">TransportExpress</span>
+                <button id="menuButton" class="md:hidden text-white focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
             </div>
-            <div class="hidden md:flex space-x-4">
-                <a href="" class="hover:text-blue-200">Accueil</a>
-                <a href="" class="hover:text-blue-200">Services</a>
-                <a href="" class="hover:text-blue-200">À propos</a>
-                <a href="" class="hover:text-blue-200">Contact</a>
+            <div id="mobileMenu" class="hidden md:flex flex-col md:flex-row w-full md:w-auto space-y-3 md:space-y-0 md:space-x-6 mt-4 md:mt-0">
+                <a href="{{route('filtrerPublications')}}" class="hover:text-blue-200 font-medium block">Home</a>
+                <a href="{{route('HistoriquesClient')}}" class="hover:text-blue-200 font-medium block">Historique</a>
+                <a href="{{route('afficherFavoris')}}" class="hover:text-blue-200 font-medium block">Favoris</a>
             </div>
-            <div>
-              <a href="" class="">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                          d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h6a2 2 0 012 2v1" />
-                  </svg>
-              </a>
-          </div>
+            <div  class="hidden md:flex items-center space-x-3 mt-4 md:mt-0">
+                <span>{{ Auth::user()->name }}</span>
+                <img src="{{asset('storage/'.Auth::user()->image)}}" alt="" class="w-8 h-8  rounded-full ">
+                <form action="{{ route('logout') }}" method="POST" >
+                    @csrf
+                    <button type="submit" style="background: none; border: none; cursor: pointer;">
+                        <i class="fas fa-power-off" style="font-size: 20px; color: #333;"></i>
+                    </button>
+                </form>
+            </div>
         </div>
     </nav>
     <section class="py-8">
@@ -43,7 +47,7 @@
     <!-- Profil -->
     <div class="flex flex-col items-center">
     <div class="mb-4">
-        <img src="{{$compte->image ?? 'https://www.pngitem.com/pimgs/m/52-526033_unknown-person-icon-png-transparent-png.png' }}" alt="" class="rounded-full h-24 w-24 border-4 border-white">
+        <img src="{{asset('storage/'.$compte->image)}}" alt="" class="rounded-full h-24 w-24 border-4 border-white">
     </div>
     <div class="text-center">
         <h1 class="text-xl font-bold text-white mb-2">{{$compte->name}}</h1>
@@ -83,7 +87,8 @@
                                     <div class="font-medium">le {{$compte->created_at}}</div>
                                 </div>
                             </div>
-                            <h2 class="text-lg font-bold mb-3 mt-4 text-gray-700">Statistiques</h2>
+                            <!-- <div>Lorem ipsum dolor sit amet consectetur.</div> -->
+                            <!-- <h2 class="text-lg font-bold mb-3 mt-4 text-gray-700">Statistiques</h2>
                             <div class="grid grid-cols-3 gap-2">
                                 <div class="p-2 bg-blue-50 rounded-lg text-center">
                                     <div class="text-lg font-bold text-blue-600">58</div>
@@ -97,7 +102,7 @@
                                     <div class="text-lg font-bold text-yellow-600">3</div>
                                     <div class="text-xs text-gray-600">En cours</div>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                      
                 </div>
@@ -109,7 +114,7 @@
     @forelse($commentaires as $commentaire)
     <div class="mb-6 pb-6 border-b border-gray-200">
         <div class="flex items-start mb-3">
-            <img src="{{ $commentaire->auteur->image ?? 'https://www.pngitem.com/pimgs/m/52-526033_unknown-person-icon-png-transparent-png.png' }}" 
+            <img src="{{asset('storage/'.$commentaire->auteur->image)}}" 
                  alt="" class="rounded-full h-10 w-10 mr-3">
             <div>
                 <div class="font-bold">{{ $commentaire->auteur->name ?? 'Utilisateur inconnu' }}</div>
@@ -124,10 +129,8 @@
     <p class="text-gray-500">Aucun commentaire pour cet utilisateur.</p>
     @endforelse
 
-    <!-- Simple Facebook-like comment form -->
     <form action="{{route('postCommentaire',$compte->id)}}" method="POST" class="mt-4 flex items-center">
         @csrf
-        <!-- <input type="hidden" name="user_id" value="{{ auth()->id() }}"> -->
         <div class="flex-grow relative">
             <input type="text" 
                    name="description" 
@@ -151,68 +154,86 @@
             <div>
                 <div class="bg-white rounded-lg shadow-md p-6">
                    <h2 class="text-xl font-bold mb-6 text-gray-700">Publications récentes</h2>
-                   @foreach($publications as $publication)
-                     <div class="mb-8 pb-6 border-b border-gray-200">
-                          <!-- les infos de compte auteur et temps -->
-                            <div class="flex items-center mb-4">
-                                <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
-                                    <img src="" alt="Photo de profil" class="w-full h-full object-cover">
-                                </div>
-                                <div>
-                                    <a href="" class="font-semibold text-blue-600 hover:underline"></a>
-                                    <p class="text-gray-500 text-sm">Transporteur • Publié il y a 2 heures</p>
-                                </div>
-                            </div>
-                              <h2 class="text-xl font-bold mb-4">Transport de meubles Paris-Lyon</h2>
-                              <div class="mb-4">
-                                <div>
-                                    <div class="space-y-3">
-                                        <div class="flex">
-                                            <span class="font-medium w-32">Ville de départ :</span>
-                                            <span>Paris</span>
-                                        </div>
-                                        <div class="flex">
-                                            <span class="font-medium w-32">Adresse départ :</span>
-                                            <span>15 Rue de la République, 75001</span>
-                                        </div>
-                                        <div class="flex">
-                                            <span class="font-medium w-32">Ville d'arrivée :</span>
-                                            <span>Lyon</span>
-                                        </div>
-                                        <div class="flex">
-                                            <span class="font-medium w-32">Adresse arrivée :</span>
-                                            <span>8 Place Bellecour, 69002</span>
-                                        </div>
-                                        <div class="flex">
-                                            <span class="font-medium w-32">Date de départ :</span>
-                                            <span>15/04/2025</span>
-                                        </div>
-                                        <div class="flex">
-                                            <span class="font-medium w-32">Type de marchandise :</span>
-                                            <span>Meubles</span>
-                                        </div>
-                                        <div class="flex">
-                                            <span class="font-medium w-32">Poids estimé :</span>
-                                            <span>350 kg</span>
-                                        </div>
-                                        <div class="flex">
-                                            <span class="font-medium w-32">Capacité :</span>
-                                            <span>800 kg disponible</span>
-                                        </div>
+                   @forelse($publications as $publication)
+                            <div class="mb-8 pb-6 border-b border-gray-200">
+                                <div class="flex items-center mb-4">
+                                    <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                                        <img src="{{asset('storage/'.$publication->user->image)}}" alt="Photo de profil" class="w-full h-full object-cover">
+                                    </div>
+                                    <div>
+                                        <div class="font-semibold ">{{$compte->name}}</div>
+                                        <p class="text-gray-500 text-sm">Transporteur • Publié il y a 2 heures</p>
                                     </div>
                                 </div>
-                           </div>
-                           <div class="mb-6">
-                                <h3 class="font-medium mb-2">Description :</h3>
-                                <p class="text-gray-600">
-                                    {{$publication->description}}
-                                </p>
+                                <h2 class="text-xl font-bold mb-4">Transport de meubles {{$publication->ville_depart}}-{{$publication->ville_arrivee}}</h2>
+                                <div class="mb-4">
+                                    <div class="space-y-3">
+                                        <div class="flex">
+                                            <span class="font-medium w-32">Ville de départ : </span>
+                                            <span>{{$publication->ville_depart}}</span>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                <div class="mb-4">
+                                    <div class="space-y-3">
+                                        <div class="flex">
+                                            <span class="font-medium w-32">Ville d'arrivée : </span>
+                                            <span>{{$publication->ville_arrivee}}</span>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                <div class="mb-4">
+                                    <div class="space-y-3">
+                                        <div class="flex">
+                                            <span class="font-medium w-32">Date de départ : </span>
+                                            <span>{{$publication->date_depart}}</span>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                <div class="mb-4">
+                                    <div class="space-y-3">
+                                        <div class="flex">
+                                            <span class="font-medium w-32">Catégorie : </span>
+                                            <span>{{$publication->type}}</span>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                <div class="mb-4">
+                                    <div class="space-y-3">
+                                        <div class="flex">
+                                            <span class="font-medium w-32">Poids maximum : </span>
+                                            <span>{{$publication->poids}}</span>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                <div class="mb-4">
+                                    <div class="space-y-3">
+                                        <div class="flex">
+                                            <span class="font-medium w-32">Prix : </span>
+                                            <span>{{$publication->prix}} DH</span>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                <div class="mb-6">
+                                    <h3 class="font-medium mb-2">Description :</h3>
+                                    <p class="text-gray-600">{{$publication->description}}</p>
+                                </div>
+                                @if($publication->image!=null)
+                                <div class="mb-6">
+                                    <img src="{{$publication->image}}" alt="" class="w-full h-auto object-cover rounded-md">
+                                </div>
+                                @endif
                             </div>
-                            <div class="mb-6">
-                                <img src="" alt="" class="w-full h-auto object-cover rounded-md">
-                            </div>
-                     </div>
-                     @endforeach
+                            @empty
+                            <p class="text-gray-500">Aucun publication pour cet utilisateur.</p>
+                            @endforelse
+                        </div>
                 </div>
             </div>
             </div>

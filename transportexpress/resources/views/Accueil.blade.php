@@ -42,26 +42,32 @@
                 <div class="bg-gray-100 p-6 rounded-lg shadow-md hover:shadow-lg transition">
                     
                     <h3 class="text-xl font-bold mb-2">Transport National</h3>
-                    <p class="text-gray-600">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut, omnis?</p>
+                    <p class="text-gray-600">Solutions de transport routier
+ adaptées à vos besoins avec
+ une flotte moderne et écologique.</p>
                 </div>
                 <!----------- -->
                 <div class="bg-gray-100 p-6 rounded-lg shadow-md hover:shadow-lg transition">
                     
                     <h3 class="text-xl font-bold mb-2">Transport International</h3>
-                    <p class="text-gray-600">Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, incidunt!</p>
+                    <p class="text-gray-600">Services complets de stockage et de
+ gestion des marchandises dans 
+nos entrepôts sécurisés.</p>
                 </div>
                 <!------------->
                 <div class="bg-gray-100 p-6 rounded-lg shadow-md hover:shadow-lg transition">
                     
                     <h3 class="text-xl font-bold mb-2">Suivi en Temps Réel</h3>
-                    <p class="text-gray-600">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores, ratione?</p>
+                    <p class="text-gray-600">Services complets de stockage et de
+ gestion des marchandises dans 
+nos entrepôts sécurisés.</p>
                 </div>
             </div>
         </div>
     </section>
     <!-- ------------------------------------------------- -->
-    <section class="bg-gray-100 py-12">
-  <div class="container mx-auto px-4">
+    <section class=" bg-white py-12">
+  <div class="container bg-gray-100 h-[400px] mx-auto p-16 pl-16 pr-16 px-4 rounded-lg shadow-md">
     <h2 class="text-3xl font-bold text-center mb-8">Pourquoi Nous Choisir</h2>
     <div class="grid md:grid-cols-2 gap-8">
       <!-- Élément 1 -->

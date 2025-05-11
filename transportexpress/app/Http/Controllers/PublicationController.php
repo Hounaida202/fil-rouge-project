@@ -6,6 +6,7 @@ use App\Http\DAOs\Interfaces\PublicationInterface;
 use Illuminate\Http\Request;
 use App\Models\Publication;
 use App\Models\Notification;
+use App\Models\Commentaire;
 
 use App\Models\Reservation;
 use Illuminate\Support\Facades\Auth;
@@ -29,19 +30,21 @@ class PublicationController extends Controller
     // }
     public function ajouterPublication(Request $request){
         $user_id = Auth::id();
+        $path=null;
+                if($request->hasFile('image')){
+                    $path=$request->file('image')->store('publications','public');
+                }
+                
         $data=[
             'titre' => $request->titre,
             'ville_depart' => $request->ville_depart,
-            'adresse_depart' => $request->adresse_depart,
             'ville_arrivee' => $request->ville_arrivee,
-            'adresse_arrivee'=>$request->adresse_arrivee,
             'date_depart'=>$request->date_depart,
             'type'=>$request->type,
             'poids'=>$request->poids,
             'description'=>$request->description,
-            'image' => $request->image,
+            'image' => $path,
             'prix' => $request->prix,
-            'localisation' => $request->localisation,
             'user_id' => $user_id,
 
     ];
@@ -51,7 +54,13 @@ class PublicationController extends Controller
     }
 
     public function HistoriquesClient(){
-        return view('Client/Historique');
+
+        $id=Auth::id();
+        $publications=Publication::where('user_id',$id)->get();
+        $commentaires=Commentaire::where('auteur_id',$id)->get();
+        $reservations=Reservation::where('user_id',$id)->get();
+
+        return view('Client/Historique',compact('publications','commentaires','reservations'));
     }
 
     public function afficherAllPublications(Request $request)
@@ -113,20 +122,9 @@ class PublicationController extends Controller
             return $publication;
         }
 
-    //  public function PublicationReserver($publication_id)
-    //     {
-    //         $publication = Publication::findOrFail($publication_id);
-    //         return view('Client/PubReservé', compact('publication'));
-    //     }
-
-    // public function PublicationReserver($reservation_id)
-    // {
-    //     $reservation = Reservation::findOrFail($reservation_id);
-    //     return view('Client/PubReservé', compact('reservation'));
-    // }
+   
     public function PublicationReserver($reservation_id, $notification_id = null)
 {
-    // Marquer la notification comme lue si elle est fournie
     if ($notification_id) {
         $notification = Notification::where('id', $notification_id)
             ->where('cible_id', auth()->id())
@@ -138,7 +136,6 @@ class PublicationController extends Controller
         }
     }
 
-    // Récupérer la réservation
     $reservation = Reservation::findOrFail($reservation_id);
 
     return view('Client/PubReservé', compact('reservation'));
@@ -160,5 +157,6 @@ public function PublicationProposer( $notification_id )
     }
     return view('Client/PubProposition',compact('notification'));
 }
+  
 
 }

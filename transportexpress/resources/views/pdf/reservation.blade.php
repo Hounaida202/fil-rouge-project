@@ -55,8 +55,8 @@
         <h2>Informations sur la réservation</h2>
         <div class="field"><span class="label">Localisation du rendez-vous :</span> {{ $reservation->localisation }}</div>
         <div class="field"><span class="label">Réservé par :</span> {{ $user->name }}</div>
-        <div class="field"><span class="label">Réservé par :</span> {{ $user->name }}</div>
-        <div class="field"><span class="label">Réservé par :</span> {{ $user->name }}</div>
+        <div class="field"><span class="label">Transporteur :</span>  {{ $reservation->publication->user->name }}</div>
+        <div class="field"><span class="label">Email de transporteur :</span> {{ $reservation->publication->user->email }}</div>
         <div class="field"><span class="label">Date de réservation :</span> {{ $reservation->created_at->format('d/m/Y H:i') }}</div>
     </div>
 </body>

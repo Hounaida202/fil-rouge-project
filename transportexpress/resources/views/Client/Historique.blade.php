@@ -58,126 +58,98 @@
         <h1 class="text-2xl font-bold mb-6">Mon Historique</h1>
         
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+
+
+
+
+
+
+
+
+
+
+
+
             <!-- Mes Publications -->
+
             <div class="bg-white rounded-lg shadow-md p-4">
                 <h2 class="text-lg font-bold pb-3 border-b border-gray-200 mb-4 text-[#18534F]">
                     <i class="fas fa-file-alt mr-2"></i>Mes Publications
                 </h2>
                 
                 <div class="scrollable-section pr-2">
-                    <!-- Publication 1 -->
-                    <div class="bg-gray-50 rounded-lg p-3 mb-4">
-                        <div class="mb-3">
-                            <img src="" alt="Image de la publication" class="w-full h-32 object-cover rounded">
-                        </div>
-                        <h3 class="font-bold text-lg mb-2">Transport de meubles</h3>
-                        <div class="flex flex-wrap text-sm">
-                            <div class="w-1/2 mb-1">
-                                <span class="font-medium">Départ:</span> Casablanca
-                            </div>
-                            <div class="w-1/2 mb-1">
-                                <span class="font-medium">Arrivée:</span> Rabat
-                            </div>
-                            <div class="w-1/2 mb-1">
-                                <span class="font-medium">Date:</span> 05/06/2025
-                            </div>
-                            <div class="w-1/2 mb-1">
-                                <span class="font-medium">Type:</span> Meuble
-                            </div>
-                            <div class="w-1/2 mb-1">
-                                <span class="font-medium">Poids:</span> 200kg
-                            </div>
-                            <div class="w-1/2 mb-1">
-                                <span class="font-medium">Prix:</span> 800 DH
-                            </div>
-                        </div>
-                        <p class="text-sm text-gray-600 mt-2 line-clamp-2">
-                            Transport de meubles pour un déménagement, incluant un canapé, deux armoires et une table à manger.
-                        </p>
-                        <div class="flex justify-between mt-3">
-                            <span class="px-2 py-1 bg-green-100 text-green-800 rounded-full text-xs font-medium">En cours</span>
-                            <button class="text-[#18534F] hover:underline text-sm">
-                                <i class="fas fa-eye mr-1"></i>Détails
-                            </button>
-                        </div>
-                    </div>
-                    
+                   
+                    @forelse($publications as $publication)
                     <!-- Publication 2 -->
                     <div class="bg-gray-50 rounded-lg p-3 mb-4">
                         <div class="mb-3">
-                            <img src="" alt="Image de la publication" class="w-full h-32 object-cover rounded">
+                            <img src="{{asset('storage/'.$publication->image)}}" alt="" class="w-full h-32 object-cover rounded">
                         </div>
                         <h3 class="font-bold text-lg mb-2">Livraison matériel informatique</h3>
                         <div class="flex flex-wrap text-sm">
                             <div class="w-1/2 mb-1">
-                                <span class="font-medium">Départ:</span> Marrakech
+                                <span class="font-medium">Départ:</span> {{$publication->ville_depart}}
                             </div>
                             <div class="w-1/2 mb-1">
-                                <span class="font-medium">Arrivée:</span> Agadir
+                                <span class="font-medium">Arrivée:</span> {{$publication->ville_arrivee}}
                             </div>
                             <div class="w-1/2 mb-1">
-                                <span class="font-medium">Date:</span> 12/04/2025
+                                <span class="font-medium">Date:</span> {{$publication->date_depart}}
                             </div>
                             <div class="w-1/2 mb-1">
-                                <span class="font-medium">Type:</span> Fragile
+                                <span class="font-medium">Type:</span> {{$publication->type}}
                             </div>
                             <div class="w-1/2 mb-1">
-                                <span class="font-medium">Poids:</span> 45kg
+                                <span class="font-medium">Poids:</span> {{$publication->poids}} kg
                             </div>
                             <div class="w-1/2 mb-1">
-                                <span class="font-medium">Prix:</span> 600 DH
+                                <span class="font-medium">Prix:</span> {{$publication->prix}} DH
                             </div>
                         </div>
                         <p class="text-sm text-gray-600 mt-2 line-clamp-2">
-                            Transport de 3 ordinateurs, 2 imprimantes et divers équipements informatiques pour une petite entreprise.
+                        {{$publication->description}}
                         </p>
                         <div class="flex justify-between mt-3">
-                            <span class="px-2 py-1 bg-red-100 text-red-800 rounded-full text-xs font-medium">Expiré</span>
-                            <button class="text-[#18534F] hover:underline text-sm">
-                                <i class="fas fa-eye mr-1"></i>Détails
-                            </button>
+                        <span class="@if($publication->etat == 'en cours') bg-green-100 px-2 py-1 text-green-800 rounded-full text-xs font-medium @else bg-red-100 px-2 py-1 text-red-800 rounded-full text-xs font-medium @endif">
+                            {{ $publication->etat }}
+                        </span>
                         </div>
                     </div>
+                    @empty
+                        <p class="text-gray-500">Vous n'avez aucune publication.</p>
+                    @endforelse
+                    <!-- Publication 1 -->
 
-                    <!-- Publications supplémentaires pour le défilement -->
-                    <div class="bg-gray-50 rounded-lg p-3 mb-4">
-                        <div class="mb-3">
-                            <img src="" alt="Image de la publication" class="w-full h-32 object-cover rounded">
-                        </div>
-                        <h3 class="font-bold text-lg mb-2">Transport produits alimentaires</h3>
-                        <div class="flex flex-wrap text-sm">
-                            <div class="w-1/2 mb-1">
-                                <span class="font-medium">Départ:</span> Fès
-                            </div>
-                            <div class="w-1/2 mb-1">
-                                <span class="font-medium">Arrivée:</span> Tanger
-                            </div>
-                            <div class="w-1/2 mb-1">
-                                <span class="font-medium">Date:</span> 18/05/2025
-                            </div>
-                            <div class="w-1/2 mb-1">
-                                <span class="font-medium">Type:</span> Périssable
-                            </div>
-                            <div class="w-1/2 mb-1">
-                                <span class="font-medium">Poids:</span> 300kg
-                            </div>
-                            <div class="w-1/2 mb-1">
-                                <span class="font-medium">Prix:</span> 1200 DH
-                            </div>
-                        </div>
-                        <p class="text-sm text-gray-600 mt-2 line-clamp-2">
-                            Transport de produits alimentaires locaux nécessitant une conservation au frais.
-                        </p>
-                        <div class="flex justify-between mt-3">
-                            <span class="px-2 py-1 bg-green-100 text-green-800 rounded-full text-xs font-medium">En cours</span>
-                            <button class="text-[#18534F] hover:underline text-sm">
-                                <i class="fas fa-eye mr-1"></i>Détails
-                            </button>
-                        </div>
-                    </div>
+                        
                 </div>
             </div>
             
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             <!-- Mes Commentaires -->
             <div class="bg-white rounded-lg shadow-md p-4">
                 <h2 class="text-lg font-bold pb-3 border-b border-gray-200 mb-4 text-[#18534F]">
@@ -186,100 +158,44 @@
                 
                 <div class="scrollable-section pr-2">
                     <!-- Commentaire 1 -->
-                    <div class="bg-gray-50 rounded-lg p-3 mb-4">
-                        <div class="flex items-center mb-3">
-                            <img src="/api/placeholder/60/60" alt="Photo de profil" class="w-10 h-10 rounded-full mr-3">
-                            <div>
-                                <h4 class="font-medium">Ahmed Benali</h4>
-                                <p class="text-xs text-gray-500">Transporteur</p>
-                            </div>
-                        </div>
-                        <p class="text-sm mb-2">
-                            Excellent service, très professionnel et ponctuel. Je recommande vivement ce transporteur pour tous vos besoins de déménagement.
-                        </p>
-                        <div class="flex justify-between items-center">
-                            <div class="flex text-yellow-400 text-sm">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star-half-alt"></i>
-                            </div>
-                            <span class="text-xs text-gray-500">28/04/2025</span>
-                        </div>
-                    </div>
-                    
+                     @forelse($commentaires as $commentaire)
+                     <div class="bg-gray-50 rounded-lg p-3 mb-4 relative">
+    <!-- Icône de suppression -->
+    <form action="" method="POST" class="absolute top-2 right-2">
+        @csrf
+        @method('DELETE')
+        <button type="submit" >
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-red-500 hover:text-red-700" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10 8.586L4.707 3.293a1 1 0 10-1.414 1.414L8.586 10l-5.293 5.293a1 1 0 101.414 1.414L10 11.414l5.293 5.293a1 1 0 001.414-1.414L11.414 10l5.293-5.293a1 1 0 00-1.414-1.414L10 8.586z" clip-rule="evenodd" />
+            </svg>
+        </button>
+    </form>
+
+    <div class="flex items-center mb-3">
+        <img src="{{ asset('storage/'.$commentaire->cible->image) }}" alt="Photo de profil" class="w-10 h-10 rounded-full mr-3">
+        <div>
+            <h4 class="font-medium">{{ $commentaire->cible->name }}</h4>
+            <p class="text-xs text-gray-500">{{ $commentaire->cible->role }}</p>
+        </div>
+    </div>
+    <p class="text-sm mb-2">{{ $commentaire->description }}</p>
+    <div class="flex justify-between items-center">
+        <span class="text-xs text-gray-500">{{ $commentaire->created_at->format('d/m/Y H:i') }}</span>
+    </div>
+</div>
+
+                    @empty
+                    <p class="text-gray-500">Vous n'avez aucune commentaire.</p>
+
+                    @endforelse
                     <!-- Commentaire 2 -->
-                    <div class="bg-gray-50 rounded-lg p-3 mb-4">
-                        <div class="flex items-center mb-3">
-                            <img src="/api/placeholder/60/60" alt="Photo de profil" class="w-10 h-10 rounded-full mr-3">
-                            <div>
-                                <h4 class="font-medium">Fatima Zahra</h4>
-                                <p class="text-xs text-gray-500">Client</p>
-                            </div>
-                        </div>
-                        <p class="text-sm mb-2">
-                            Livraison rapide et soigneuse. Les objets fragiles ont été parfaitement manipulés. Je ferai appel à ce service à nouveau.
-                        </p>
-                        <div class="flex justify-between items-center">
-                            <div class="flex text-yellow-400 text-sm">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <span class="text-xs text-gray-500">15/04/2025</span>
-                        </div>
-                    </div>
+                    
                     
                     <!-- Commentaire 3 -->
-                    <div class="bg-gray-50 rounded-lg p-3 mb-4">
-                        <div class="flex items-center mb-3">
-                            <img src="/api/placeholder/60/60" alt="Photo de profil" class="w-10 h-10 rounded-full mr-3">
-                            <div>
-                                <h4 class="font-medium">Mohammed Karimi</h4>
-                                <p class="text-xs text-gray-500">Transporteur</p>
-                            </div>
-                        </div>
-                        <p class="text-sm mb-2">
-                            Communication claire et organisation impeccable. Le client avait tout préparé pour faciliter le chargement.
-                        </p>
-                        <div class="flex justify-between items-center">
-                            <div class="flex text-yellow-400 text-sm">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="far fa-star"></i>
-                            </div>
-                            <span class="text-xs text-gray-500">02/04/2025</span>
-                        </div>
-                    </div>
+                    
 
                     <!-- Commentaires supplémentaires pour le défilement -->
-                    <div class="bg-gray-50 rounded-lg p-3 mb-4">
-                        <div class="flex items-center mb-3">
-                            <img src="/api/placeholder/60/60" alt="Photo de profil" class="w-10 h-10 rounded-full mr-3">
-                            <div>
-                                <h4 class="font-medium">Nadia Alaoui</h4>
-                                <p class="text-xs text-gray-500">Client</p>
-                            </div>
-                        </div>
-                        <p class="text-sm mb-2">
-                            Service moyen. Le transporteur était en retard, mais la marchandise est arrivée en bon état.
-                        </p>
-                        <div class="flex justify-between items-center">
-                            <div class="flex text-yellow-400 text-sm">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="far fa-star"></i>
-                                <i class="far fa-star"></i>
-                            </div>
-                            <span class="text-xs text-gray-500">20/03/2025</span>
-                        </div>
-                    </div>
+                   
                 </div>
             </div>
             
@@ -291,104 +207,43 @@
                 
                 <div class="scrollable-section pr-2">
                     <!-- Réservation 1 -->
+                     @forelse($reservations as $reservation)
                     <div class="bg-gray-50 rounded-lg p-3 mb-4">
                         <div class="flex items-center mb-3">
-                            <img src="/api/placeholder/60/60" alt="Photo de profil" class="w-12 h-12 rounded-full mr-3">
+                            <img src="{{asset('storage/'.$reservation->publication->user->image)}}" alt="Photo de profil" class="w-12 h-12 rounded-full mr-3">
                             <div>
-                                <h4 class="font-medium">Rachid Moussaoui</h4>
-                                <p class="text-xs text-gray-500">Transport de matériaux de construction</p>
+                                <h4 class="font-medium">{{$reservation->publication->user->name}}</h4>
+                                <p class="text-xs text-gray-500">{{$reservation->publication->titre}}</p>
                             </div>
                         </div>
                         <div class="flex justify-between items-center text-sm">
                             <div>
-                                <span class="font-medium">Date:</span> 10/05/2025
+                                <span class="font-medium">Date:</span> {{$reservation->publication->created_at->format('d/m/Y H:i') }}
                             </div>
-                            <span class="px-2 py-1 bg-blue-100 text-blue-800 rounded-full text-xs font-medium">Confirmée</span>
+                            <!-- <span class="px-2 py-1 bg-blue-100 text-blue-800 rounded-full text-xs font-medium">Confirmée</span> -->
                         </div>
-                        <div class="mt-3 flex justify-between">
+                        <!-- <div class="mt-3 flex justify-between">
                             <button class="text-sm text-[#18534F] hover:underline">
                                 <i class="fas fa-eye mr-1"></i>Détails
                             </button>
                             <button class="text-sm text-red-600 hover:underline">
                                 <i class="fas fa-times mr-1"></i>Annuler
                             </button>
-                        </div>
+                        </div> -->
                     </div>
+                    @empty
+                    <p class="text-gray-500">Vous n'avez aucune reservation.</p>
+
+                    @endforelse
                     
                     <!-- Réservation 2 -->
-                    <div class="bg-gray-50 rounded-lg p-3 mb-4">
-                        <div class="flex items-center mb-3">
-                            <img src="/api/placeholder/60/60" alt="Photo de profil" class="w-12 h-12 rounded-full mr-3">
-                            <div>
-                                <h4 class="font-medium">Samira Idrissi</h4>
-                                <p class="text-xs text-gray-500">Livraison de produits artisanaux</p>
-                            </div>
-                        </div>
-                        <div class="flex justify-between items-center text-sm">
-                            <div>
-                                <span class="font-medium">Date:</span> 22/04/2025
-                            </div>
-                            <span class="px-2 py-1 bg-gray-200 text-gray-800 rounded-full text-xs font-medium">Terminée</span>
-                        </div>
-                        <div class="mt-3 flex justify-between">
-                            <button class="text-sm text-[#18534F] hover:underline">
-                                <i class="fas fa-eye mr-1"></i>Détails
-                            </button>
-                            <button class="text-sm text-[#18534F] hover:underline">
-                                <i class="fas fa-comment mr-1"></i>Commenter
-                            </button>
-                        </div>
-                    </div>
+                   
                     
                     <!-- Réservation 3 -->
-                    <div class="bg-gray-50 rounded-lg p-3 mb-4">
-                        <div class="flex items-center mb-3">
-                            <img src="/api/placeholder/60/60" alt="Photo de profil" class="w-12 h-12 rounded-full mr-3">
-                            <div>
-                                <h4 class="font-medium">Omar Benjelloun</h4>
-                                <p class="text-xs text-gray-500">Transport d'équipements sportifs</p>
-                            </div>
-                        </div>
-                        <div class="flex justify-between items-center text-sm">
-                            <div>
-                                <span class="font-medium">Date:</span> 30/05/2025
-                            </div>
-                            <span class="px-2 py-1 bg-yellow-100 text-yellow-800 rounded-full text-xs font-medium">En attente</span>
-                        </div>
-                        <div class="mt-3 flex justify-between">
-                            <button class="text-sm text-[#18534F] hover:underline">
-                                <i class="fas fa-eye mr-1"></i>Détails
-                            </button>
-                            <button class="text-sm text-red-600 hover:underline">
-                                <i class="fas fa-times mr-1"></i>Annuler
-                            </button>
-                        </div>
-                    </div>
+                    
 
                     <!-- Réservations supplémentaires pour le défilement -->
-                    <div class="bg-gray-50 rounded-lg p-3 mb-4">
-                        <div class="flex items-center mb-3">
-                            <img src="/api/placeholder/60/60" alt="Photo de profil" class="w-12 h-12 rounded-full mr-3">
-                            <div>
-                                <h4 class="font-medium">Karim Tazi</h4>
-                                <p class="text-xs text-gray-500">Déménagement d'appartement</p>
-                            </div>
-                        </div>
-                        <div class="flex justify-between items-center text-sm">
-                            <div>
-                                <span class="font-medium">Date:</span> 08/06/2025
-                            </div>
-                            <span class="px-2 py-1 bg-blue-100 text-blue-800 rounded-full text-xs font-medium">Confirmée</span>
-                        </div>
-                        <div class="mt-3 flex justify-between">
-                            <button class="text-sm text-[#18534F] hover:underline">
-                                <i class="fas fa-eye mr-1"></i>Détails
-                            </button>
-                            <button class="text-sm text-red-600 hover:underline">
-                                <i class="fas fa-times mr-1"></i>Annuler
-                            </button>
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
         </div>

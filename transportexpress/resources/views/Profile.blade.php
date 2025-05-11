@@ -60,7 +60,7 @@
                             </div>
                             <div class="flex flex-col items-center">
                                 <div class="mb-4">
-                                    <img src="{{$compte->image}}" alt="" class="rounded-full h-24 w-24 border-4 border-white">
+                                    <img src="{{asset('storage/'.$compte->image)}}" alt="" class="rounded-full h-24 w-24 border-4 border-white">
                                 </div>
                                 <div class="text-center">
                                     <h1 class="text-xl font-bold text-white mb-2">{{$compte->name}}</h1>
@@ -119,7 +119,7 @@
                             <div class="mb-8 pb-6 border-b border-gray-200">
                                 <div class="flex items-center mb-4">
                                     <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
-                                        <img src="{{$compte->image}}" alt="Photo de profil" class="w-full h-full object-cover">
+                                        <img src="{{asset('storage/'.$publication->user->image)}}" alt="Photo de profil" class="w-full h-full object-cover">
                                     </div>
                                     <div>
                                         <div class="font-semibold ">{{$compte->name}}</div>

@@ -45,7 +45,7 @@
     <!-- Profil -->
     <div class="flex flex-col items-center">
         <div class="mb-4">
-            <img src="{{$compte->image ?? 'https://www.pngitem.com/pimgs/m/52-526033_unknown-person-icon-png-transparent-png.png' }}" alt="" class="rounded-full h-24 w-24 border-4 border-white">
+            <img src="{{asset('storage/'.$compte->image)}}" alt="" class="rounded-full h-24 w-24 border-4 border-white">
         </div>
         <div class="text-center">
             <h1 class="text-xl font-bold text-white mb-2">{{$compte->name}}</h1>
@@ -113,7 +113,7 @@
   <div  class="mb-6 pb-6 border-b border-gray-200">
     
         <div class="flex items-start mb-3">
-        <img src="{{ $commentaire->auteur->image ?? 'https://www.pngitem.com/pimgs/m/52-526033_unknown-person-icon-png-transparent-png.png' }}" alt="" class="rounded-full h-10 w-10 mr-3">
+        <img src="{{ asset('storage/' . $commentaire->auteur->image) }}" alt="" class="rounded-full h-10 w-10 mr-3">
         <div>
                     <div class="font-bold">{{ $commentaire->auteur->name ?? 'Utilisateur inconnu' }}</div>
                     <div class="text-sm text-gray-500">Posté il y a {{ $commentaire->created_at->diffForHumans() }}</div>
@@ -140,7 +140,7 @@
                           <!-- les infos de compte auteur et temps -->
                             <div class="flex items-center mb-4">
                                 <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
-                                    <img src="" alt="Photo de profil" class="w-full h-full object-cover">
+                                    <img src="{{ asset('storage/' . $publication->auteur->image) }}" alt="" class="w-full h-full object-cover">
                                 </div>
                                 <div>
                                     <a href="" class="font-semibold text-blue-600 hover:underline"></a>

@@ -21,11 +21,16 @@
                 <a href="{{route('filtrerPublications')}}" class="hover:text-blue-200 font-medium block">Home</a>
                 <a href="{{route('HistoriquesClient')}}" class="hover:text-blue-200 font-medium block">Historique</a>
                 <a href="{{route('afficherFavoris')}}" class="hover:text-blue-200 font-medium block">Favoris</a>
-                
             </div>
-            <div class="hidden md:flex items-center space-x-3 mt-4 md:mt-0">
+            <div  class="hidden md:flex items-center space-x-3 mt-4 md:mt-0">
                 <span>{{ Auth::user()->name }}</span>
-                <img src="{{asset('storage/'.Auth::user()->image)}}" alt="" class="w-8 h-8 rounded-full">
+                <img src="{{asset('storage/'.Auth::user()->image)}}" alt="" class="w-8 h-8  rounded-full ">
+                <form action="{{ route('logout') }}" method="POST" >
+                    @csrf
+                    <button type="submit" style="background: none; border: none; cursor: pointer;">
+                        <i class="fas fa-power-off" style="font-size: 20px; color: #333;"></i>
+                    </button>
+                </form>
             </div>
         </div>
     </nav>

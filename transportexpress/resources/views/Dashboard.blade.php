@@ -99,7 +99,7 @@
                     @csrf
                     <tbody class="bg-white divide-y divide-gray-200">
                         <tr>
-                            <td class="px-3 sm:px-6 py-4 whitespace-nowrap">
+                        <td class="px-3 sm:px-6 py-4 whitespace-nowrap">
                                 <div class="flex items-center">
                                     <div class="ml-0 sm:ml-4">
                                         <div class="text-sm font-medium text-gray-900">
@@ -138,7 +138,7 @@
                                     <form method="POST" action="{{route('Invalide',$enAttente->id)}}">
                                     @csrf
                                     @method('PUT')   
-                                    <button type="submit" value="Invalide" class="bg-orange-500 hover:bg-green-600 text-white px-2 sm:px-3 py-1 rounded text-xs sm:text-sm">
+                                    <button type="submit" value="Invalide" class="bg-orange-500 hover:bg-yellow-600 text-white px-2 sm:px-3 py-1 rounded text-xs sm:text-sm">
                                             Invalider
                                     </button>
                                     </form>
@@ -225,14 +225,14 @@
             <td class="px-3 sm:px-6 py-4 whitespace-nowrap text-sm">
                 <div class="flex flex-col sm:flex-row space-y-1 sm:space-y-0 sm:space-x-2">
                      @if($actif->compte=='Actif')
-                    <button  class=" desactive-btn bg-orange-500 hover:bg-green-600 text-white px-2 sm:px-3 py-1 rounded text-xs sm:text-sm" onclick="openModalDesactivation('{{ $actif->id }}')">
+                    <button  class=" desactive-btn w-24 bg-orange-500 hover:bg-yellow-600  text-white px-2 sm:px-3 py-1 rounded text-xs sm:text-sm" onclick="openModalDesactivation('{{ $actif->id }}')">
                         Desactiver
                     </button>
                      @else
                      <form method="POST" action="{{ route('activer', $actif->id) }}">
                                         @csrf
                                         @method('PUT')
-                                        <button type="submit" class="bg-green-500 w-24 hover:bg-yellow-600 text-white px-2 sm:px-3 py-1 rounded text-xs sm:text-sm">
+                                        <button type="submit" class="bg-green-500 w-24 hover:bg-green-600 text-white px-2 sm:px-3 py-1 rounded text-xs sm:text-sm">
                                             Activer
                                         </button>
                      </form>

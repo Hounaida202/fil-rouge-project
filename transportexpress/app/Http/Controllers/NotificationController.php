@@ -25,4 +25,9 @@ public function NotifClient($id, $autre_id){
     return redirect()->back();
 }   
 
+public static function isEnvoyer($publication_id){
+    $user_id=Auth::id();
+    $publication=Notification::where('publication_id', $publication_id)->where('auteur_id', $user_id)->exists(); 
+    return $publication;
+}
 }
