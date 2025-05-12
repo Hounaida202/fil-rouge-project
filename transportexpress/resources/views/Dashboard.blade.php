@@ -56,8 +56,14 @@
                 <a href="{{route('statistics')}}" class="hover:text-blue-200 font-medium block">Statistiques</a>
             </div>
             <div class="hidden md:flex items-center space-x-3 mt-4 md:mt-0">
-                <span>Admin</span>
+            <span>{{ Auth::user()->name }}</span>
                 <img src="https://img.freepik.com/photos-premium/personnage-tres-mignon-nuage-personnage-enfant-mignon_454018-1392.jpg" alt="" class="w-8 h-8  rounded-full ">
+                <form action="{{ route('logout') }}" method="POST" >
+                    @csrf
+                    <button type="submit" style="background: none; border: none; cursor: pointer;">
+                        <i class="fas fa-power-off" style="font-size: 20px; color: #333;"></i>
+                    </button>
+                </form>
             </div>
         </div>
     </nav>

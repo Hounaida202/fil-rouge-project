@@ -81,7 +81,7 @@ class AuthController extends Controller
 
     }
     if($user && Hash::check($password, $user->password)){
-        //   creer la session
+        //   creer ma session
         if($user->status == "en attente"){
             return redirect()->route('message_encours');
         }

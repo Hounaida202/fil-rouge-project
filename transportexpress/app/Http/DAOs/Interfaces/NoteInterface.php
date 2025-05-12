@@ -1,9 +1,9 @@
 <?php
 namespace App\Http\DAOs\Interfaces;
 
-interface NoteInterface {
+// interface NoteInterface {
 
-    public function count($id);
-    public function avg($id);
+//     public function count($id);
+//     public function avg($id);
 
-}
+// }

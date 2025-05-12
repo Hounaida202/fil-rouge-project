@@ -45,7 +45,7 @@
         @forelse($mesFavoris as $favoris)
         <div class="bg-white rounded-lg shadow-lg overflow-hidden">
         <div class="p-4 border-b flex items-center gap-4">
-            <img src="{{$favoris->publication->user->image}}" alt="" class="w-14 h-14 rounded-full object-cover">
+            <img src="{{asset('storage/'.$favoris->publication->user->image)}}" alt="" class="w-14 h-14 rounded-full object-cover">
             <div>
                 <h3 class="font-bold text-lg">{{$favoris->publication->user->name}}</h3>
                 <div class="flex items-center gap-3 text-gray-600 text-sm">
@@ -105,11 +105,11 @@
             </div>
             @if($favoris->publication->etat=='en cours')
             <div class="flex gap-3 justify-center">
-                <div >
+                <!-- <div >
                     <button onclick="OpenModal('{{$favoris->publication->id}}')" class="px-4 py-2 bg-[#18534F] hover:bg-[#143B39] text-white rounded font-medium transition text-sm">
                         <i class="fas fa-bookmark mr-1"></i>Réserver
                     </button>
-                </div>
+                </div> -->
                 <form action="{{ route('retirerFavoris', $favoris->publication->id) }}" method="POST">
                     @csrf 
                     @method('DELETE')

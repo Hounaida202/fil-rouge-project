@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\DAOs\Interfaces\UserInterface;
 use App\Http\DAOs\Interfaces\CommentaireInterface;
-use App\Http\DAOs\Interfaces\NoteInterface;
+// use App\Http\DAOs\Interfaces\NoteInterface;
 use App\Http\DAOs\Interfaces\PublicationInterface;
 use App\Models\Publication;
 use App\Models\User;
@@ -20,11 +20,10 @@ class UserController extends Controller
          protected $PublicationRepository;
 
 
-        public function __construct(UserInterface $UserRepository ,CommentaireInterface $CommentaireRepository,NoteInterface $NoteRepository ,PublicationInterface $PublicationRepository)
+        public function __construct(UserInterface $UserRepository ,CommentaireInterface $CommentaireRepository ,PublicationInterface $PublicationRepository)
         {
             $this->UserRepository = $UserRepository;
             $this->CommentaireRepository = $CommentaireRepository;
-            $this->NoteRepository = $NoteRepository;
             $this->PublicationRepository = $PublicationRepository;
 
         }
@@ -96,13 +95,11 @@ class UserController extends Controller
                 $compte=User::find($id);
                 $commentaires=$this->CommentaireRepository->afficherCommentaires($id);
                 $countcommentaires=$this->CommentaireRepository->count($id);
-                $count=$this->NoteRepository->count($id);
-                $avg=$this->NoteRepository->avg($id);
                 $publications=$this->PublicationRepository->afficherPublications($id);
                 $countpub=Publication::where('user_id',$id)->count();
                 $countreservation=Reservation::where('user_id',$id)->count();
 
-                return view('Profile', compact('compte','commentaires','count','avg','countcommentaires','publications','countpub','countreservation'));
+                return view('Profile', compact('compte','commentaires','countcommentaires','publications','countpub','countreservation'));
 
             }
            
@@ -114,11 +111,9 @@ class UserController extends Controller
                 $compte=User::find($id);
                 $commentaires=$this->CommentaireRepository->afficherCommentaires($id);
                 $countcommentaires=$this->CommentaireRepository->count($id);
-                $count=$this->NoteRepository->count($id);
 
-                $avg=$this->NoteRepository->avg($id);
                 $publications=$this->PublicationRepository->afficherPublications($id);
-                return view('Client/AutreProfile',compact('compte','commentaires','count','avg','countcommentaires','publications'));
+                return view('Client/AutreProfile',compact('compte','commentaires','countcommentaires','publications'));
             }
             
 }

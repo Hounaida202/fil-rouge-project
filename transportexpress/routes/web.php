@@ -47,16 +47,7 @@ Route::delete('/supprimer/{id}', [UserController::class, 'Supprimer'])->name('Su
 // pour la page des comptes ******
 Route::get('/admin_comptes',[UserController::class,'showcomptes'])->name('comptes');
 Route::get('/detaille/{id}', [UserController::class, 'ConsulterDetailles'])->name('detailles');
-
-// Route::get('/detaille/{id}', [CommentaireController::class, 'afficherCommentaires'])->name('detailles');
-
-// Route::get('/dashboard', [AccueilController::class, 'index'])->name('dashboard');
-
 Route::get('/dashboard', [UserController::class, 'showUsers'])->name('dashboard');
-// routes/web.php
-
-// Route::get('/detaille/{id}', [CommentaireController::class, 'afficherCommentaires'])->name('profile');
-// Route::get('/admin_reclamations',[AdminController::class,'afficherlesraclamations'])->name('afficherlesraclamations');
 Route::get('/admin_reclamations/reclamations', [ReclamationController::class, 'afficherReclamations'])->name('reclamation');
 Route::DELETE('/admin_reclamations/supression/{id}', [ReclamationController::class, 'supprimerReclamations'])->name('supression');
 Route::PUT('/admin_reclamations/modification/{id}', [ReclamationController::class, 'modifierReclamations'])->name('modification');
@@ -67,17 +58,12 @@ Route::GET('/formulaire', function(){
 
 Route::POST('/ajouterPublication', [PublicationController::class, 'ajouterPublication'])->name('ajouterPublication');
 Route::get('/HistoriquesClient', [PublicationController::class, 'HistoriquesClient'])->name('HistoriquesClient');
-// Route::get('/comptes', [AdminController::class, 'showcomptes'])->name('comptes');
 Route::get('/statistics', [StatisticController::class, 'coutComptes'])->name('statistics');
 Route::get('/preuve/{id}', [UserController::class, 'EnAttenteDetailles'])->name('preuve');
 Route::POST('/ajouterFavoris/{id}', [FavorisController::class, 'ajouterAuxFavoris'])->name('ajouterFavoris');
-
 Route::delete('/retirerFavoris/{id}', [FavorisController::class, 'retirerFavoris'])->name('retirerFavoris');
-
 Route::get('/siExiste/{id}', [FavorisController::class, 'siExiste'])->name('siExiste');
 Route::get('/afficherFavoris', [FavorisController::class, 'afficherFavoris'])->name('afficherFavoris');
-// Route::get('/filtrer', [PublicationController::class, 'filtrer'])->name('filtrerPublications');
-
 Route::get('/autreprofile/{id}', [UserController::class, 'AutreProfile'])->name('autreprofile');
 Route::POST('/postCommentaire/{id}', [CommentaireController::class, 'postCommentaire'])->name('postCommentaire');
 Route::post('/notes', [NoteController::class, 'storeOrUpdate'])->name('note.store')->middleware('auth');
@@ -85,22 +71,12 @@ Route::post('/reserver/{id}/{autre_id}', [ReservationController::class, 'reserve
 Route::get('/siExiste/{id}', [ReservationController::class, 'siExiste'])->name('siExiste');
 Route::get('/isEnvoyer/{id}', [NotificationController::class, 'isEnvoyer'])->name('isEnvoyer');
 Route::post('/reserver2/{id}/{autre_id}', [ReservationController::class, 'reserver_notifier_inserer2'])->name('reserver2');
-
-
-// Route::get('/getNotification',  function (){
-//     $id=Auth::id();
-//     $notifications=Notification::where('cible_id',$id)->get();
-//     return view('Client.Home',compact('notifications'));
-// })->name('getNotification');
-
-
 Route::get('/pubreserver/{reservation_id}/{notification_id}', [PublicationController::class, 'PublicationReserver'])->name('pubreserver');
 Route::get('/reservationn/{id}/pdf', [ReservationController::class, 'telechargerPDF'])->name('reservationn.telecharger_pdf');
-// Route::get('/profile/{id}', [UserController::class, 'profile'])->name('profile');
 Route::post('/proposition/{id}/{autre_id}', [NotificationController::class, 'NotifClient'])->name('proposition');
 Route::get('/pubproposer/{notification_id}/{transport_id}', [PublicationController::class, 'PublicationProposer'])->name('pubproposer');
-
-// Route::get('/pubproposer/{notification_id}/{transport_id}', [PublicationController::class, 'PublicationProposer'])->name('pubproposer');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
-// Route::get('/mespubs', [PublicationController::class, 'getmesPubs'])->name('mespubs');
 Route::post('/reserver/{id}/{autre_id}', [ReservationController::class, 'reserver_notifier_inserer'])->name('reserver');
+Route::delete('/supprimerpub/{id}', [PublicationController::class, 'supprimerPub'])->name('supprimerpub');
+Route::delete('/supprimercomment/{id}', [CommentaireController::class, 'supprimerComment'])->name('supprimercomment');
+Route::post('/reclamer/{id}', [ReclamationController::class, 'reclamer'])->name('reclamer');

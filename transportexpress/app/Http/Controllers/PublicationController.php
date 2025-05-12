@@ -175,4 +175,12 @@ public function PublicationProposer($notification_id, $transport_id)
     return view('Client/PubProposition', compact('notification', 'auteur'));
 }
 
+public function supprimerPub($id)
+{
+    $publication = Publication::findOrFail($id);
+    $publication->delete();
+        return redirect()->back();
+}
+
+
 }

@@ -39,4 +39,22 @@ class ReclamationController extends Controller
                 return redirect()->back();
 
     }
+
+    public function reclamer(Request $request, $id)
+{
+    $request->validate([
+        'titre' => 'required|string|max:255',
+        'description' => 'required|string',
+    ]);
+
+    Reclamation::create([
+        'titre' => $request->input('titre'),
+        'description' => $request->input('description'),
+        'auteur_id' => auth()->id(),
+        'cible_id' => $id,
+        'status' => 'en cours',
+    ]);
+
+    return redirect()->back();
+}
 }

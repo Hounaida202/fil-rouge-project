@@ -34,6 +34,12 @@ public function postCommentaire(Request $request ,$id){
     return redirect()->back();
 
 }
+public function supprimerComment($id)
+{
+    $commentaire = Commentaire::findOrFail($id);
+    $commentaire->delete();
+        return redirect()->back();
+}
 
     
 }

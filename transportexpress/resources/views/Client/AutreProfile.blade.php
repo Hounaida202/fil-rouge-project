@@ -44,16 +44,21 @@
                 <div class="bg-white rounded-lg shadow-md overflow-hidden mb-6"> 
                 <!-- --------------------**** -->
                 <div class="bg-[#4C956C] p-6 relative">
+                <button onclick="openModalDesactivation('{{ $compte->id }}')" class="desactive-btn text-white hover:text-yellow-400" title="Ajouter une réclamation">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 2a10 10 0 1010 10A10.01142 10.01142 0 0012 2zm5.65685 14.14214L7.85786 6.34315a8 8 0 0110.79899 10.79899zM6.34315 7.85786l9.79899 9.79899a8 8 0 01-10.79899-10.79899z"/>
+                                    </svg>
+                                </button>
     <!-- Profil -->
-    <div class="flex flex-col items-center">
-    <div class="mb-4">
-        <img src="{{asset('storage/'.$compte->image)}}" alt="" class="rounded-full h-24 w-24 border-4 border-white">
-    </div>
-    <div class="text-center">
-        <h1 class="text-xl font-bold text-white mb-2">{{$compte->name}}</h1>
-        <div class="text-blue-200 mb-2">{{$compte->role}}</div>
-        
-    </div>
+                <div class="flex flex-col items-center">
+                <div class="mb-4">
+                    <img src="{{asset('storage/'.$compte->image)}}" alt="" class="rounded-full h-24 w-24 border-4 border-white">
+                </div>
+                <div class="text-center">
+                    <h1 class="text-xl font-bold text-white mb-2">{{$compte->name}}</h1>
+                    <div class="text-blue-200 mb-2">{{$compte->role}}</div>
+                    
+                </div>
     
    
 </div>
@@ -87,30 +92,13 @@
                                     <div class="font-medium">le {{$compte->created_at}}</div>
                                 </div>
                             </div>
-                            <!-- <div>Lorem ipsum dolor sit amet consectetur.</div> -->
-                            <!-- <h2 class="text-lg font-bold mb-3 mt-4 text-gray-700">Statistiques</h2>
-                            <div class="grid grid-cols-3 gap-2">
-                                <div class="p-2 bg-blue-50 rounded-lg text-center">
-                                    <div class="text-lg font-bold text-blue-600">58</div>
-                                    <div class="text-xs text-gray-600">Livraisons</div>
-                                </div>
-                                <div class="p-2 bg-green-50 rounded-lg text-center">
-                                    <div class="text-lg font-bold text-green-600">97%</div>
-                                    <div class="text-xs text-gray-600">À l'heure</div>
-                                </div>
-                                <div class="p-2 bg-yellow-50 rounded-lg text-center">
-                                    <div class="text-lg font-bold text-yellow-600">3</div>
-                                    <div class="text-xs text-gray-600">En cours</div>
-                                </div>
-                            </div> -->
+                            
                         </div>
                      
                 </div>
                 <!-- ----les commenatires-------- -->
                 <div class="bg-white rounded-lg shadow-md p-4">
     <h2 class="text-lg font-bold mb-4 text-gray-700">Commentaires ({{$countcommentaires}})</h2>
-    
-    <!-- Existing comments -->
     @forelse($commentaires as $commentaire)
     <div class="mb-6 pb-6 border-b border-gray-200">
         <div class="flex items-start mb-3">
@@ -242,7 +230,47 @@
         </div>
       </div>
     </section>
+    <div id="desactivation-{{ $compte->id }}" class="fixed inset-0 z-50 flex items-center justify-center hidden bg-black bg-opacity-50 transition-opacity duration-300" style="display:none;">
+    <div class="modal-content bg-white rounded-xl shadow-2xl p-6 w-[600px] mx-auto border-l-4 border-red-600">
+        <div class="flex items-center justify-center mb-4">
+            <h2 class="text-xl font-bold text-red-700">Soumettre une réclamation</h2>
+        </div>
 
+        <p class="text-center font-medium text-base text-gray-700 mb-4">
+            Merci d'indiquer les informations concernant votre réclamation :
+        </p>
+
+        <form action="/reclamer/{{ $compte->id }}" method="POST">
+            @csrf
+            
+
+            <div class="mb-4">
+                <input name="titre" type="text" class="w-full px-4 py-2 text-gray-800 border border-red-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500" placeholder="Titre de la réclamation">
+            </div>
+            <div class="mb-4">
+                <textarea name="description" rows="4" class="w-full px-4 py-2 text-gray-800 border border-red-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 resize-none" placeholder="Expliquez clairement votre réclamation..."></textarea>
+            </div>
+
+            <div class="modal-buttons flex justify-between mt-6">
+                <button type="button" class="bg-gray-200 hover:bg-gray-300 text-gray-800 px-4 py-2 rounded text-sm font-medium transition-all duration-200 flex-grow mr-2" onclick="closeModalDesactivation('{{ $compte->id }}')">
+                    Annuler
+                </button>
+                <button type="submit" class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded text-sm font-medium transition-all duration-200 w-full flex items-center justify-center">
+                    Envoyer la réclamation
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+function openModalDesactivation(id){
+            document.getElementById('desactivation-'+id).style.display='flex';}
+    
+    function closeModalDesactivation(id){
+        document.getElementById('desactivation-'+id).style.display='none';
+    }  
+</script>
 
 </body>
 </html>

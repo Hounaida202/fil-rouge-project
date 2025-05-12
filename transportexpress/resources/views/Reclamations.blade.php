@@ -55,7 +55,7 @@
                         <div class="flex items-start">
                             <div class="mr-4">
                                 <a href="{{route('detailles',$reclamation->auteur)}}">
-                                    <img src="" alt="" class="h-12 w-12 rounded-full">
+                                    <img src="{{asset('storage/'.$reclamation->auteur->image)}}" alt="" class="h-12 w-12 rounded-full">
                                 </a>
                             </div>
                             <div>

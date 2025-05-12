@@ -81,45 +81,57 @@
                 <div class="scrollable-section pr-2">
                    
                     @forelse($publications as $publication)
-                    <!-- Publication 2 -->
-                    <div class="bg-gray-50 rounded-lg p-3 mb-4">
-                        <div class="mb-3">
-                            <img src="{{asset('storage/'.$publication->image)}}" alt="" class="w-full h-32 object-cover rounded">
-                        </div>
-                        <h3 class="font-bold text-lg mb-2">Livraison matériel informatique</h3>
-                        <div class="flex flex-wrap text-sm">
-                            <div class="w-1/2 mb-1">
-                                <span class="font-medium">Départ:</span> {{$publication->ville_depart}}
-                            </div>
-                            <div class="w-1/2 mb-1">
-                                <span class="font-medium">Arrivée:</span> {{$publication->ville_arrivee}}
-                            </div>
-                            <div class="w-1/2 mb-1">
-                                <span class="font-medium">Date:</span> {{$publication->date_depart}}
-                            </div>
-                            <div class="w-1/2 mb-1">
-                                <span class="font-medium">Type:</span> {{$publication->type}}
-                            </div>
-                            <div class="w-1/2 mb-1">
-                                <span class="font-medium">Poids:</span> {{$publication->poids}} kg
-                            </div>
-                            <div class="w-1/2 mb-1">
-                                <span class="font-medium">Prix:</span> {{$publication->prix}} DH
-                            </div>
-                        </div>
-                        <p class="text-sm text-gray-600 mt-2 line-clamp-2">
-                        {{$publication->description}}
-                        </p>
-                        <div class="flex justify-between mt-3">
-                        <span class="@if($publication->etat == 'en cours') bg-green-100 px-2 py-1 text-green-800 rounded-full text-xs font-medium @else bg-red-100 px-2 py-1 text-red-800 rounded-full text-xs font-medium @endif">
-                            {{ $publication->etat }}
-                        </span>
-                        </div>
-                    </div>
+                    <div class="bg-gray-50 rounded-lg p-3 mb-4 relative">
+    <form action="{{ route('supprimerpub', $publication->id) }}" method="POST" class="absolute top-2 right-2">
+        @csrf
+        @method('DELETE')
+        <button type="submit">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-red-500 hover:text-red-700" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10 8.586L4.707 3.293a1 1 0 10-1.414 1.414L8.586 10l-5.293 5.293a1 1 0 101.414 1.414L10 11.414l5.293 5.293a1 1 0 001.414-1.414L11.414 10l5.293-5.293a1 1 0 00-1.414-1.414L10 8.586z" clip-rule="evenodd" />
+            </svg>
+        </button>
+    </form>
+
+    @if($publication->image != null)
+        <div class="mb-3">
+            <img src="{{ asset('storage/'.$publication->image) }}" alt="" class="w-full h-32 object-cover rounded">
+        </div>
+    @endif
+
+    <h3 class="font-bold text-lg mb-2">Livraison matériel informatique</h3>
+    <div class="flex flex-wrap text-sm">
+        <div class="w-1/2 mb-1">
+            <span class="font-medium">Départ:</span> {{$publication->ville_depart}}
+        </div>
+        <div class="w-1/2 mb-1">
+            <span class="font-medium">Arrivée:</span> {{$publication->ville_arrivee}}
+        </div>
+        <div class="w-1/2 mb-1">
+            <span class="font-medium">Date:</span> {{$publication->date_depart}}
+        </div>
+        <div class="w-1/2 mb-1">
+            <span class="font-medium">Type:</span> {{$publication->type}}
+        </div>
+        <div class="w-1/2 mb-1">
+            <span class="font-medium">Poids:</span> {{$publication->poids}} kg
+        </div>
+        <div class="w-1/2 mb-1">
+            <span class="font-medium">Prix:</span> {{$publication->prix}} DH
+        </div>
+    </div>
+    <p class="text-sm text-gray-600 mt-2 line-clamp-2">
+        {{$publication->description}}
+    </p>
+    <div class="flex justify-between mt-3">
+        <span class="@if($publication->etat == 'en cours') bg-green-100 px-2 py-1 text-green-800 rounded-full text-xs font-medium @else bg-red-100 px-2 py-1 text-red-800 rounded-full text-xs font-medium @endif">
+            {{ $publication->etat }}
+        </span>
+    </div>
+</div>
+
                     @empty
                         <p class="text-gray-500">Vous n'avez aucune publication.</p>
                     @endforelse
-                    <!-- Publication 1 -->
 
                         
                 </div>
@@ -157,11 +169,9 @@
                 </h2>
                 
                 <div class="scrollable-section pr-2">
-                    <!-- Commentaire 1 -->
                      @forelse($commentaires as $commentaire)
                      <div class="bg-gray-50 rounded-lg p-3 mb-4 relative">
-    <!-- Icône de suppression -->
-    <form action="" method="POST" class="absolute top-2 right-2">
+    <form action="{{ route('supprimercomment', $commentaire->id) }}" method="POST" class="absolute top-2 right-2">
         @csrf
         @method('DELETE')
         <button type="submit" >
@@ -188,25 +198,16 @@
                     <p class="text-gray-500">Vous n'avez aucune commentaire.</p>
 
                     @endforelse
-                    <!-- Commentaire 2 -->
-                    
-                    
-                    <!-- Commentaire 3 -->
-                    
-
-                    <!-- Commentaires supplémentaires pour le défilement -->
+               
                    
                 </div>
             </div>
-            
-            <!-- Mes Réservations -->
-            <div class="bg-white rounded-lg shadow-md p-4">
+                        <div class="bg-white rounded-lg shadow-md p-4">
                 <h2 class="text-lg font-bold pb-3 border-b border-gray-200 mb-4 text-[#18534F]">
                     <i class="fas fa-bookmark mr-2"></i>Mes Réservations
                 </h2>
                 
                 <div class="scrollable-section pr-2">
-                    <!-- Réservation 1 -->
                      @forelse($reservations as $reservation)
                     <div class="bg-gray-50 rounded-lg p-3 mb-4">
                         <div class="flex items-center mb-3">
@@ -235,14 +236,7 @@
                     <p class="text-gray-500">Vous n'avez aucune reservation.</p>
 
                     @endforelse
-                    
-                    <!-- Réservation 2 -->
-                   
-                    
-                    <!-- Réservation 3 -->
-                    
-
-                    <!-- Réservations supplémentaires pour le défilement -->
+          
                     
                 </div>
             </div>
